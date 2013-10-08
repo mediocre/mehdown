@@ -1,0 +1,12 @@
+{
+    "devDependencies": {
+        "mocha": "*"
+    },
+    "main": "./lib/index",
+    "name": "mehdown",
+    "private": true,
+    "scripts": {
+        "test": "mocha --reporter spec"
+    },
+    "version": "1.0.0"
+}
