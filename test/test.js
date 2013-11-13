@@ -52,14 +52,19 @@ describe('usernames', function() {
     });
 });
 
-/*describe('hashtags, usernames', function() {
-    it('abc #tag @username 123', function() {
-        var text = mehdown.parse('abc #tag @username 123');
-        assert.equal(text, 'abc <a href="https://mediocre.com/tags/tag">#tag</a> <a href="https://mediocre.com/users/username">@username</a> 123');
+describe('spoilers', function() {
+    it('[spoiler]Hello[/spoiler]', function() {
+        var text = mehdown.parse('<p>[spoiler]Hello[/spoiler]</p>');
+        assert.equal(text, '<p><span class="spoiler">Hello</span></p>');
     });
-});*/
 
-describe('YouTube', function() {
+    it('[spoiler]Hello[/spoiler] [spoiler]World[/spoiler]', function() {
+        var text = mehdown.parse('<p>[spoiler]Hello[/spoiler] [spoiler]World[/spoiler]</p>');
+        assert.equal(text, '<p><span class="spoiler">Hello</span> <span class="spoiler">World</span></p>');
+    });
+});
+
+describe('YouTube URLs', function() {
     it('http://www.youtube.com/watch?v=kU9MuM4lP18', function() {
         var text = mehdown.parse('<p><a href="http://www.youtube.com/watch?v=kU9MuM4lP18">http://www.youtube.com/watch?v=kU9MuM4lP18</a></p>');
         assert.equal(text, '<p><iframe allowfullscreen class="youtube" frameborder="0" src="//www.youtube.com/embed/kU9MuM4lP18"></iframe></p>');
