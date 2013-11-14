@@ -82,3 +82,30 @@ describe('YouTube URLs', function() {
         assert.equal(text, '<p><iframe allowfullscreen class="youtube" frameborder="0" src="//www.youtube.com/embed/kU9MuM4lP18"></iframe><br /><iframe allowfullscreen class="youtube" frameborder="0" src="//www.youtube.com/embed/eGDBR2L5kzI"></iframe></p>');
     });
 });
+
+describe('Anchors', function() {
+    it('rel attributes', function() {
+        var text = mehdown.parse('<p><a rel="abc" href="http://www.google.com">Google</a></p>');
+        assert.equal(text, '<p><a rel="nofollow" target="_blank" href="http://www.google.com">Google</a></p>');
+    });
+
+    it('target attributes', function() {
+        var text = mehdown.parse('<p><a target="abc" href="http://www.google.com">Google</a></p>');
+        assert.equal(text, '<p><a rel="nofollow" target="_blank" href="http://www.google.com">Google</a></p>');
+    });
+
+    it('local href', function() {
+        var text = mehdown.parse('<p><a href="/path">path</a></p>');
+        assert.equal(text, '<p><a href="/path">path</a></p>');
+    });
+
+    it('localhost href', function() {
+        var text = mehdown.parse('<p><a href="http://localhost:8000/path">path</a></p>');
+        assert.equal(text, '<p><a href="http://localhost:8000/path">path</a></p>');
+    });
+
+    it('mediocre href', function() {
+        var text = mehdown.parse('<p><a href="https://mediocre.com/path">path</a></p>');
+        assert.equal(text, '<p><a href="https://mediocre.com/path">path</a></p>');
+    });
+});
