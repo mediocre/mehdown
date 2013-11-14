@@ -64,6 +64,13 @@ describe('spoilers', function() {
     });
 });
 
+describe('Vimeo URLs', function() {
+    it('http://vimeo.com/78950165', function() {
+        var text = mehdown.parse('<p><a href="http://vimeo.com/78950165">http://vimeo.com/78950165</a></p>');
+        assert.equal(text, '<p><iframe allowfullscreen class="vimeo" frameborder="0" src="//player.vimeo.com/video/78950165"></iframe></p>');
+    });
+});
+
 describe('YouTube URLs', function() {
     it('http://www.youtube.com/watch?v=kU9MuM4lP18', function() {
         var text = mehdown.parse('<p><a href="http://www.youtube.com/watch?v=kU9MuM4lP18">http://www.youtube.com/watch?v=kU9MuM4lP18</a></p>');
