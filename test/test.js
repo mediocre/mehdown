@@ -16,6 +16,11 @@ describe('newlines', function() {
         var text = mehdown.parse('<ul>\r\n<li>a</li>\r\n<li>b</li>\r\n<li>c</li>\r\n</ul>');
         assert.equal(text, '<ul><li>a</li><li>b</li><li>c</li></ul>');
     });
+
+    it('<blockquote>', function() {
+        var text = mehdown.parse('<blockquote>\n<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit\nLorem ipsum dolor sit amet, consectetur adipisicing elit\nLorem ipsum</p>\n\n<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit\nLorem ipsum dolor sit amet, consectetur adipisicing elit</p>\n</blockquote>');
+        assert.equal(text, '<blockquote><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit Lorem ipsum dolor sit amet, consectetur adipisicing elit Lorem ipsum</p>\n\n<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit Lorem ipsum dolor sit amet, consectetur adipisicing elit</p></blockquote>');
+    });
 });
 
 describe('usernames', function() {
