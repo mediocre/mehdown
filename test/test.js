@@ -26,17 +26,17 @@ describe('newlines', function() {
 describe('usernames', function() {
     it('@username', function() {
         var text = mehdown.parse('@username');
-        assert.equal(text, '<a href="/forum/users/username">@username</a>');
+        assert.equal(text, '<a href="/forum/@username">@username</a>');
     });
 
     it('abc @username 123', function() {
         var text = mehdown.parse('abc @username 123');
-        assert.equal(text, 'abc <a href="/forum/users/username">@username</a> 123');
+        assert.equal(text, 'abc <a href="/forum/@username">@username</a> 123');
     });
 
     it('abc @username1 notausername@notausername @username2 123', function() {
         var text = mehdown.parse('abc @username1 notausername@notausername @username2 123');
-        assert.equal(text, 'abc <a href="/forum/users/username1">@username1</a> notausername@notausername <a href="/forum/users/username2">@username2</a> 123');
+        assert.equal(text, 'abc <a href="/forum/@username1">@username1</a> notausername@notausername <a href="/forum/@username2">@username2</a> 123');
     });
 });
 
