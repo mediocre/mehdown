@@ -59,6 +59,13 @@ describe('Vimeo URLs', function() {
     });
 });
 
+describe('Vine URLs', function() {
+    it('https://vine.co/v/hWZ9mbJZaKE', function() {
+        var text = mehdown.parse('<p><a href="https://vine.co/v/hWZ9mbJZaKE">https://vine.co/v/hWZ9mbJZaKE</a></p>');
+        assert.equal(text, '<p><iframe allowfullscreen class="vine" frameborder="0" src="//vine.co/v/hWZ9mbJZaKE/embed/simple"></iframe></p>');
+    });
+});
+
 describe('YouTube URLs', function() {
     it('http://www.youtube.com/watch?v=kU9MuM4lP18', function() {
         var text = mehdown.parse('<p><a href="http://www.youtube.com/watch?v=kU9MuM4lP18">http://www.youtube.com/watch?v=kU9MuM4lP18</a></p>');
