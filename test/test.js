@@ -52,6 +52,13 @@ describe('spoilers', function() {
     });
 });
 
+describe('SoundCloud URLs', function() {
+    it('https://soundcloud.com/shawnmichaelmiller/santa-claus-is-coming-to-town', function() {
+        var text = mehdown.parse('<p><a href="https://soundcloud.com/shawnmichaelmiller/santa-claus-is-coming-to-town">https://soundcloud.com/shawnmichaelmiller/santa-claus-is-coming-to-town</a></p>');
+        assert.equal(text, '<p><iframe class="soundcloud" frameborder="0" src="https://w.soundcloud.com/player/?url=https%3A%2F%2Fsoundcloud.com%2Fshawnmichaelmiller%2Fsanta-claus-is-coming-to-town"></iframe></p>')
+    });
+});
+
 describe('Twitter Status URLs', function() {
     it('https://twitter.com/mediocrelabs/status/410516133955907584', function() {
         var text = mehdown.parse('<p><a href="https://twitter.com/mediocrelabs/status/410516133955907584">https://twitter.com/mediocrelabs/status/410516133955907584</a></p>');
