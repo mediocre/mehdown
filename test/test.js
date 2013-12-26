@@ -23,6 +23,40 @@ describe('newlines', function() {
     });
 });
 
+describe('anchors', function() {
+    it('rel attributes', function() {
+        var text = mehdown.parse('<p><a rel="abc" href="http://www.google.com">Google</a></p>');
+        assert.equal(text, '<p><a rel="nofollow" target="_blank" href="http://www.google.com">Google</a></p>');
+    });
+
+    it('target attributes', function() {
+        var text = mehdown.parse('<p><a target="abc" href="http://www.google.com">Google</a></p>');
+        assert.equal(text, '<p><a rel="nofollow" target="_blank" href="http://www.google.com">Google</a></p>');
+    });
+
+    it('local href', function() {
+        var text = mehdown.parse('<p><a href="/path">path</a></p>');
+        assert.equal(text, '<p><a href="/path">path</a></p>');
+    });
+
+    it('localhost href', function() {
+        var text = mehdown.parse('<p><a href="http://localhost:8000/path">path</a></p>');
+        assert.equal(text, '<p><a href="http://localhost:8000/path">path</a></p>');
+    });
+
+    it('mediocre href', function() {
+        var text = mehdown.parse('<p><a href="https://mediocre.com/path">path</a></p>');
+        assert.equal(text, '<p><a href="https://mediocre.com/path">path</a></p>');
+    });
+});
+
+describe('strikethrough', function() {
+    it('~~', function() {
+        var text = mehdown.parse('<p>~~strikethrough~~</p>');
+        assert.equal(text, '<p><s>strikethrough</s></p>');
+    });
+});
+
 describe('usernames', function() {
     it('@username', function() {
         var text = mehdown.parse('@username');
@@ -64,6 +98,11 @@ describe('Twitter Status URLs', function() {
         var text = mehdown.parse('<p><a href="https://twitter.com/mediocrelabs/status/410516133955907584">https://twitter.com/mediocrelabs/status/410516133955907584</a></p>');
         assert.equal(text, '<p><blockquote class="twitter-tweet" lang="en"><a href="https://twitter.com/mediocrelabs/status/410516133955907584"></a></blockquote><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script></p>');
     });
+
+    it('https://twitter.com/_/status/416050320272551936', function() {
+        var text = mehdown.parse('<p><a href="https://twitter.com/_/status/416050320272551936">https://twitter.com/_/status/416050320272551936</a></p>');
+        assert.equal(text, '<p><blockquote class="twitter-tweet" lang="en"><a href="https://twitter.com/_/status/416050320272551936"></a></blockquote><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script></p>');
+    });
 });
 
 describe('Vimeo URLs', function() {
@@ -89,32 +128,5 @@ describe('YouTube URLs', function() {
     it('http://www.youtube.com/watch?v=kU9MuM4lP18 http://www.youtube.com/watch?v=eGDBR2L5kzI', function() {
         var text = mehdown.parse('<p><a href="http://www.youtube.com/watch?v=kU9MuM4lP18">http://www.youtube.com/watch?v=kU9MuM4lP18</a><br /><a href="http://www.youtube.com/watch?v=eGDBR2L5kzI">http://www.youtube.com/watch?v=eGDBR2L5kzI</a></p>');
         assert.equal(text, '<p><iframe allowfullscreen class="youtube" frameborder="0" src="//www.youtube.com/embed/kU9MuM4lP18"></iframe><br /><iframe allowfullscreen class="youtube" frameborder="0" src="//www.youtube.com/embed/eGDBR2L5kzI"></iframe></p>');
-    });
-});
-
-describe('Anchors', function() {
-    it('rel attributes', function() {
-        var text = mehdown.parse('<p><a rel="abc" href="http://www.google.com">Google</a></p>');
-        assert.equal(text, '<p><a rel="nofollow" target="_blank" href="http://www.google.com">Google</a></p>');
-    });
-
-    it('target attributes', function() {
-        var text = mehdown.parse('<p><a target="abc" href="http://www.google.com">Google</a></p>');
-        assert.equal(text, '<p><a rel="nofollow" target="_blank" href="http://www.google.com">Google</a></p>');
-    });
-
-    it('local href', function() {
-        var text = mehdown.parse('<p><a href="/path">path</a></p>');
-        assert.equal(text, '<p><a href="/path">path</a></p>');
-    });
-
-    it('localhost href', function() {
-        var text = mehdown.parse('<p><a href="http://localhost:8000/path">path</a></p>');
-        assert.equal(text, '<p><a href="http://localhost:8000/path">path</a></p>');
-    });
-
-    it('mediocre href', function() {
-        var text = mehdown.parse('<p><a href="https://mediocre.com/path">path</a></p>');
-        assert.equal(text, '<p><a href="https://mediocre.com/path">path</a></p>');
     });
 });
