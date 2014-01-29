@@ -137,9 +137,7 @@ describe('Kickstarter URLs', function() {
         var text = mehdown.parse(body);
         assert.equal(text, '<p><iframe class="kickstarter" frameborder="0" scrolling="no" src="//www.kickstarter.com/projects/1270124222/crossing-paths-film-photography-documentary/widget/card.html"></iframe></p>');
     });
-});
 
-describe('Kickstarter URLs', function() {
     it('https://www.kickstarter.com/projects/schlock/crossing-paths-film-photography-documentary?ref=discover_rec', function() {
         var body = '<p><a href="https://www.kickstarter.com/projects/schlock/crossing-paths-film-photography-documentary?ref=discover_rec">https://www.kickstarter.com/projects/schlock/crossing-paths-film-photography-documentary?ref=discover_rec</a></p>';
         var text = mehdown.parse(body);
