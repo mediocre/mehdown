@@ -130,3 +130,12 @@ describe('YouTube URLs', function() {
         assert.equal(text, '<p><iframe allowfullscreen class="youtube" frameborder="0" src="//www.youtube.com/embed/kU9MuM4lP18"></iframe><br /><iframe allowfullscreen class="youtube" frameborder="0" src="//www.youtube.com/embed/eGDBR2L5kzI"></iframe></p>');
     });
 });
+
+describe('kickstarter', function() {
+    it('works', function() {
+        var body = '<p><a href="https://www.kickstarter.com/projects/1270124222/crossing-paths-film-photography-documentary?ref=discover_rec">https://www.kickstarter.com/projects/1270124222/crossing-paths-film-photography-documentary?ref=discover_rec</a></p>';
+        var text = mehdown.parse(body);
+        assert.equal(text, '<p><iframe class="kickstarter" frameborder="0" scrolling="no" src="//www.kickstarter.com/projects/1270124222/crossing-paths-film-photography-documentary/widget/card.html"></iframe></p>');
+    });
+});
+
