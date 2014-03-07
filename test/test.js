@@ -70,7 +70,7 @@ describe('usernames', function() {
 
     it('abc @username1 notausername@notausername @username2 123', function() {
         var text = mehdown.parse('abc @username1 notausername@notausername @username2 123');
-        assert.equal(text, 'abc <a href="http://127.0.0.1:8000/@username1">@username1</a> notausername@notausername <a href="http://localhost:8000/@username2">@username2</a> 123');
+        assert.equal(text, 'abc <a href="http://127.0.0.1:8000/@username1">@username1</a> notausername@notausername <a href="http://127.0.0.1:8000/@username2">@username2</a> 123');
     });
 });
 
