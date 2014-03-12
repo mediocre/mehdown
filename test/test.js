@@ -50,6 +50,43 @@ describe('anchors', function() {
     });
 });
 
+describe('scheme-less domains', function() {
+    it('simple domain', function() {
+        var text = mehdown.parse('<p>stuff google.com more stuff</p>');
+        assert.equal(text, '<p>stuff <a rel="nofollow" target="_blank" href="http://google.com">google.com</a> more stuff</p>');
+    });
+
+    it('domain with path', function() {
+        var text = mehdown.parse('<p>mediocre.com/forum/topics/american-parties</p>');
+        assert.equal(text, '<p><a href="http://mediocre.com/forum/topics/american-parties">mediocre.com/forum/topics/american-parties</a></p>');
+    });
+
+    it('domain with query string', function() {
+        var text = mehdown.parse('<p>google.com/search?q=domain</p>');
+        assert.equal(text, '<p><a rel="nofollow" target="_blank" href="http://google.com/search?q=domain">google.com/search?q=domain</a></p>');
+    });
+
+    it('already linked domain', function() {
+        var text = mehdown.parse('<p><a href="http://example.com">http://example.com</a> and example.com</p>');
+        assert.equal(text, '<p><a rel="nofollow" target="_blank" href="http://example.com">http://example.com</a> and <a rel="nofollow" target="_blank" href="http://example.com">example.com</a></p>');
+    });
+
+    it('already linked domain with additional anchor text', function() {
+        var text = mehdown.parse('<p><a href="http://example.com">example.com is the coolest site</a></p>');
+        assert.equal(text, '<p><a rel="nofollow" target="_blank" href="http://example.com">example.com is the coolest site</a></p>');
+    });
+
+    it('domain is in tag attribute', function() {
+        var text = mehdown.parse('<p><a href="http://example.com" title="Go To Example.com">example.com</a></p>');
+        assert.equal(text, '<p><a rel="nofollow" target="_blank" href="http://example.com" title="Go To Example.com">example.com</a></p>');
+    });
+
+    it('email address', function() {
+        var text = mehdown.parse('<p>email me at whatever@somewhere.com if you are not a meanie.</p>');
+        assert.equal(text, '<p>email me at <a rel="nofollow" target="_blank" href="mailto:whatever@somewhere.com">whatever@somewhere.com</a> if you are not a meanie.</p>');
+    });
+});
+
 describe('images', function() {
     it('.jpg', function() {
         var text = mehdown.parse('<p><a href="http://i.imgur.com/9oiY1aO.jpg">http://i.imgur.com/9oiY1aO.jpg</a></p>');
