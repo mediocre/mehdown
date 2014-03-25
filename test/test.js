@@ -1,6 +1,12 @@
 var assert = require('assert');
 var mehdown = require('../lib');
 
+var defaultBaseUrl = 'https://mediocre.com';
+
+before(function() {
+    mehdown.baseUrl = defaultBaseUrl;
+});
+
 describe('newlines', function() {
     it('\\n', function() {
         var text = mehdown.parse('a\nb\nc\n');
@@ -40,8 +46,10 @@ describe('anchors', function() {
     });
 
     it('127.0.0.1 href', function() {
+        mehdown.baseUrl = 'http://127.0.0.1:8000';
         var text = mehdown.parse('<p><a href="http://127.0.0.1:8000/path">path</a></p>');
         assert.equal(text, '<p><a href="http://127.0.0.1:8000/path">path</a></p>');
+        mehdown.baseUrl = defaultBaseUrl;
     });
 
     it('mediocre href', function() {
@@ -58,7 +66,7 @@ describe('scheme-less domains', function() {
 
     it('domain with path', function() {
         var text = mehdown.parse('<p>mediocre.com/forum/topics/american-parties</p>');
-        assert.equal(text, '<p><a href="http://mediocre.com/forum/topics/american-parties">mediocre.com/forum/topics/american-parties</a></p>');
+        assert.equal(text, '<p><a href="https://mediocre.com/forum/topics/american-parties">mediocre.com/forum/topics/american-parties</a></p>');
     });
 
     it('domain with query string', function() {
@@ -124,17 +132,17 @@ describe('strikethrough', function() {
 describe('usernames', function() {
     it('@username', function() {
         var text = mehdown.parse('@username');
-        assert.equal(text, '<a href="http://127.0.0.1:8000/@username">@username</a>');
+        assert.equal(text, '<a href="https://mediocre.com/@username">@username</a>');
     });
 
     it('abc @username 123', function() {
         var text = mehdown.parse('abc @username 123');
-        assert.equal(text, 'abc <a href="http://127.0.0.1:8000/@username">@username</a> 123');
+        assert.equal(text, 'abc <a href="https://mediocre.com/@username">@username</a> 123');
     });
 
     it('abc @username1 notausername@notausername @username2 123', function() {
         var text = mehdown.parse('abc @username1 notausername@notausername @username2 123');
-        assert.equal(text, 'abc <a href="http://127.0.0.1:8000/@username1">@username1</a> notausername@notausername <a href="http://127.0.0.1:8000/@username2">@username2</a> 123');
+        assert.equal(text, 'abc <a href="https://mediocre.com/@username1">@username1</a> notausername@notausername <a href="https://mediocre.com/@username2">@username2</a> 123');
     });
 });
 
@@ -153,7 +161,7 @@ describe('spoilers', function() {
 describe('SoundCloud URLs', function() {
     it('https://soundcloud.com/shawnmichaelmiller/santa-claus-is-coming-to-town', function() {
         var text = mehdown.parse('<p><a href="https://soundcloud.com/shawnmichaelmiller/santa-claus-is-coming-to-town">https://soundcloud.com/shawnmichaelmiller/santa-claus-is-coming-to-town</a></p>');
-        assert.equal(text, '<p><iframe class="soundcloud" frameborder="0" src="https://w.soundcloud.com/player/?url=https%3A%2F%2Fsoundcloud.com%2Fshawnmichaelmiller%2Fsanta-claus-is-coming-to-town"></iframe></p>')
+        assert.equal(text, '<p><iframe class="soundcloud" frameborder="0" src="https://w.soundcloud.com/player/?url=https%3A%2F%2Fsoundcloud.com%2Fshawnmichaelmiller%2Fsanta-claus-is-coming-to-town"></iframe></p>');
     });
 });
 
