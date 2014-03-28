@@ -198,6 +198,11 @@ describe('YouTube URLs', function() {
         var text = mehdown.parse('<p><a href="http://www.youtube.com/watch?feature=player_embedded&v=zIEIvi2MuEk">http://www.youtube.com/watch?feature=player_embedded&v=zIEIvi2MuEk</a></p>');
         assert.equal(text, '<p><iframe allowfullscreen class="youtube" frameborder="0" src="//www.youtube.com/embed/zIEIvi2MuEk"></iframe></p>');
     });
+
+    it('`&amp;` instead of `&` in URL', function() {
+        var text = mehdown.parse('<p><a href="http://www.youtube.com/watch?feature=player_embedded&amp;v=zIEIvi2MuEk">http://www.youtube.com/watch?feature=player_embedded&amp;v=zIEIvi2MuEk</a></p>');
+        assert.equal(text, '<p><iframe allowfullscreen class="youtube" frameborder="0" src="//www.youtube.com/embed/zIEIvi2MuEk"></iframe></p>');
+    });
 });
 
 describe('Kickstarter URLs', function() {
