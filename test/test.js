@@ -201,6 +201,16 @@ describe('YouTube URLs', function() {
         var text = mehdown.parse('<p><a href="http://www.youtube.com/watch?v=kU9MuM4lP18">http://www.youtube.com/watch?v=kU9MuM4lP18</a><br /><a href="http://www.youtube.com/watch?v=eGDBR2L5kzI">http://www.youtube.com/watch?v=eGDBR2L5kzI</a></p>');
         assert.equal(text, '<p><iframe allowfullscreen class="youtube" frameborder="0" src="//www.youtube.com/embed/kU9MuM4lP18"></iframe><br /><iframe allowfullscreen class="youtube" frameborder="0" src="//www.youtube.com/embed/eGDBR2L5kzI"></iframe></p>');
     });
+
+    it('http://www.youtube.com/watch?feature=player_embedded&v=zIEIvi2MuEk', function() {
+        var text = mehdown.parse('<p><a href="http://www.youtube.com/watch?feature=player_embedded&v=zIEIvi2MuEk">http://www.youtube.com/watch?feature=player_embedded&v=zIEIvi2MuEk</a></p>');
+        assert.equal(text, '<p><iframe allowfullscreen class="youtube" frameborder="0" src="//www.youtube.com/embed/zIEIvi2MuEk"></iframe></p>');
+    });
+
+    it('`&amp;` instead of `&` in URL', function() {
+        var text = mehdown.parse('<p><a href="http://www.youtube.com/watch?feature=player_embedded&amp;v=zIEIvi2MuEk">http://www.youtube.com/watch?feature=player_embedded&amp;v=zIEIvi2MuEk</a></p>');
+        assert.equal(text, '<p><iframe allowfullscreen class="youtube" frameborder="0" src="//www.youtube.com/embed/zIEIvi2MuEk"></iframe></p>');
+    });
 });
 
 describe('Kickstarter URLs', function() {
