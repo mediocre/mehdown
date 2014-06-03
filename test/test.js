@@ -58,6 +58,18 @@ describe('anchors', function() {
     });
 });
 
+describe('headers', function() {
+    it('adds ids for anchors', function() {
+        var text = mehdown.parse('<h1>What is meh</h1>');
+        assert.equal(text, '<h1 id="what-is-meh">What is meh</h1>');
+    });
+    
+    it('appends suffix to id', function() {
+        var text = mehdown.parse('<h1>What is meh</h1>', { suffix: '012fed' });
+        assert.equal(text, '<h1 id="what-is-meh-012fed">What is meh</h1>');
+    });
+});
+
 describe('scheme-less domains', function() {
     it('simple domain', function() {
         var text = mehdown.parse('<p>stuff google.com more stuff</p>');
