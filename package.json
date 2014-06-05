@@ -10,5 +10,5 @@
     "scripts": {
         "test": "mocha --reporter spec"
     },
-    "version": "1.6.3"
+    "version": "1.6.4"
 }
