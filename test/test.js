@@ -76,13 +76,18 @@ describe('headers', function() {
     
     it('special characters test 2', function() {
         var text = mehdown.parse('<h1>What. is ! meh     ?</h1>', { suffix: '0. 1! 2?f. . e! !d? ?' });
-        assert.equal(text, '<h1 id="what-is-meh--0-1-2f-e-d-">What. is ! meh     ?</h1>');
+        assert.equal(text, '<h1 id="what-is-meh-0-1-2f-e-d">What. is ! meh     ?</h1>');
     });
     
     it('special characters test 3', function() {
         var text = mehdown.parse('<h1>a- -b?c</h1>', { suffix: '!@#$%^&*()=+`~,./;\'<>?:"[]{}|' });
-        assert.equal(text, '<h1 id="a-bc">a- -b?c</h1>');
+        assert.equal(text, '<h1 id="a-bc-">a- -b?c</h1>');
     });
+
+    it('special characters test 4', function() {
+        var text = mehdown.parse('<h1>-- - What - - is --- -   - meh - - -</h1>', { suffix: '!@#$%^&*()=+`~,./;\'<>?:"[]{}|' });
+        assert.equal(text, '<h1 id="what-is-meh-">-- - What - - is --- -   - meh - - -</h1>');
+    })
 });
 
 describe('scheme-less domains', function() {
