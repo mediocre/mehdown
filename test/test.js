@@ -69,25 +69,25 @@ describe('headers', function() {
         assert.equal(text, '<h1 id="what-is-meh-012fed">What is meh</h1>');
     });
 
-    it('special characters test 1', function() {
+    it('handle header text with non alpha-numeric characters', function() {
         var text = mehdown.parse('<h1>What.is!meh?</h1>', { suffix: '0.1!2?f..e!!d??' });
         assert.equal(text, '<h1 id="whatismeh-012fed">What.is!meh?</h1>');
     });
     
-    it('special characters test 2', function() {
+    it('handle header text with multiple spaces', function() {
         var text = mehdown.parse('<h1>What. is ! meh     ?</h1>', { suffix: '0. 1! 2?f. . e! !d? ?' });
         assert.equal(text, '<h1 id="what-is-meh-0-1-2f-e-d">What. is ! meh     ?</h1>');
     });
     
-    it('special characters test 3', function() {
+    it('hanlde suffix with non alpha-numeric characters', function() {
         var text = mehdown.parse('<h1>a- -b?c</h1>', { suffix: '!@#$%^&*()=+`~,./;\'<>?:"[]{}|' });
         assert.equal(text, '<h1 id="a-bc-">a- -b?c</h1>');
     });
 
-    it('special characters test 4', function() {
+    it('collapse multiple hyphens', function() {
         var text = mehdown.parse('<h1>-- - What - - is --- -   - meh - - -</h1>', { suffix: '!@#$%^&*()=+`~,./;\'<>?:"[]{}|' });
         assert.equal(text, '<h1 id="what-is-meh-">-- - What - - is --- -   - meh - - -</h1>');
-    })
+    });
 });
 
 describe('scheme-less domains', function() {
