@@ -79,7 +79,7 @@ describe('headers', function() {
         assert.equal(text, '<h1 id="what-is-meh-0-1-2f-e-d">What. is ! meh     ?</h1>');
     });
     
-    it('hanlde suffix with non alpha-numeric characters', function() {
+    it('handle suffix with non alpha-numeric characters', function() {
         var text = mehdown.parse('<h1>a- -b?c</h1>', { suffix: '!@#$%^&*()=+`~,./;\'<>?:"[]{}|' });
         assert.equal(text, '<h1 id="a-bc-">a- -b?c</h1>');
     });
@@ -87,6 +87,11 @@ describe('headers', function() {
     it('collapse multiple hyphens', function() {
         var text = mehdown.parse('<h1>-- - What - - is --- -   - meh - - -</h1>', { suffix: '!@#$%^&*()=+`~,./;\'<>?:"[]{}|' });
         assert.equal(text, '<h1 id="what-is-meh-">-- - What - - is --- -   - meh - - -</h1>');
+    });
+
+    it('handle header with other tags inside', function() {
+        var text = mehdown.parse('<h1><strong>bold</strong></h1>');
+        assert.equal(text, '<h1 id="bold"><strong>bold</strong></h1>');
     });
 });
 
