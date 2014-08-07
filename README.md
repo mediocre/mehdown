@@ -8,7 +8,6 @@ A post-processor for Markdown used on the forum @ mediocre laboratories: https:/
 It adds the following features to Markdown:
 - Newline support
 - Detection of @usernames
-- Support for spoilers in the BBCode syntax of: [spoiler]This text will be blurred until you mouse over it[/spoiler]
 - Support for strikethrough using \~~strikethrough~~ syntax
 - Support for converting image URLs to `<img>` tags
 - Support for Twitter status embeds

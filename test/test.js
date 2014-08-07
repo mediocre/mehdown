@@ -183,18 +183,6 @@ describe('usernames', function() {
     });
 });
 
-describe('spoilers', function() {
-    it('[spoiler]Hello[/spoiler]', function() {
-        var text = mehdown.parse('<p>[spoiler]Hello[/spoiler]</p>');
-        assert.equal(text, '<p><span class="spoiler">Hello</span></p>');
-    });
-
-    it('[spoiler]Hello[/spoiler] [spoiler]World[/spoiler]', function() {
-        var text = mehdown.parse('<p>[spoiler]Hello[/spoiler] [spoiler]World[/spoiler]</p>');
-        assert.equal(text, '<p><span class="spoiler">Hello</span> <span class="spoiler">World</span></p>');
-    });
-});
-
 describe('SoundCloud URLs', function() {
     it('https://soundcloud.com/shawnmichaelmiller/santa-claus-is-coming-to-town', function() {
         var text = mehdown.parse('<p><a href="https://soundcloud.com/shawnmichaelmiller/santa-claus-is-coming-to-town">https://soundcloud.com/shawnmichaelmiller/santa-claus-is-coming-to-town</a></p>');
