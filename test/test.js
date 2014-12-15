@@ -186,7 +186,7 @@ describe('usernames', function() {
 describe('SoundCloud URLs', function() {
     it('https://soundcloud.com/shawnmichaelmiller/santa-claus-is-coming-to-town', function() {
         var text = mehdown.parse('<p><a href="https://soundcloud.com/shawnmichaelmiller/santa-claus-is-coming-to-town">https://soundcloud.com/shawnmichaelmiller/santa-claus-is-coming-to-town</a></p>');
-        assert.equal(text, '<p><iframe class="soundcloud" frameborder="0" src="https://w.soundcloud.com/player/?url=https%3A%2F%2Fsoundcloud.com%2Fshawnmichaelmiller%2Fsanta-claus-is-coming-to-town"></iframe></p>');
+        assert.equal(text, '<p><iframe class="soundcloud" frameborder="0" src="https://w.soundcloud.com/player/?visual=true&url=https%3A%2F%2Fsoundcloud.com%2Fshawnmichaelmiller%2Fsanta-claus-is-coming-to-town"></iframe></p>');
     });
 });
 
