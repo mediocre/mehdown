@@ -236,6 +236,26 @@ describe('YouTube URLs', function() {
         var text = mehdown.parse('<p><a href="http://www.youtube.com/watch?feature=player_embedded&amp;v=zIEIvi2MuEk">http://www.youtube.com/watch?feature=player_embedded&amp;v=zIEIvi2MuEk</a></p>');
         assert.equal(text, '<p><iframe allowfullscreen class="youtube" frameborder="0" src="//www.youtube.com/embed/zIEIvi2MuEk?autohide=1&color=white&showinfo=0&theme=light"></iframe></p>');
     });
+
+    it('http://www.youtube.com/watch?v=PjDw3azfZWI#t=31m08s', function() {
+        var text = mehdown.parse('<p><a href="http://www.youtube.com/watch?v=PjDw3azfZWI#t=31m08s">http://www.youtube.com/watch?v=PjDw3azfZWI#t=31m08s</a></p>');
+        assert.equal(text, '<p><iframe allowfullscreen class="youtube" frameborder="0" src="//www.youtube.com/embed/PjDw3azfZWI?start=1868&autohide=1&color=white&showinfo=0&theme=light"></iframe></p>');
+    });
+
+    it('http://www.youtube.com/watch?v=PjDw3azfZWI#t=5m1s', function() {
+        var text = mehdown.parse('<p><a href="http://www.youtube.com/watch?v=PjDw3azfZWI#t=5m1s">http://www.youtube.com/watch?v=PjDw3azfZWI#t=5m1s</a></p>');
+        assert.equal(text, '<p><iframe allowfullscreen class="youtube" frameborder="0" src="//www.youtube.com/embed/PjDw3azfZWI?start=301&autohide=1&color=white&showinfo=0&theme=light"></iframe></p>');
+    });
+
+    it('http://www.youtube.com/watch?v=PjDw3azfZWI#t=5m', function() {
+        var text = mehdown.parse('<p><a href="http://www.youtube.com/watch?v=PjDw3azfZWI#t=5m">http://www.youtube.com/watch?v=PjDw3azfZWI#t=5m</a></p>');
+        assert.equal(text, '<p><iframe allowfullscreen class="youtube" frameborder="0" src="//www.youtube.com/embed/PjDw3azfZWI?start=300&autohide=1&color=white&showinfo=0&theme=light"></iframe></p>');
+    });
+
+    it('http://www.youtube.com/watch?v=PjDw3azfZWI#t=9s', function() {
+        var text = mehdown.parse('<p><a href="http://www.youtube.com/watch?v=PjDw3azfZWI#t=9s">http://www.youtube.com/watch?v=PjDw3azfZWI#t=9s</a></p>');
+        assert.equal(text, '<p><iframe allowfullscreen class="youtube" frameborder="0" src="//www.youtube.com/embed/PjDw3azfZWI?start=9&autohide=1&color=white&showinfo=0&theme=light"></iframe></p>');
+    });
 });
 
 describe('Kickstarter URLs', function() {
