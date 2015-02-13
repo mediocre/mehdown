@@ -251,3 +251,10 @@ describe('Kickstarter URLs', function() {
         assert.equal(text, '<p><iframe class="kickstarter" frameborder="0" scrolling="no" src="//www.kickstarter.com/projects/schlock/crossing-paths-film-photography-documentary/widget/card.html"></iframe></p>');
     });
 });
+
+describe('archive.org embeds', function() {
+    it('[archiveorg arcade_3stooges width=560 height=384 frameborder=0 webkitallowfullscreen=true mozallowfullscreen=true]', function() {
+        var text = mehdown.parse('<p>[archiveorg arcade_3stooges width=560 height=384 frameborder=0 webkitallowfullscreen=true mozallowfullscreen=true]</p>');
+        assert.equal(text, '<p><iframe allowfullscreen class="archiveorg" frameborder="0" mozallowfullscreen="true" src="//archive.org/embed/arcade_3stooges" webkitallowfullscreen="true"></iframe></p>');
+    });
+});
