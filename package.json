@@ -1,5 +1,8 @@
 {
     "description": "A post-processor for Markdown used on the forum @ mediocre laboratories: https://mediocre.com/forum",
+    "dependencies": {
+        "sync-request": "2.0.x"
+    },
     "devDependencies": {
         "mocha": "*"
     },
@@ -10,5 +13,5 @@
     "scripts": {
         "test": "mocha --reporter spec"
     },
-    "version": "1.8.0"
+    "version": "1.9.0"
 }
