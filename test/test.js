@@ -190,6 +190,13 @@ describe('SoundCloud URLs', function() {
     });
 });
 
+describe('Reddit URLs', function() {
+    it('https://www.reddit.com/r/ProgrammerHumor/comments/30lhaf/mehcom_api_url_poking_at_steve_balmer/cptizym', function() {
+        var text = mehdown.parse('<p><a href="https://www.reddit.com/r/ProgrammerHumor/comments/30lhaf/mehcom_api_url_poking_at_steve_balmer/cptizym">https://www.reddit.com/r/ProgrammerHumor/comments/30lhaf/mehcom_api_url_poking_at_steve_balmer/cptizym</a></p>');
+        assert.equal(text, '<p><div class="reddit-embed" data-embed-media="www.redditmedia.com" data-embed-live="true"><a rel="nofollow" target="_blank" href="https://www.reddit.com/r/ProgrammerHumor/comments/30lhaf/mehcom_api_url_poking_at_steve_balmer/cptizym">https://www.reddit.com/r/ProgrammerHumor/comments/30lhaf/mehcom_api_url_poking_at_steve_balmer/cptizym</a></div><script async src="https://www.redditstatic.com/comment-embed.js"></script></p>');
+    });
+});
+
 describe('Twitter Status URLs', function() {
     it('https://twitter.com/mediocrelabs/status/410516133955907584', function() {
         var text = mehdown.parse('<p><a href="https://twitter.com/mediocrelabs/status/410516133955907584">https://twitter.com/mediocrelabs/status/410516133955907584</a></p>');
