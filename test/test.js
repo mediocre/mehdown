@@ -63,7 +63,7 @@ describe('headers', function() {
         var text = mehdown.parse('<h1>What is meh</h1>');
         assert.equal(text, '<h1 id="what-is-meh">What is meh</h1>');
     });
-    
+
     it('appends suffix to id', function() {
         var text = mehdown.parse('<h1>What is meh</h1>', { suffix: '012fed' });
         assert.equal(text, '<h1 id="what-is-meh-012fed">What is meh</h1>');
@@ -73,12 +73,12 @@ describe('headers', function() {
         var text = mehdown.parse('<h1>What.is!meh?</h1>', { suffix: '0.1!2?f..e!!d??' });
         assert.equal(text, '<h1 id="whatismeh-012fed">What.is!meh?</h1>');
     });
-    
+
     it('handle header text with multiple spaces', function() {
         var text = mehdown.parse('<h1>What. is ! meh     ?</h1>', { suffix: '0. 1! 2?f. . e! !d? ?' });
         assert.equal(text, '<h1 id="what-is-meh-0-1-2f-e-d">What. is ! meh     ?</h1>');
     });
-    
+
     it('handle suffix with non alpha-numeric characters', function() {
         var text = mehdown.parse('<h1>a- -b?c</h1>', { suffix: '!@#$%^&*()=+`~,./;\'<>?:"[]{}|' });
         assert.equal(text, '<h1 id="a-bc-">a- -b?c</h1>');
@@ -180,6 +180,13 @@ describe('usernames', function() {
     it('abc @username1 notausername@notausername @username2 123', function() {
         var text = mehdown.parse('abc @username1 notausername@notausername @username2 123');
         assert.equal(text, 'abc <a href="https://mediocre.com/@username1">@username1</a> notausername@notausername <a href="https://mediocre.com/@username2">@username2</a> 123');
+    });
+});
+
+describe('Imgur GIFV', function() {
+    it('http://i.imgur.com/zvATqgs.gifv', function() {
+        var text = mehdown.parse('<p><a href="http://i.imgur.com/zvATqgs.gifv">http://i.imgur.com/zvATqgs.gifv</a></p>');
+        assert.equal(text, '<p><div class="imgur-gifv"><video autoplay loop muted><source type="video/webm" src="https://i.imgur.com/zvATqgs.webm" /><source type="video/mp4" src="https://i.imgur.com/zvATqgs.mp4" /></video></div></p>');
     });
 });
 
