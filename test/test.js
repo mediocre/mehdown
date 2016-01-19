@@ -184,12 +184,12 @@ describe('usernames', function() {
 
     it('mediocre.com/@username', function() {
         var text = mehdown.parse('mediocre.com/@username');
-        assert.equal(text, '<a href="https://mediocre.com/@username">https://mediocre.com/@username</a>');
+        assert.equal(text, '<a href="https://mediocre.com/@username">mediocre.com/@username</a>');
     });
 
     it('http://mediocre.com/@username', function() {
         var text = mehdown.parse('http://mediocre.com/@username');
-        assert.equal(text, '<a href="https://mediocre.com/@username">https://mediocre.com/@username</a>');
+        assert.equal(text, '<a href="https://mediocre.com/@username">http://mediocre.com/@username</a>');
     });
 
     it('https://mediocre.com/@username', function() {
