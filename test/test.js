@@ -111,24 +111,41 @@ describe('scheme-less domains', function() {
         assert.equal(text, '<p><a rel="nofollow" target="_blank" href="http://google.com/search?q=domain">google.com/search?q=domain</a></p>');
     });
 
-    it('already linked domain', function() {
-        var text = mehdown.parse('<p><a href="http://example.com">http://example.com</a> and example.com</p>');
-        assert.equal(text, '<p><a rel="nofollow" target="_blank" href="http://example.com">http://example.com</a> and <a rel="nofollow" target="_blank" href="http://example.com">example.com</a></p>');
-    });
-
-    it('already linked domain with additional anchor text', function() {
-        var text = mehdown.parse('<p><a href="http://example.com">example.com is the coolest site</a></p>');
-        assert.equal(text, '<p><a rel="nofollow" target="_blank" href="http://example.com">example.com is the coolest site</a></p>');
-    });
-
-    it('domain is in tag attribute', function() {
-        var text = mehdown.parse('<p><a href="http://example.com" title="Go To Example.com">example.com</a></p>');
-        assert.equal(text, '<p><a rel="nofollow" target="_blank" href="http://example.com" title="Go To Example.com">example.com</a></p>');
-    });
-
     it('email address', function() {
         var text = mehdown.parse('<p>email me at whatever@somewhere.com if you are not a meanie.</p>');
         assert.equal(text, '<p>email me at <a rel="nofollow" target="_blank" href="mailto:whatever@somewhere.com">whatever@somewhere.com</a> if you are not a meanie.</p>');
+    });
+});
+
+describe('already linked url', function() {
+    it('<p><a href="http://example.com">http://example.com</a></p>', function() {
+        var text = mehdown.parse('<p><a href="http://example.com">http://example.com</a></p>');
+        assert.equal(text, '<p><a rel="nofollow" target="_blank" href="http://example.com">http://example.com</a></p>');
+    });
+
+    it('<p><a href="http://example.com">see http://example.com here</a></p>', function() {
+        var text = mehdown.parse('<p><a href="http://example.com">see http://example.com here</a></p>');
+        assert.equal(text, '<p><a rel="nofollow" target="_blank" href="http://example.com">see http://example.com here</a></p>');
+    });
+
+    it('<p><a href="http://example.com">example.com</a></p>', function() {
+        var text = mehdown.parse('<p><a href="http://example.com">example.com</a></p>');
+        assert.equal(text, '<p><a rel="nofollow" target="_blank" href="http://example.com">example.com</a></p>');
+    });
+
+    it('<p><a href="http://example.com">see example.com here</a></p>', function() {
+        var text = mehdown.parse('<p><a href="http://example.com">see example.com here</a></p>');
+        assert.equal(text, '<p><a rel="nofollow" target="_blank" href="http://example.com">see example.com here</a></p>');
+    });
+
+    it('<p><a href="http://example.com">leavemealone.com</a> but linkme.com</p>', function() {
+        var text = mehdown.parse('<p><a href="http://example.com">leavemealone.com</a> but linkme.com</p>');
+        assert.equal(text, '<p><a rel="nofollow" target="_blank" href="http://example.com">leavemealone.com</a> but <a rel="nofollow" target="_blank" href="http://linkme.com">linkme.com</a></p>');
+    });
+
+    it('<p><a href="http://example.com" title="Go To Example.com">example.com</a></p>', function() {
+        var text = mehdown.parse('<p><a href="http://example.com" title="Go To Example.com">example.com</a></p>');
+        assert.equal(text, '<p><a rel="nofollow" target="_blank" href="http://example.com" title="Go To Example.com">example.com</a></p>');
     });
 });
 
@@ -170,6 +187,11 @@ describe('usernames', function() {
     it('@username', function() {
         var text = mehdown.parse('@username');
         assert.equal(text, '<a href="https://mediocre.com/@username">@username</a>');
+    });
+
+    it('<p>@username @othername</p>', function() {
+        var text = mehdown.parse('<p>@username @othername</p>');
+        assert.equal(text, '<p><a href="https://mediocre.com/@username">@username</a> <a href="https://mediocre.com/@othername">@othername</a></p>');
     });
 
     it('abc @username 123', function() {
