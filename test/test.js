@@ -181,6 +181,26 @@ describe('usernames', function() {
         var text = mehdown.parse('abc @username1 notausername@notausername @username2 123');
         assert.equal(text, 'abc <a href="https://mediocre.com/@username1">@username1</a> notausername@notausername <a href="https://mediocre.com/@username2">@username2</a> 123');
     });
+
+    it('mediocre.com/@username', function() {
+        var text = mehdown.parse('mediocre.com/@username');
+        assert.equal(text, '<a href="https://mediocre.com/@username">https://mediocre.com/@username</a>');
+    });
+
+    it('http://mediocre.com/@username', function() {
+        var text = mehdown.parse('http://mediocre.com/@username');
+        assert.equal(text, '<a href="https://mediocre.com/@username">https://mediocre.com/@username</a>');
+    });
+
+    it('https://mediocre.com/@username', function() {
+        var text = mehdown.parse('https://mediocre.com/@username');
+        assert.equal(text, '<a href="https://mediocre.com/@username">https://mediocre.com/@username</a>');
+    });
+
+    it('<a href="https://mediocre.com/@username">@username</a>', function() {
+        var text = mehdown.parse('<a href="https://mediocre.com/@username">@username</a>');
+        assert.equal(text, '<a href="https://mediocre.com/@username">@username</a>');
+    });
 });
 
 describe('Imgur GIFV', function() {
