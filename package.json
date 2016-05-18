@@ -1,4 +1,7 @@
 {
+    "dependencies": {
+        "markdown-it": "6.0.x"
+    },
     "description": "A post-processor for Markdown used on the forum @ mediocre laboratories: https://mediocre.com/forum",
     "devDependencies": {
         "mocha": "*"
@@ -10,5 +13,5 @@
     "scripts": {
         "test": "mocha --reporter spec"
     },
-    "version": "1.11.5"
+    "version": "2.0.0"
 }
