@@ -275,22 +275,27 @@ describe('Vine URLs', function() {
 describe('YouTube URLs', function() {
     it('http://www.youtube.com/watch?v=kU9MuM4lP18', function() {
         var text = mehdown.parse('<p><a href="http://www.youtube.com/watch?v=kU9MuM4lP18">http://www.youtube.com/watch?v=kU9MuM4lP18</a></p>');
-        assert.equal(text, '<p><iframe allowfullscreen class="youtube" frameborder="0" src="//www.youtube.com/embed/kU9MuM4lP18?autohide=1&color=white&showinfo=0&theme=light"></iframe></p>');
+        assert.equal(text, '<p><iframe allowfullscreen class="youtube" frameborder="0" src="https://www.youtube.com/embed/kU9MuM4lP18?autohide=1&color=white&showinfo=0&theme=light"></iframe></p>');
     });
 
     it('http://www.youtube.com/watch?v=kU9MuM4lP18 http://www.youtube.com/watch?v=eGDBR2L5kzI', function() {
         var text = mehdown.parse('<p><a href="http://www.youtube.com/watch?v=kU9MuM4lP18">http://www.youtube.com/watch?v=kU9MuM4lP18</a><br /><a href="http://www.youtube.com/watch?v=eGDBR2L5kzI">http://www.youtube.com/watch?v=eGDBR2L5kzI</a></p>');
-        assert.equal(text, '<p><iframe allowfullscreen class="youtube" frameborder="0" src="//www.youtube.com/embed/kU9MuM4lP18?autohide=1&color=white&showinfo=0&theme=light"></iframe><br /><iframe allowfullscreen class="youtube" frameborder="0" src="//www.youtube.com/embed/eGDBR2L5kzI?autohide=1&color=white&showinfo=0&theme=light"></iframe></p>');
+        assert.equal(text, '<p><iframe allowfullscreen class="youtube" frameborder="0" src="https://www.youtube.com/embed/kU9MuM4lP18?autohide=1&color=white&showinfo=0&theme=light"></iframe><br /><iframe allowfullscreen class="youtube" frameborder="0" src="https://www.youtube.com/embed/eGDBR2L5kzI?autohide=1&color=white&showinfo=0&theme=light"></iframe></p>');
     });
 
     it('http://www.youtube.com/watch?feature=player_embedded&v=zIEIvi2MuEk', function() {
         var text = mehdown.parse('<p><a href="http://www.youtube.com/watch?feature=player_embedded&v=zIEIvi2MuEk">http://www.youtube.com/watch?feature=player_embedded&v=zIEIvi2MuEk</a></p>');
-        assert.equal(text, '<p><iframe allowfullscreen class="youtube" frameborder="0" src="//www.youtube.com/embed/zIEIvi2MuEk?autohide=1&color=white&showinfo=0&theme=light"></iframe></p>');
+        assert.equal(text, '<p><iframe allowfullscreen class="youtube" frameborder="0" src="https://www.youtube.com/embed/zIEIvi2MuEk?autohide=1&color=white&showinfo=0&theme=light"></iframe></p>');
     });
 
     it('`&amp;` instead of `&` in URL', function() {
         var text = mehdown.parse('<p><a href="http://www.youtube.com/watch?feature=player_embedded&amp;v=zIEIvi2MuEk">http://www.youtube.com/watch?feature=player_embedded&amp;v=zIEIvi2MuEk</a></p>');
-        assert.equal(text, '<p><iframe allowfullscreen class="youtube" frameborder="0" src="//www.youtube.com/embed/zIEIvi2MuEk?autohide=1&color=white&showinfo=0&theme=light"></iframe></p>');
+        assert.equal(text, '<p><iframe allowfullscreen class="youtube" frameborder="0" src="https://www.youtube.com/embed/zIEIvi2MuEk?autohide=1&color=white&showinfo=0&theme=light"></iframe></p>');
+    });
+
+    it('http://www.youtube.com/watch?v=kU9MuM4lP18&start=10', function() {
+        var text = mehdown.parse('<p><a href="http://www.youtube.com/watch?v=kU9MuM4lP18&start=10">http://www.youtube.com/watch?v=kU9MuM4lP18&start=10</a></p>');
+        assert.equal(text, '<p><iframe allowfullscreen class="youtube" frameborder="0" src="https://www.youtube.com/embed/kU9MuM4lP18?autohide=1&color=white&showinfo=0&theme=light&start=10"></iframe></p>');
     });
 });
 
