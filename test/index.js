@@ -1,5 +1,6 @@
-var assert = require('assert');
-var mehdown = require('../lib');
+const assert = require('assert');
+
+const mehdown = require('../lib');
 
 describe('newlines', function() {
     it('\\n', function(done) {
@@ -28,35 +29,6 @@ describe('newlines', function() {
             assert.equal(html, '<blockquote>\n<p>Alone.</p>\n<p>Yes, that’s the key word, the most awful word in the English tonque. Murder doesn’t hold a candle to it, and hell is only a poor synonym.</p>\n<ul>\n<li>Stephen King</li>\n</ul>\n</blockquote>');
             done();
         });
-    });
-});
-
-describe.skip('anchors', function() {
-    it('rel attributes', function() {
-        var text = mehdown.parse('<p><a rel="abc" href="http://www.google.com">Google</a></p>');
-        assert.equal(text, '<p><a rel="nofollow" target="_blank" href="http://www.google.com">Google</a></p>');
-    });
-
-    it('target attributes', function() {
-        var text = mehdown.parse('<p><a target="abc" href="http://www.google.com">Google</a></p>');
-        assert.equal(text, '<p><a rel="nofollow" target="_blank" href="http://www.google.com">Google</a></p>');
-    });
-
-    it('local href', function() {
-        var text = mehdown.parse('<p><a href="/path">path</a></p>');
-        assert.equal(text, '<p><a href="/path">path</a></p>');
-    });
-
-    it('127.0.0.1 href', function() {
-        mehdown.baseUrl = 'http://127.0.0.1:8000';
-        var text = mehdown.parse('<p><a href="http://127.0.0.1:8000/path">path</a></p>');
-        assert.equal(text, '<p><a href="http://127.0.0.1:8000/path">path</a></p>');
-        mehdown.baseUrl = defaultBaseUrl;
-    });
-
-    it('mediocre href', function() {
-        var text = mehdown.parse('<p><a href="https://mediocre.com/path">path</a></p>');
-        assert.equal(text, '<p><a href="https://mediocre.com/path">path</a></p>');
     });
 });
 
