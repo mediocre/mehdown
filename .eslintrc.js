@@ -1,10 +1,13 @@
 module.exports = {
     env: {
-        browser: true,
+        es6: true,
         mocha: true,
         node: true
     },
     'extends': 'eslint:recommended',
+    parserOptions: {
+        ecmaVersion: 6
+    },
     rules: {
         'brace-style': [2, '1tbs', { allowSingleLine: true }],
         'comma-dangle': [2, 'never'],
