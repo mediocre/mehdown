@@ -199,18 +199,6 @@ describe.skip('headers', function() {
     });
 });
 
-describe.skip('Twitter Status URLs', function() {
-    it('https://twitter.com/mediocrelabs/status/410516133955907584', function() {
-        var text = mehdown.parse('<p><a href="https://twitter.com/mediocrelabs/status/410516133955907584">https://twitter.com/mediocrelabs/status/410516133955907584</a></p>');
-        assert.equal(text, '<p><blockquote class="twitter-tweet" lang="en"><a href="https://twitter.com/mediocrelabs/status/410516133955907584"></a></blockquote><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script></p>');
-    });
-
-    it('https://twitter.com/_/status/416050320272551936', function() {
-        var text = mehdown.parse('<p><a href="https://twitter.com/_/status/416050320272551936">https://twitter.com/_/status/416050320272551936</a></p>');
-        assert.equal(text, '<p><blockquote class="twitter-tweet" lang="en"><a href="https://twitter.com/_/status/416050320272551936"></a></blockquote><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script></p>');
-    });
-});
-
 describe.skip('Vimeo URLs', function() {
     it('http://vimeo.com/78950165', function() {
         var text = mehdown.parse('<p><a href="http://vimeo.com/78950165">http://vimeo.com/78950165</a></p>');

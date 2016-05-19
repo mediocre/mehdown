@@ -2,7 +2,7 @@ const assert = require('assert');
 
 const mehdown = require('../../lib');
 
-describe('Vine', function() {
+describe('vine', function() {
     it('https://vine.co/v/hWZ9mbJZaKE', function(done) {
         mehdown.render('https://vine.co/v/hWZ9mbJZaKE', function(err, html) {
             assert.equal(html, '<p><iframe allowfullscreen class="vine" frameborder="0" src="https://vine.co/v/hWZ9mbJZaKE/embed/simple"></iframe></p>');
