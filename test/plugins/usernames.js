@@ -2,7 +2,7 @@ const assert = require('assert');
 
 const mehdown = require('../../lib');
 
-describe('username', function() {
+describe('usernames', function() {
     it('@username', function(done) {
         mehdown.render('@username', function(err, html) {
             assert.equal(html, '<p><a href="/@username">@username</a></p>');

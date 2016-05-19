@@ -199,13 +199,6 @@ describe.skip('headers', function() {
     });
 });
 
-describe.skip('Imgur GIFV', function() {
-    it('http://i.imgur.com/zvATqgs.gifv', function() {
-        var text = mehdown.parse('<p><a href="http://i.imgur.com/zvATqgs.gifv">http://i.imgur.com/zvATqgs.gifv</a></p>');
-        assert.equal(text, '<p><div class="imgur-gifv"><video autoplay loop muted><source type="video/webm" src="https://i.imgur.com/zvATqgs.webm" /><source type="video/mp4" src="https://i.imgur.com/zvATqgs.mp4" /></video></div></p>');
-    });
-});
-
 describe.skip('SoundCloud URLs', function() {
     it('https://soundcloud.com/shawnmichaelmiller/santa-claus-is-coming-to-town', function() {
         var text = mehdown.parse('<p><a href="https://soundcloud.com/shawnmichaelmiller/santa-claus-is-coming-to-town">https://soundcloud.com/shawnmichaelmiller/santa-claus-is-coming-to-town</a></p>');
