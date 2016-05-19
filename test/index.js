@@ -2,6 +2,85 @@ const assert = require('assert');
 
 const mehdown = require('../lib');
 
+describe('email', function() {
+    it('email address', function(done) {
+        mehdown.render('email me at whatever@somewhere.com if you are not a meanie.', function(err, html) {
+            assert.equal(html, '<p>email me at <a href="mailto:whatever@somewhere.com">whatever@somewhere.com</a> if you are not a meanie.</p>');
+            done();
+        });
+    });
+
+    // https://github.com/mediocre/mehdown/issues/35
+    it('email addresses with periods should be linked correctly', function(done) {
+        mehdown.render('firstname.lastname@example.com', function(err, html) {
+            assert.equal(html, '<p><a href="mailto:firstname.lastname@example.com">firstname.lastname@example.com</a></p>');
+            done();
+        });
+    });
+});
+
+describe('links', function() {
+    it('simple domain', function(done) {
+        mehdown.render('stuff google.com more stuff', function(err, html) {
+            assert.equal(html, '<p>stuff <a href="http://google.com">google.com</a> more stuff</p>');
+            done();
+        });
+    });
+
+    it('domain with path', function(done) {
+        mehdown.render('mediocre.com/forum/topics/american-parties', function(err, html) {
+            assert.equal(html, '<p><a href="http://mediocre.com/forum/topics/american-parties">mediocre.com/forum/topics/american-parties</a></p>');
+            done();
+        });
+    });
+
+    it('domain with query string', function(done) {
+        mehdown.render('google.com/search?q=domain', function(err, html) {
+            assert.equal(html, '<p><a href="http://google.com/search?q=domain">google.com/search?q=domain</a></p>');
+            done();
+        });
+    });
+
+    it('.horse is a TLD', function(done) {
+        mehdown.render('https://drone.horse', function(err, html) {
+            assert.equal(html, '<p><a href="https://drone.horse">https://drone.horse</a></p>');
+            done();
+        });
+    });
+
+    // https://github.com/mediocre/mehdown/issues/6
+    it('URLs with underscores should not lose the underscores', function(done) {
+        mehdown.render('https://example.com/_/status/416050320272551936', function(err, html) {
+            assert.equal(html, '<p><a href="https://example.com/_/status/416050320272551936">https://example.com/_/status/416050320272551936</a></p>');
+            done();
+        });
+    });
+
+    // https://github.com/mediocre/mehdown/issues/29
+    it('should not link two, four, or five consecutive periods', function(done) {
+        mehdown.render('Awww....I always wanted my own baby elephant.', function(err, html) {
+            assert.equal(html, '<p>Awww…I always wanted my own baby elephant.</p>');
+            done();
+        });
+    });
+
+    // https://github.com/mediocre/mehdown/issues/30
+    it('should link URLs with @ characters', function(done) {
+        mehdown.render('https://meh.com/@mediocrebot', function(err, html) {
+            assert.equal(html, '<p><a href="https://meh.com/@mediocrebot">https://meh.com/@mediocrebot</a></p>');
+            done();
+        });
+    });
+
+    // https://github.com/mediocre/mehdown/issues/39
+    it('URLs that happen to have Emoji shortnames should be linked correctly', function(done) {
+        mehdown.render('http://www.ebay.com/itm/GOgroove-BlueSYNC-OR3-Portable-Wireless-Bluetooth-Speaker-Splatter-Edition-/351328294837?var=&hash=item51cccc57b5:m:mLzVeDaMfRlxsCqFiutY-aw', function(err, html) {
+            assert.equal(html, '<p><a href="http://www.ebay.com/itm/GOgroove-BlueSYNC-OR3-Portable-Wireless-Bluetooth-Speaker-Splatter-Edition-/351328294837?var=&amp;hash=item51cccc57b5:m:mLzVeDaMfRlxsCqFiutY-aw">http://www.ebay.com/itm/GOgroove-BlueSYNC-OR3-Portable-Wireless-Bluetooth-Speaker-Splatter-Edition-/351328294837?var=&amp;hash=item51cccc57b5:m:mLzVeDaMfRlxsCqFiutY-aw</a></p>');
+            done();
+        });
+    });
+});
+
 describe('newlines', function() {
     it('\\n', function(done) {
         mehdown.render('a\nb\nc\n', function(err, html) {
@@ -66,28 +145,6 @@ describe.skip('headers', function() {
     it('handle header with other tags inside', function() {
         var text = mehdown.parse('<h1><strong>bold</strong></h1>');
         assert.equal(text, '<h1 id="bold"><strong>bold</strong></h1>');
-    });
-});
-
-describe.skip('scheme-less domains', function() {
-    it('simple domain', function() {
-        var text = mehdown.parse('<p>stuff google.com more stuff</p>');
-        assert.equal(text, '<p>stuff <a rel="nofollow" target="_blank" href="http://google.com">google.com</a> more stuff</p>');
-    });
-
-    it('domain with path', function() {
-        var text = mehdown.parse('<p>mediocre.com/forum/topics/american-parties</p>');
-        assert.equal(text, '<p><a href="https://mediocre.com/forum/topics/american-parties">mediocre.com/forum/topics/american-parties</a></p>');
-    });
-
-    it('domain with query string', function() {
-        var text = mehdown.parse('<p>google.com/search?q=domain</p>');
-        assert.equal(text, '<p><a rel="nofollow" target="_blank" href="http://google.com/search?q=domain">google.com/search?q=domain</a></p>');
-    });
-
-    it('email address', function() {
-        var text = mehdown.parse('<p>email me at whatever@somewhere.com if you are not a meanie.</p>');
-        assert.equal(text, '<p>email me at <a rel="nofollow" target="_blank" href="mailto:whatever@somewhere.com">whatever@somewhere.com</a> if you are not a meanie.</p>');
     });
 });
 
