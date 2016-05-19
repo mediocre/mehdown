@@ -199,48 +199,6 @@ describe.skip('headers', function() {
     });
 });
 
-describe.skip('usernames', function() {
-    it('@username', function() {
-        var text = mehdown.parse('@username');
-        assert.equal(text, '<a href="https://mediocre.com/@username">@username</a>');
-    });
-
-    it('<p>@username @othername</p>', function() {
-        var text = mehdown.parse('<p>@username @othername</p>');
-        assert.equal(text, '<p><a href="https://mediocre.com/@username">@username</a> <a href="https://mediocre.com/@othername">@othername</a></p>');
-    });
-
-    it('abc @username 123', function() {
-        var text = mehdown.parse('abc @username 123');
-        assert.equal(text, 'abc <a href="https://mediocre.com/@username">@username</a> 123');
-    });
-
-    it('abc @username1 notausername@notausername @username2 123', function() {
-        var text = mehdown.parse('abc @username1 notausername@notausername @username2 123');
-        assert.equal(text, 'abc <a href="https://mediocre.com/@username1">@username1</a> notausername@notausername <a href="https://mediocre.com/@username2">@username2</a> 123');
-    });
-
-    it('mediocre.com/@username', function() {
-        var text = mehdown.parse('mediocre.com/@username');
-        assert.equal(text, '<a href="https://mediocre.com/@username">mediocre.com/@username</a>');
-    });
-
-    it('http://mediocre.com/@username', function() {
-        var text = mehdown.parse('http://mediocre.com/@username');
-        assert.equal(text, '<a href="https://mediocre.com/@username">http://mediocre.com/@username</a>');
-    });
-
-    it('https://mediocre.com/@username', function() {
-        var text = mehdown.parse('https://mediocre.com/@username');
-        assert.equal(text, '<a href="https://mediocre.com/@username">https://mediocre.com/@username</a>');
-    });
-
-    it('<a href="https://mediocre.com/@username">@username</a>', function() {
-        var text = mehdown.parse('<a href="https://mediocre.com/@username">@username</a>');
-        assert.equal(text, '<a href="https://mediocre.com/@username">@username</a>');
-    });
-});
-
 describe.skip('Imgur GIFV', function() {
     it('http://i.imgur.com/zvATqgs.gifv', function() {
         var text = mehdown.parse('<p><a href="http://i.imgur.com/zvATqgs.gifv">http://i.imgur.com/zvATqgs.gifv</a></p>');
