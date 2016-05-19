@@ -199,35 +199,6 @@ describe.skip('headers', function() {
     });
 });
 
-describe.skip('images', function() {
-    it('.jpg', function() {
-        var text = mehdown.parse('<p><a href="http://i.imgur.com/9oiY1aO.jpg">http://i.imgur.com/9oiY1aO.jpg</a></p>');
-        assert.equal(text, '<p><img src="http://i.imgur.com/9oiY1aO.jpg" /></p>');
-    });
-
-    it('.gif', function() {
-        var text = mehdown.parse('<p><a href="http://www.bubblews.com/assets/images/news/225123606_1387763263.gif">http://www.bubblews.com/assets/images/news/225123606_1387763263.gif</a></p>');
-        assert.equal(text, '<p><img src="http://www.bubblews.com/assets/images/news/225123606_1387763263.gif" /></p>');
-    });
-
-    it('.png', function() {
-        var text = mehdown.parse('<p><a href="http://fc09.deviantart.net/fs44/f/2009/067/a/a/Green_Humming_Bird_PNG_by_pixievamp_stock.png">http://fc09.deviantart.net/fs44/f/2009/067/a/a/Green_Humming_Bird_PNG_by_pixievamp_stock.png</a></p>');
-        assert.equal(text, '<p><img src="http://fc09.deviantart.net/fs44/f/2009/067/a/a/Green_Humming_Bird_PNG_by_pixievamp_stock.png" /></p>');
-    });
-
-    it('.jpg with long url and query string', function() {
-        var text = mehdown.parse('<p><a href="http://images.nationalgeographic.com/wpf/media-live/photos/000/770/cache/payunia-volcano-argentina_77070_990x742.jpg?01AD=3jGr9FxQ0BANJabwfZqq7ejovySQ1dQw8kO0oygkZlKrsJUzb-jUb7Q&01RI=1E4070A575D8186&01NA=na">http://images.nationalgeographic.com/wpf/media-live/photos/000/770/cache/payunia-volcano-argentina_77070_990x742.jpg?01AD=3jGr9FxQ0BANJabwfZqq7ejovySQ1dQw8kO0oygkZlKrsJUzb-jUb7Q&01RI=1E4070A575D8186&01NA=na</a></p>');
-        assert.equal(text, '<p><img src="http://images.nationalgeographic.com/wpf/media-live/photos/000/770/cache/payunia-volcano-argentina_77070_990x742.jpg?01AD=3jGr9FxQ0BANJabwfZqq7ejovySQ1dQw8kO0oygkZlKrsJUzb-jUb7Q&01RI=1E4070A575D8186&01NA=na" /></p>');
-    });
-
-    it('.png with %20 (space) in url', function() {
-        var text = mehdown.parse('<p><a href="http://izaak.jellinek.com/tuxes/images/big%20tux.png">http://izaak.jellinek.com/tuxes/images/big%20tux.png</a></p>');
-        assert.equal(text, '<p><img src="http://izaak.jellinek.com/tuxes/images/big%20tux.png" /></p>');
-    });
-});
-
-
-
 describe.skip('usernames', function() {
     it('@username', function() {
         var text = mehdown.parse('@username');
