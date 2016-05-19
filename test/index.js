@@ -153,6 +153,15 @@ describe('newlines', function() {
     });
 });
 
+describe('strikethrough', function() {
+    it('~~', function(done) {
+        mehdown.render('~~strikethrough~~', function(err, html) {
+            assert.equal(html, '<p><s>strikethrough</s></p>');
+            done();
+        });
+    });
+});
+
 describe.skip('headers', function() {
     it('adds ids for anchors', function() {
         var text = mehdown.parse('<h1>What is meh</h1>');
@@ -217,12 +226,7 @@ describe.skip('images', function() {
     });
 });
 
-describe.skip('strikethrough', function() {
-    it('~~', function() {
-        var text = mehdown.parse('<p>~~strikethrough~~</p>');
-        assert.equal(text, '<p><s>strikethrough</s></p>');
-    });
-});
+
 
 describe.skip('usernames', function() {
     it('@username', function() {
