@@ -20,6 +20,48 @@ describe('email', function() {
 });
 
 describe('links', function() {
+    it('http://example.com', function(done) {
+        mehdown.render('http://example.com', function(err, html) {
+            assert.equal(html, '<p><a href="http://example.com">http://example.com</a></p>');
+            done();
+        });
+    });
+
+    it('[example.com](http://example.com)', function(done) {
+        mehdown.render('[example.com](http://example.com)', function(err, html) {
+            assert.equal(html, '<p><a href="http://example.com">example.com</a></p>');
+            done();
+        });
+    });
+
+    it('[see example.com here](http://example.com)', function(done) {
+        mehdown.render('[see example.com here](http://example.com)', function(err, html) {
+            assert.equal(html, '<p><a href="http://example.com">see example.com here</a></p>');
+            done();
+        });
+    });
+
+    it('[see http://example.com here](http://example.com)', function(done) {
+        mehdown.render('[see http://example.com here](http://example.com)', function(err, html) {
+            assert.equal(html, '<p><a href="http://example.com">see http://example.com here</a></p>');
+            done();
+        });
+    });
+
+    it('[leavemealone.com](http://leavemealone.com) but linkme.com', function(done) {
+        mehdown.render('[leavemealone.com](http://leavemealone.com) but linkme.com', function(err, html) {
+            assert.equal(html, '<p><a href="http://leavemealone.com">leavemealone.com</a> but <a href="http://linkme.com">linkme.com</a></p>');
+            done();
+        });
+    });
+
+    it('[example.com](http://example.com "go to example.com")', function(done) {
+        mehdown.render('[example.com](http://example.com "go to example.com")', function(err, html) {
+            assert.equal(html, '<p><a href="http://example.com" title="go to example.com">example.com</a></p>');
+            done();
+        });
+    });
+
     it('simple domain', function(done) {
         mehdown.render('stuff google.com more stuff', function(err, html) {
             assert.equal(html, '<p>stuff <a href="http://google.com">google.com</a> more stuff</p>');
@@ -145,38 +187,6 @@ describe.skip('headers', function() {
     it('handle header with other tags inside', function() {
         var text = mehdown.parse('<h1><strong>bold</strong></h1>');
         assert.equal(text, '<h1 id="bold"><strong>bold</strong></h1>');
-    });
-});
-
-describe.skip('already linked url', function() {
-    it('<p><a href="http://example.com">http://example.com</a></p>', function() {
-        var text = mehdown.parse('<p><a href="http://example.com">http://example.com</a></p>');
-        assert.equal(text, '<p><a rel="nofollow" target="_blank" href="http://example.com">http://example.com</a></p>');
-    });
-
-    it('<p><a href="http://example.com">see http://example.com here</a></p>', function() {
-        var text = mehdown.parse('<p><a href="http://example.com">see http://example.com here</a></p>');
-        assert.equal(text, '<p><a rel="nofollow" target="_blank" href="http://example.com">see http://example.com here</a></p>');
-    });
-
-    it('<p><a href="http://example.com">example.com</a></p>', function() {
-        var text = mehdown.parse('<p><a href="http://example.com">example.com</a></p>');
-        assert.equal(text, '<p><a rel="nofollow" target="_blank" href="http://example.com">example.com</a></p>');
-    });
-
-    it('<p><a href="http://example.com">see example.com here</a></p>', function() {
-        var text = mehdown.parse('<p><a href="http://example.com">see example.com here</a></p>');
-        assert.equal(text, '<p><a rel="nofollow" target="_blank" href="http://example.com">see example.com here</a></p>');
-    });
-
-    it('<p><a href="http://example.com">leavemealone.com</a> but linkme.com</p>', function() {
-        var text = mehdown.parse('<p><a href="http://example.com">leavemealone.com</a> but linkme.com</p>');
-        assert.equal(text, '<p><a rel="nofollow" target="_blank" href="http://example.com">leavemealone.com</a> but <a rel="nofollow" target="_blank" href="http://linkme.com">linkme.com</a></p>');
-    });
-
-    it('<p><a href="http://example.com" title="Go To Example.com">example.com</a></p>', function() {
-        var text = mehdown.parse('<p><a href="http://example.com" title="Go To Example.com">example.com</a></p>');
-        assert.equal(text, '<p><a rel="nofollow" target="_blank" href="http://example.com" title="Go To Example.com">example.com</a></p>');
     });
 });
 
