@@ -23,7 +23,7 @@ The Markdown parser used on the forums at meh.com.
 - Supports native unicode emoji: 😄.
 - Supports ASCII smileys: :).
 
-## Supports turning URLs from many popular sites into HTML embeds:
+## Turns URLs from many popular sites into HTML embeds:
 
 - Image URLs are converted to images.
 - imgur GIFV URLs are converted to high quality looping GIF videos.
