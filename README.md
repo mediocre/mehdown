@@ -27,3 +27,7 @@ The Markdown parser used on the forums at meh.com.
 - Vimeo URLs are converted to video players.
 - Vine URLs are converted to video players.
 - YouTube URLs are converted to video players.
+
+## Supports /commands:
+
+- `/shrug`

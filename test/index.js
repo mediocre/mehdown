@@ -168,3 +168,14 @@ describe('strikethrough', function() {
         });
     });
 });
+
+describe('commands', function() {
+    describe('/shrug', function() {
+        it('/shrug', function(done) {
+            mehdown.render('/shrug', function(err, html) {
+                assert.equal(html, '<p>/shrug<br />\n<code>¯\\_(ツ)_/¯</code></p>');
+                done();
+            });
+        });
+    });
+});

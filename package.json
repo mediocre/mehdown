@@ -1,5 +1,6 @@
 {
     "dependencies": {
+        "async": "1.5.x",
         "markdown-it": "6.0.x",
         "slug": "0.9.x"
     },
