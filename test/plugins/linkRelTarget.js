@@ -32,7 +32,7 @@ describe('linksRelTarget', function() {
     });
 
     it('should not set rel attribute to "nofollow" and target attribute to "_blank" for a baseUrl with an IP address and port', function(done) {
-        mehdown.render('[path](http://127.0.0.1:8000/path)', { baseUrl: 'http://127.0.0.1:8000'}, function(err, html) {
+        mehdown.render('[path](http://127.0.0.1:8000/path)', { baseUrl: 'http://127.0.0.1:8000' }, function(err, html) {
             assert.equal(html, '<p><a href="http://127.0.0.1:8000/path">path</a></p>');
             done();
         });
