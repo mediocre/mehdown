@@ -151,6 +151,13 @@ describe('newlines', function() {
             done();
         });
     });
+
+    it('<blockquote>', function(done) {
+        mehdown.render('> \'cause i broke my flippin\' hand yesterday playing racquetball, that\'s\n> why, and if any of you capitalization thought police give me any\n> flames about it, or if i get one lousy letter telling me how YOU were\n> able to hit the shift key with your nose, i\'m gonna get you, YOU\n> TURKEYS!!!\n> I\'M GONNA WRITE YOUR MOTHERS!!!\n> I\'M GONNA PUNCH OUT YOUR SISTERS!!!!\n> I\'M GONNA GET YOU IF IT TAKES ME FOREVER!!!', function(err, html) {
+            assert.equal(html, '<blockquote>\n<p>‘cause i broke my flippin’ hand yesterday playing racquetball, that’s<br />\nwhy, and if any of you capitalization thought police give me any<br />\nflames about it, or if i get one lousy letter telling me how YOU were<br />\nable to hit the shift key with your nose, i’m gonna get you, YOU<br />\nTURKEYS!!!<br />\nI’M GONNA WRITE YOUR MOTHERS!!!<br />\nI’M GONNA PUNCH OUT YOUR SISTERS!!!<br />\nI’M GONNA GET YOU IF IT TAKES ME FOREVER!!!</p>\n</blockquote>');
+            done();
+        });
+    });
 });
 
 describe('strikethrough', function() {
@@ -196,37 +203,5 @@ describe.skip('headers', function() {
     it('handle header with other tags inside', function() {
         var text = mehdown.parse('<h1><strong>bold</strong></h1>');
         assert.equal(text, '<h1 id="bold"><strong>bold</strong></h1>');
-    });
-});
-
-describe.skip('YouTube URLs', function() {
-    it('http://www.youtube.com/watch?v=kU9MuM4lP18', function() {
-        var text = mehdown.parse('<p><a href="http://www.youtube.com/watch?v=kU9MuM4lP18">http://www.youtube.com/watch?v=kU9MuM4lP18</a></p>');
-        assert.equal(text, '<p><iframe allowfullscreen class="youtube" frameborder="0" src="https://www.youtube.com/embed/kU9MuM4lP18?autohide=1&color=white&showinfo=0&theme=light"></iframe></p>');
-    });
-
-    it('http://www.youtube.com/watch?v=kU9MuM4lP18 http://www.youtube.com/watch?v=eGDBR2L5kzI', function() {
-        var text = mehdown.parse('<p><a href="http://www.youtube.com/watch?v=kU9MuM4lP18">http://www.youtube.com/watch?v=kU9MuM4lP18</a><br /><a href="http://www.youtube.com/watch?v=eGDBR2L5kzI">http://www.youtube.com/watch?v=eGDBR2L5kzI</a></p>');
-        assert.equal(text, '<p><iframe allowfullscreen class="youtube" frameborder="0" src="https://www.youtube.com/embed/kU9MuM4lP18?autohide=1&color=white&showinfo=0&theme=light"></iframe><br /><iframe allowfullscreen class="youtube" frameborder="0" src="https://www.youtube.com/embed/eGDBR2L5kzI?autohide=1&color=white&showinfo=0&theme=light"></iframe></p>');
-    });
-
-    it('http://www.youtube.com/watch?feature=player_embedded&v=zIEIvi2MuEk', function() {
-        var text = mehdown.parse('<p><a href="http://www.youtube.com/watch?feature=player_embedded&v=zIEIvi2MuEk">http://www.youtube.com/watch?feature=player_embedded&v=zIEIvi2MuEk</a></p>');
-        assert.equal(text, '<p><iframe allowfullscreen class="youtube" frameborder="0" src="https://www.youtube.com/embed/zIEIvi2MuEk?autohide=1&color=white&showinfo=0&theme=light"></iframe></p>');
-    });
-
-    it('`&amp;` instead of `&` in URL', function() {
-        var text = mehdown.parse('<p><a href="http://www.youtube.com/watch?feature=player_embedded&amp;v=zIEIvi2MuEk">http://www.youtube.com/watch?feature=player_embedded&amp;v=zIEIvi2MuEk</a></p>');
-        assert.equal(text, '<p><iframe allowfullscreen class="youtube" frameborder="0" src="https://www.youtube.com/embed/zIEIvi2MuEk?autohide=1&color=white&showinfo=0&theme=light"></iframe></p>');
-    });
-
-    it('http://www.youtube.com/watch?v=kU9MuM4lP18&start=10', function() {
-        var text = mehdown.parse('<p><a href="http://www.youtube.com/watch?v=kU9MuM4lP18&start=10">http://www.youtube.com/watch?v=kU9MuM4lP18&start=10</a></p>');
-        assert.equal(text, '<p><iframe allowfullscreen class="youtube" frameborder="0" src="https://www.youtube.com/embed/kU9MuM4lP18?autohide=1&color=white&showinfo=0&theme=light&start=10"></iframe></p>');
-    });
-
-    it('http://www.youtube.com/watch?v=kU9MuM4lP18&amp;start=10', function() {
-        var text = mehdown.parse('<p><a href="http://www.youtube.com/watch?v=kU9MuM4lP18&amp;start=10">http://www.youtube.com/watch?v=kU9MuM4lP18&amp;start=10</a></p>');
-        assert.equal(text, '<p><iframe allowfullscreen class="youtube" frameborder="0" src="https://www.youtube.com/embed/kU9MuM4lP18?autohide=1&color=white&showinfo=0&theme=light&start=10"></iframe></p>');
     });
 });
