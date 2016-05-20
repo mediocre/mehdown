@@ -1,5 +1,12 @@
 {
-    "description": "A post-processor for Markdown used on the forum @ mediocre laboratories: https://mediocre.com/forum",
+    "dependencies": {
+        "async": "1.5.x",
+        "emojione": "2.1.x",
+        "http-image-size": "1.1.x",
+        "markdown-it": "6.0.x",
+        "slug": "0.9.x"
+    },
+    "description": "The Markdown parser used on the forums at meh.com.",
     "devDependencies": {
         "mocha": "*"
     },
@@ -8,7 +15,7 @@
     "name": "mehdown",
     "repository": "git://github.com/mediocre/mehdown.git",
     "scripts": {
-        "test": "mocha --reporter spec"
+        "test": "mocha --reporter spec test/*"
     },
-    "version": "1.11.5"
+    "version": "2.0.0"
 }

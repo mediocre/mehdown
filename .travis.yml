@@ -1,8 +1,18 @@
+addons:
+  apt:
+    sources:
+      - ubuntu-toolchain-r-test
+    packages:
+      - g++-4.8
+
 before_script:
   - npm i -g eslint
   - eslint .
 
+env:
+  - CXX=g++-4.8
+
 language: node_js
 
 node_js:
-  - 6.1.0
+  - 6.2.0

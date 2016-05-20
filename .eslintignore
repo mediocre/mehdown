@@ -1,1 +1,2 @@
-WebRole/node_modules/*
+node_modules/*
+lib/index-1.0.js

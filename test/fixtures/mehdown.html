@@ -1,0 +1,50 @@
+<h1 id="mehdown">mehdown</h1>
+<p>The Markdown parser used on the forums at <a href="http://meh.com">meh.com</a>.</p>
+<h2 id="adds-the-following-features-to-markdown">Adds the following features to Markdown:</h2>
+<p>Converts URL-like text to links: <a href="https://meh.com">https://meh.com</a><br />
+Converts image URLs to images: <img height="128" src="https://res.cloudinary.com/mediocre/image/upload/Meh36Faces128px_01_t366di.png" width="128" /><br />
+Optionally detects image sizes.<br />
+External links open in a new browser tab/window: <a href="https://www.woot.com" rel="nofollow" target="_blank">https://www.woot.com</a><br />
+Automatic detection of <code>@usernames</code>: <a href="https://meh.com/@shawn">@shawn</a><br />
+Support for <a href="https://help.github.com/articles/organizing-information-with-tables/" rel="nofollow" target="_blank">tables in GitHub Flavored Markdown syntax</a>.<br />
+Typographic replacements for <code>(c) (r) (tm) (p) +- ... !!! ??? --</code>: <img class="emojione" title=":copyright:" height="64" src="http://cdn.jsdelivr.net/emojione/assets/png/00a9.png?v=2.1.4" width="64"/> <img class="emojione" title=":registered:" height="64" src="http://cdn.jsdelivr.net/emojione/assets/png/00ae.png?v=2.1.4" width="64"/> <img class="emojione" title=":tm:" height="64" src="http://cdn.jsdelivr.net/emojione/assets/png/2122.png?v=2.1.4" width="64"/> § ± … !!! ??? –<br />
+“Smartypants, double quotes” and ‘single quotes’<br />
+Support for strikethrough using the <code>~~strikethrough~~</code> syntax: <s>strikethrough</s><br />
+Support for adding anchors to headers.<br />
+Better linebreak/newline support.</p>
+<h2 id="emoji">Emoji</h2>
+<ul>
+<li>Supports common emoji :shortnames: <img class="emojione" title=":heart:" height="64" src="http://cdn.jsdelivr.net/emojione/assets/png/2764.png?v=2.1.4" width="64"/>.</li>
+<li>Supports native unicode emoji: <img class="emojione" title=":smile:" height="64" src="http://cdn.jsdelivr.net/emojione/assets/png/1f604.png?v=2.1.4" width="64"/>.</li>
+<li>Supports ASCII smileys: <img class="emojione" title=":)" height="64" src="http://cdn.jsdelivr.net/emojione/assets/png/1f642.png?v=2.1.4" width="64"/></li>
+</ul>
+<h2 id="supports-turning-urls-from-many-popular-sites-into-html-embeds">Supports turning URLs from many popular sites into HTML embeds:</h2>
+<p>Image URLs are converted to images.<br />
+<img height="128" src="https://res.cloudinary.com/mediocre/image/upload/Meh36Faces128px_01_t366di.png" width="128" /></p>
+<p>imgur GIFV URLs are converted to high quality looping GIF videos.<br />
+<div class="imgur-gifv"><video autoplay loop muted><source type="video/webm" src="https://i.imgur.com/zvATqgs.webm" /><source type="video/mp4" src="https://i.imgur.com/zvATqgs.mp4" /></video></div></p>
+<p>Kickstarter URLs are converted to campaign previews.<br />
+<iframe class="kickstarter" frameborder="0" scrolling="no" src="https://www.kickstarter.com/projects/1270124222/crossing-paths-film-photography-documentary/widget/card.html"></iframe></p>
+<p>Reddit permalink URLs are converted to embeddable comment threads.<br />
+<div class="reddit-embed" data-embed-media="www.redditmedia.com" data-embed-live="true"><a href="https://www.reddit.com/r/ProgrammerHumor/comments/30lhaf/mehcom_api_url_poking_at_steve_balmer/cptizym">https://www.reddit.com/r/ProgrammerHumor/comments/30lhaf/mehcom_api_url_poking_at_steve_balmer/cptizym</a></div><script async src="https://www.redditstatic.com/comment-embed.js"></script></p>
+<p>SoundCloud URLs are converted to audio players.<br />
+<iframe class="soundcloud" frameborder="0" src="https://w.soundcloud.com/player/?visual=true&url=https%3A%2F%2Fsoundcloud.com%2Fshawnmichaelmiller%2Fsanta-claus-is-coming-to-town"></iframe></p>
+<p>Twitter status URLs are converted to embeddable tweets.<br />
+<blockquote class="twitter-tweet" lang="en"><a href="https://twitter.com/mediocrelabs/status/410516133955907584"></a></blockquote><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script></p>
+<p>Vimeo URLs are converted to video players.<br />
+<iframe allowfullscreen class="vimeo" frameborder="0" src="https://player.vimeo.com/video/78950165"></iframe></p>
+<p>Vine URLs are converted to video players.<br />
+<iframe allowfullscreen class="vine" frameborder="0" src="https://vine.co/v/hWZ9mbJZaKE/embed/simple"></iframe></p>
+<p>YouTube URLs are converted to video players.<br />
+<iframe allowfullscreen class="youtube" frameborder="0" src="https://www.youtube.com/embed/kU9MuM4lP18?autohide=1&color=white&showinfo=0&theme=light&end=20&start=10"></iframe></p>
+<h2 id="supports-commands">Supports /commands:</h2>
+<ul>
+<li><code>/shrug</code></li>
+</ul>
+<h2 id="usage">Usage</h2>
+<pre><code>var mehdown = require('mehdown');
+
+mehdown.render('markdown text here', { commands: true, detectImageSizes: false }, function(err, html) {
+    console.log(html);
+});
+</code></pre>
