@@ -17,6 +17,12 @@ The Markdown parser used on the forums at meh.com.
 - Support for adding anchors to headers.
 - Better linebreak/newline support.
 
+## Emoji
+
+- Supports common emoji :shortnames:.
+- Supports native unicode emoji: 😄.
+- Supports ASCII smileys: :).
+
 ## Supports turning URLs from many popular sites into HTML embeds:
 
 - Image URLs are converted to images.

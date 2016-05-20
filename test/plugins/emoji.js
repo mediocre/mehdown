@@ -23,4 +23,11 @@ describe('emoji', function() {
             done();
         });
     });
+
+    it('ASCII smileys', function(done) {
+        mehdown.render(':)', function(err, html) {
+            assert.equal(html, '<p><img class="emojione" title=":)" src="https://cdn.jsdelivr.net/emojione/assets/png/1f642.png?v=2.1.4"/></p>');
+            done();
+        });
+    });
 });
