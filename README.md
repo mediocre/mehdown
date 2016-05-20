@@ -44,7 +44,7 @@ The Markdown parser used on the forums at meh.com.
 ```
 var mehdown = require('mehdown');
 
-mehdown.render('markdown text here', { commands: true, detectImageSizes: false }, function(err, html) {
+mehdown.render('markdown text here', { baseUrl: 'https://meh.com', commands: true, detectImageSizes: false }, function(err, html) {
     console.log(html);
 });
 ```
