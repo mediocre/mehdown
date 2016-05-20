@@ -2,6 +2,17 @@ const assert = require('assert');
 
 const mehdown = require('../lib');
 
+describe('commands', function() {
+    describe('/shrug', function() {
+        it('/shrug', function(done) {
+            mehdown.render('/shrug', function(err, html) {
+                assert.equal(html, '<p>/shrug<br />\n<code>¯\\_(ツ)_/¯</code></p>');
+                done();
+            });
+        });
+    });
+});
+
 describe('email', function() {
     it('email address', function(done) {
         mehdown.render('email me at whatever@somewhere.com if you are not a meanie.', function(err, html) {
@@ -14,6 +25,34 @@ describe('email', function() {
     it('email addresses with periods should be linked correctly', function(done) {
         mehdown.render('firstname.lastname@example.com', function(err, html) {
             assert.equal(html, '<p><a href="mailto:firstname.lastname@example.com">firstname.lastname@example.com</a></p>');
+            done();
+        });
+    });
+});
+
+describe('html', function() {
+    describe('convertToLazyLoadedImages', function() {
+        it('images', function(done) {
+            var html = '<p><img height="528" src="https://res.cloudinary.com/mediocre/image/upload/kekjvvhpkxh0v8x9o6u7.png" width="528" /> <img height="250" src="https://i.imgur.com/8peBgQn.png" width="300" /> <img height="528" src="https://res.cloudinary.com/mediocre/image/upload/kekjvvhpkxh0v8x9o6u7.png" width="528" /></p>';
+            html = mehdown.html.convertToLazyLoadedImages(html);
+
+            assert.equal(html, '<p><img data-height="528" src="data:image/gif;base64,R0lGODlhAQABAIABAP///wAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="https://res.cloudinary.com/mediocre/image/upload/kekjvvhpkxh0v8x9o6u7.png" data-width="528" /> <img data-height="250" src="data:image/gif;base64,R0lGODlhAQABAIABAP///wAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="https://i.imgur.com/8peBgQn.png" data-width="300" /> <img data-height="528" src="data:image/gif;base64,R0lGODlhAQABAIABAP///wAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="https://res.cloudinary.com/mediocre/image/upload/kekjvvhpkxh0v8x9o6u7.png" data-width="528" /></p>');
+            done();
+        });
+
+        it('broken image', function(done) {
+            var html = '<p><img src="http://example.com/404.png" /></p>';
+            html = mehdown.html.convertToLazyLoadedImages(html);
+
+            assert.equal(html, '<p><img src="http://example.com/404.png" /></p>');
+            done();
+        });
+
+        it('image from editor', function(done) {
+            var html = '<p><img height="528" src="https://res.cloudinary.com/mediocre/image/upload/kekjvvhpkxh0v8x9o6u7.png" width="528" alt="enter image description here" title="optional title" /></p>';
+            html = mehdown.html.convertToLazyLoadedImages(html);
+
+            assert.equal(html, '<p><img data-height="528" src="data:image/gif;base64,R0lGODlhAQABAIABAP///wAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="https://res.cloudinary.com/mediocre/image/upload/kekjvvhpkxh0v8x9o6u7.png" data-width="528" alt="enter image description here" title="optional title" /></p>');
             done();
         });
     });
@@ -165,17 +204,6 @@ describe('strikethrough', function() {
         mehdown.render('~~strikethrough~~', function(err, html) {
             assert.equal(html, '<p><s>strikethrough</s></p>');
             done();
-        });
-    });
-});
-
-describe('commands', function() {
-    describe('/shrug', function() {
-        it('/shrug', function(done) {
-            mehdown.render('/shrug', function(err, html) {
-                assert.equal(html, '<p>/shrug<br />\n<code>¯\\_(ツ)_/¯</code></p>');
-                done();
-            });
         });
     });
 });
