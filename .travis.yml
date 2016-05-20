@@ -16,3 +16,5 @@ language: node_js
 
 node_js:
   - 6.2.0
+
+sudo: false
