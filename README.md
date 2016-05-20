@@ -3,7 +3,7 @@ mehdown
 
 The Markdown parser used on the forums at meh.com.
 
-## It adds the following features to Markdown:
+## Adds the following features to Markdown:
 
 - Converts URL-like text to links.
 - Converts image URLs to images.
@@ -16,7 +16,7 @@ The Markdown parser used on the forums at meh.com.
 - Support for adding anchors to headers.
 - Better linebreak/newline support.
 
-## It also supports turning URLs from many popular sites into HTML embeds:
+## Supports turning URLs from many popular sites into HTML embeds:
 
 - Image URLs are converted to images.
 - imgur GIFV URLs are converted to high quality looping GIF videos.
