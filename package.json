@@ -3,7 +3,7 @@
         "markdown-it": "6.0.x",
         "slug": "0.9.x"
     },
-    "description": "A post-processor for Markdown used on the forum @ mediocre laboratories: https://mediocre.com/forum",
+    "description": "The Markdown parser used on the forums at meh.com.",
     "devDependencies": {
         "mocha": "*"
     },
