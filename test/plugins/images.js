@@ -44,4 +44,11 @@ describe('images', function() {
             done();
         });
     });
+
+    it('http://cl.ly/image/0w251W2U1f1Q/Screen%20Shot%202014-06-16%20at%201.26.25%20PM.png', function(done) {
+        mehdown.render('http://cl.ly/image/0w251W2U1f1Q/Screen%20Shot%202014-06-16%20at%201.26.25%20PM.png', function(err, html) {
+            assert.equal(html, '<p><img src="http://cl.ly/image/0w251W2U1f1Q/Screen%20Shot%202014-06-16%20at%201.26.25%20PM.png" /></p>');
+            done();
+        });
+    });
 });

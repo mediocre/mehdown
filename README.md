@@ -7,6 +7,7 @@ The Markdown parser used on the forums at meh.com.
 
 - Converts URL-like text to links.
 - Converts image URLs to images.
+- Optionally detects image sizes.
 - External links open in a new browser tab/window.
 - Automatic detection of `@usernames`.
 - Support for [tables in GitHub Flavored Markdown syntax](https://help.github.com/articles/organizing-information-with-tables/).
@@ -31,3 +32,13 @@ The Markdown parser used on the forums at meh.com.
 ## Supports /commands:
 
 - `/shrug`
+
+## Usage
+
+```
+var mehdown = require('mehdown');
+
+mehdown.render('markdown text here', { commands: true, detectImageSizes: false }, function(err, html) {
+    console.log(html);
+});
+```
