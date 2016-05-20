@@ -8,6 +8,7 @@ addons:
 before_script:
   - npm i -g eslint
   - eslint .
+
 env:
   - CXX=g++-4.8
 
