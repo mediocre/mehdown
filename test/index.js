@@ -268,3 +268,30 @@ describe('strikethrough', function() {
         });
     });
 });
+
+describe('mehdown.youTubeEmbedHtml', function() {
+    it('http://www.youtube.com/watch?v=kU9MuM4lP18', function() {
+        var html = mehdown.youTubeEmbedHtml('http://www.youtube.com/watch?v=kU9MuM4lP18');
+        assert.equal(html, '<iframe allowfullscreen class="youtube" frameborder="0" src="https://www.youtube.com/embed/kU9MuM4lP18?autohide=1&color=white&showinfo=0&theme=light"></iframe>');
+    });
+
+    it('http://www.youtube.com/watch?feature=player_embedded&v=zIEIvi2MuEk', function() {
+        var html = mehdown.youTubeEmbedHtml('http://www.youtube.com/watch?feature=player_embedded&v=zIEIvi2MuEk');
+        assert.equal(html, '<iframe allowfullscreen class="youtube" frameborder="0" src="https://www.youtube.com/embed/zIEIvi2MuEk?autohide=1&color=white&showinfo=0&theme=light"></iframe>');
+    });
+
+    it('`&amp;` instead of `&` in URL', function() {
+        var html = mehdown.youTubeEmbedHtml('http://www.youtube.com/watch?feature=player_embedded&amp;v=zIEIvi2MuEk');
+        assert.equal(html, '<iframe allowfullscreen class="youtube" frameborder="0" src="https://www.youtube.com/embed/zIEIvi2MuEk?autohide=1&color=white&showinfo=0&theme=light"></iframe>');
+    });
+
+    it('http://www.youtube.com/watch?v=kU9MuM4lP18&start=10', function() {
+        var html = mehdown.youTubeEmbedHtml('http://www.youtube.com/watch?v=kU9MuM4lP18&start=10');
+        assert.equal(html, '<iframe allowfullscreen class="youtube" frameborder="0" src="https://www.youtube.com/embed/kU9MuM4lP18?autohide=1&color=white&showinfo=0&theme=light&start=10"></iframe>');
+    });
+
+    it('http://www.youtube.com/watch?v=kU9MuM4lP18&start=10&end=20', function() {
+        var html = mehdown.youTubeEmbedHtml('http://www.youtube.com/watch?v=kU9MuM4lP18&start=10&end=20');
+        assert.equal(html, '<iframe allowfullscreen class="youtube" frameborder="0" src="https://www.youtube.com/embed/kU9MuM4lP18?autohide=1&color=white&showinfo=0&theme=light&end=20&start=10"></iframe>');
+    });
+});
