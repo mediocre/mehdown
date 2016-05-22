@@ -295,3 +295,12 @@ describe('mehdown.youTubeEmbedHtml', function() {
         assert.equal(html, '<iframe allowfullscreen class="youtube" frameborder="0" src="https://www.youtube.com/embed/kU9MuM4lP18?autohide=1&color=white&showinfo=0&theme=light&end=20&start=10"></iframe>');
     });
 });
+
+describe('security', function() {
+    it('<script>alert("hello world")</script>', function(done) {
+        mehdown.render('<script>alert("hello world");</script>', function(err, html) {
+            assert.equal(html, '<p>&lt;script&gt;alert(“hello world”);&lt;/script&gt;</p>');
+            done();
+        });
+    });
+});
