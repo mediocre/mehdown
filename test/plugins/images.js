@@ -51,4 +51,11 @@ describe('images', function() {
             done();
         });
     });
+
+    it('should not render image tags for image URLs in Markdown URL syntax', function(done) {
+        mehdown.render('[Fold out back](https://res.cloudinary.com/mediocre/image/upload/v1463770987/poaddeitz7s97sz47s7z.jpg)', function(err, html) {
+            assert.equal(html, '<p><a href="https://res.cloudinary.com/mediocre/image/upload/v1463770987/poaddeitz7s97sz47s7z.jpg">Fold out back</a></p>');
+            done();
+        });
+    });
 });
