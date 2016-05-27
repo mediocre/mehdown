@@ -2,7 +2,7 @@ const assert = require('assert');
 
 const mehdown = require('../lib');
 
-describe.only('bbcode', function() {
+describe('bbcode', function() {
     it('[b]', function(done) {
         mehdown.render('I would like to [b]emphasize[/b] this', function(err, html) {
             assert.equal(html, '<p>I would like to <strong>emphasize</strong> this</p>');
