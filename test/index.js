@@ -72,6 +72,13 @@ describe.only('bbcode', function() {
             done();
         });
     });
+
+    it('[youtube]', function(done) {
+        mehdown.render('[youtube]kU9MuM4lP18[/youtube]', function(err, html) {
+            assert.equal(html, '<p><iframe allowfullscreen class="youtube" frameborder="0" src="https://www.youtube.com/embed/kU9MuM4lP18?autohide=1&color=white&showinfo=0&theme=light"></iframe></p>');
+            done();
+        });
+    });
 });
 
 describe('commands', function() {
