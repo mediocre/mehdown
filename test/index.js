@@ -2,6 +2,64 @@ const assert = require('assert');
 
 const mehdown = require('../lib');
 
+describe.only('bbcode', function() {
+    it('[b]', function(done) {
+        mehdown.render('I would like to [b]emphasize[/b] this', function(err, html) {
+            assert.equal(html, '<p>I would like to <strong>emphasize</strong> this</p>');
+            done();
+        });
+    });
+
+    it('[i]', function(done) {
+        mehdown.render('Making text [i]italic[/i] italic is kind of easy', function(err, html) {
+            assert.equal(html, '<p>Making text <em>italic</em> italic is kind of easy</p>');
+            done();
+        });
+    });
+
+    it('[img]', function(done) {
+        mehdown.render('[img]http://www.bbcode.org/images/lubeck_small.jpg[/img]', function(err, html) {
+            assert.equal(html, '<p><img src="http://www.bbcode.org/images/lubeck_small.jpg" alt="" /></p>');
+            done();
+        });
+    });
+
+    it('[quote]', function(done) {
+        mehdown.render('[quote]\'Tis be a bad day[/quote]', function(err, html) {
+            assert.equal(html, '<blockquote>\n<p>\'Tis be a bad day</p>\n</blockquote>');
+            done();
+        });
+    });
+
+    it('[quote]', function(done) {
+        mehdown.render('[quote=Bjarne]This be the day of days![/quote]', function(err, html) {
+            assert.equal(html, '<blockquote>\n<p><a href="/@Bjarne">@Bjarne</a> wrote: This be the day of days!</p>\n</blockquote>');
+            done();
+        });
+    });
+
+    it('[s]', function(done) {
+        mehdown.render('I [s]had been[/s] was born in Denmark', function(err, html) {
+            assert.equal(html, '<p>I <s>had been</s> was born in Denmark</p>');
+            done();
+        });
+    });
+
+    it('[url]', function(done) {
+        mehdown.render('[url]http://www.bbcode.org/[/url]', function(err, html) {
+            assert.equal(html, '<p><img src="http://www.bbcode.org/images/lubeck_small.jpg" alt="" /></p>');
+            done();
+        });
+    });
+
+    it('[url]', function(done) {
+        mehdown.render('[url=http://www.bbcode.org/]This be bbcode.org![/url]', function(err, html) {
+            assert.equal(html, '<p><a href="http://www.bbcode.org/">This be bbcode.org!</a></p>');
+            done();
+        });
+    });
+});
+
 describe('commands', function() {
     describe('/giphy', function() {
         this.timeout(10000);
