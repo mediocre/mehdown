@@ -39,6 +39,10 @@ The Markdown parser used on the forums at meh.com.
 
 - `/shrug`
 
+## Supports a subset of BBCode tags
+
+- `[b], [code], [i], [img], [quote], [s], [url], [youtube]`
+
 ## Usage
 
 ```
