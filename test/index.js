@@ -38,8 +38,15 @@ describe.only('bbcode', function() {
         });
     });
 
-    it('[quote]', function(done) {
+    it('[quote=Bjarne]', function(done) {
         mehdown.render('[quote=Bjarne]This be the day of days![/quote]', function(err, html) {
+            assert.equal(html, '<blockquote>\n<p><a href="/@Bjarne">@Bjarne</a> wrote: This be the day of days!</p>\n</blockquote>');
+            done();
+        });
+    });
+
+    it('[quote=@Bjarne]', function(done) {
+        mehdown.render('[quote=@Bjarne]This be the day of days![/quote]', function(err, html) {
             assert.equal(html, '<blockquote>\n<p><a href="/@Bjarne">@Bjarne</a> wrote: This be the day of days!</p>\n</blockquote>');
             done();
         });
