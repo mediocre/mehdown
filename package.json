@@ -4,6 +4,7 @@
         "emojione": "2.1.x",
         "http-image-size": "1.1.x",
         "markdown-it": "6.0.x",
+        "nodebb-plugin-bbcode-to-markdown": "0.1.x",
         "request": "2.72.x",
         "slug": "0.9.x"
     },
