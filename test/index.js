@@ -61,7 +61,7 @@ describe.only('bbcode', function() {
 
     it('[url]', function(done) {
         mehdown.render('[url]http://www.bbcode.org/[/url]', function(err, html) {
-            assert.equal(html, '<p><img src="http://www.bbcode.org/images/lubeck_small.jpg" alt="" /></p>');
+            assert.equal(html, '<p><a href="http://www.bbcode.org/">http://www.bbcode.org/</a></p>');
             done();
         });
     });
