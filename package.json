@@ -4,6 +4,7 @@
         "emojione": "2.1.x",
         "http-image-size": "1.1.x",
         "markdown-it": "6.0.x",
+        "request": "2.72.x",
         "slug": "0.9.x"
     },
     "description": "The Markdown parser used on the forums at meh.com.",
@@ -17,5 +18,5 @@
     "scripts": {
         "test": "mocha --reporter spec test/*"
     },
-    "version": "2.0.5"
+    "version": "2.0.6"
 }

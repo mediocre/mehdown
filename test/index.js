@@ -3,6 +3,20 @@ const assert = require('assert');
 const mehdown = require('../lib');
 
 describe('commands', function() {
+    describe('/giphy', function() {
+        this.timeout(10000);
+
+        it('/giphy meh', function(done) {
+            var markdown = '/giphy meh';
+
+            mehdown.render(markdown, function(err, html) {
+                assert.notEqual(html, '<p>/giphy meh</p>');
+                assert.notEqual(html.indexOf('http'), -1);
+                done();
+            });
+        });
+    });
+
     describe('/shrug', function() {
         it('/shrug', function(done) {
             mehdown.render('/shrug', function(err, html) {
