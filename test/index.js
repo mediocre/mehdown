@@ -10,6 +10,13 @@ describe.only('bbcode', function() {
         });
     });
 
+    it('[code]', function(done) {
+        mehdown.render('[code]\n\t01  01  andndnd.\n\t\t05  andnd pic x.\n\t\t05  andne pic x.\n[/code]', function(err, html) {
+            assert.equal(html, '<pre><code>\n\t01  01  andndnd.\n\t\t05  andnd pic x.\n\t\t05  andne pic x.\n\n</code></pre>');
+            done();
+        });
+    });
+
     it('[i]', function(done) {
         mehdown.render('Making text [i]italic[/i] italic is kind of easy', function(err, html) {
             assert.equal(html, '<p>Making text <em>italic</em> italic is kind of easy</p>');
