@@ -93,11 +93,11 @@ describe('commands', function() {
             });
         });
 
-        it.only('lorem ipsum\n@username1 @username2 /giphy hello world\nfoo bar\n/giphy meh\n/giphy meh', function(done) {
-            mehdown.render('lorem ipsum\n@username1 @username2 /giphy hello world\nfoo bar\n/giphy meh\n/giphy meh', function(err, html) {
+        it('lorem ipsum\n/giphy first\nfoo bar\n/giphy second third\n@username /giphy fourth\nhey @username /giphy fifth\nthis is not a command `/giphy sixth`', function(done) {
+            mehdown.render('lorem ipsum\n/giphy first\nfoo bar\n/giphy second third\n@username /giphy fourth\nhey @username /giphy fifth\nthis is not a command `/giphy sixth`', function(err, html) {
                 assert.notEqual(html.indexOf('lorem ipsum'), -1);
-                assert.notEqual(html.indexOf('<a href="/@username1">@username1</a> <a href="/@username2">@username2</a>'), -1);
-                assert.equal(html.match(/<img/g).length, 3);
+                assert.notEqual(html.indexOf('foo bar'), -1);
+                assert.equal(html.match(/<img/g).length, 4);
                 done();
             });
         });
@@ -106,7 +106,7 @@ describe('commands', function() {
     describe('/shrug', function() {
         it('/shrug', function(done) {
             mehdown.render('/shrug', function(err, html) {
-                assert.equal(html, '<p>/shrug<br />\n<code>¯\\_(ツ)_/¯</code></p>');
+                assert.equal(html, '<p>¯\\\_(ツ)\_/¯</p>');
                 done();
             });
         });
