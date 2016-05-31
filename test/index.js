@@ -86,11 +86,16 @@ describe('commands', function() {
         this.timeout(10000);
 
         it('/giphy meh', function(done) {
-            var markdown = '/giphy meh';
-
-            mehdown.render(markdown, function(err, html) {
+            mehdown.render('/giphy meh', function(err, html) {
                 assert.notEqual(html, '<p>/giphy meh</p>');
                 assert.notEqual(html.indexOf('http'), -1);
+                done();
+            });
+        });
+
+        it.only('@username1 @username2 /giphy hello world\nfoo bar\n/giphy meh\n/giphy meh', function(done) {
+            mehdown.render('@username1 @username2 /giphy hello world\nfoo bar\n/giphy meh\n/giphy meh', function(err, html) {
+                assert.equal(html.match('<img').length, 3);
                 done();
             });
         });
