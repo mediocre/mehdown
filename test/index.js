@@ -93,10 +93,10 @@ describe('commands', function() {
             });
         });
 
-        it.only('lorem ipsum\n@username1 @username2 /giphy hello world\nfoo bar\n/giphy meh\n/giphy meh', function(done) {
-            mehdown.render('@username1 @username2 /giphy hello world\nfoo bar\n/giphy meh\n/giphy meh', function(err, html) {
+        it('lorem ipsum\nHey @username1 @username2 /giphy hello world\nfoo bar\n/giphy meh\n/giphy meh', function(done) {
+            mehdown.render('lorem ipsum\nHey @username1 @username2 /giphy hello world\nfoo bar\n/giphy meh\n/giphy meh', function(err, html) {
                 assert.notEqual(html.indexOf('lorem ipsum'), -1);
-                assert.notEqual(html.indexOf('<a href="/@username1">@username1</a> <a href="/@username2">@username2</a>'), -1);
+                assert.notEqual(html.indexOf('Hey <a href="/@username1">@username1</a> <a href="/@username2">@username2</a>'), -1);
                 assert.equal(html.match(/<img/g).length, 3);
                 done();
             });
