@@ -95,6 +95,7 @@ describe('commands', function() {
 
         it.only('@username1 @username2 /giphy hello world\nfoo bar\n/giphy meh\n/giphy meh', function(done) {
             mehdown.render('@username1 @username2 /giphy hello world\nfoo bar\n/giphy meh\n/giphy meh', function(err, html) {
+                console.log(html);
                 assert.equal(html.match('<img').length, 3);
                 done();
             });
