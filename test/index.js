@@ -97,7 +97,7 @@ describe('commands', function() {
             mehdown.render('lorem ipsum\n/giphy first\nfoo bar\n/giphy second third\n@username /giphy fourth\nhey @username /giphy fifth\nthis is not a command `/giphy sixth`', function(err, html) {
                 assert.notEqual(html.indexOf('lorem ipsum'), -1);
                 assert.notEqual(html.indexOf('foo bar'), -1);
-                assert.equal(html.match(/<img/g).length, 4);
+                assert.equal(html.match(/<img/g).length, 2);
                 done();
             });
         });
