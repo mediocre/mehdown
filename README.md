@@ -37,7 +37,8 @@ The Markdown parser used on the forums at meh.com.
 
 ## Supports /commands:
 
-- `/shrug`
+- `/giphy [text]` - Post a random GIF
+- `/shrug` - ¯\\\_(ツ)\_/¯
 
 ## Supports a subset of BBCode tags
 
