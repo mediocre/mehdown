@@ -94,28 +94,28 @@ describe('commands', function() {
 
         it('/cowsay -h', function(done) {
             mehdown.render('/cowsay -h', function(err, html) {
-                assert.notEqual(html.indexOf('<pre><code>Usage: /cowsay'), -1);
+                assert.notEqual(html.indexOf('<p>/cowsay -h</p>\n<pre><code>Usage: /cowsay'), -1);
                 done();
             });
         });
 
         it('/cowsay -help', function(done) {
             mehdown.render('/cowsay -help', function(err, html) {
-                assert.notEqual(html.indexOf('<pre><code>Usage: /cowsay'), -1);
+                assert.notEqual(html.indexOf('<p>/cowsay -help</p>\n<pre><code>Usage: /cowsay'), -1);
                 done();
             });
         });
 
         it('/cowsay --help', function(done) {
             mehdown.render('/cowsay --help', function(err, html) {
-                assert.notEqual(html.indexOf('<pre><code>Usage: /cowsay'), -1);
+                assert.notEqual(html.indexOf('<p>/cowsay --help</p>\n<pre><code>Usage: /cowsay'), -1);
                 done();
             });
         });
 
         it('/cowsay -l', function(done) {
             mehdown.render('/cowsay -l', function(err, html) {
-                assert.equal(html, '<p>/cowsay -l</p>\n<pre><code>beavis.zen bong bud-frogs bunny cheese cower daemon default doge dragon-and-cow dragon elephant-in-snake elephant eyes flaming-sheep ghostbusters head-in hedgehog hellokitty kiss kitty koala kosh luke-koala mech-and-cow meow milk moofasa moose mutilated ren satanic sheep skeleton small sodomized squirrel stegosaurus stimpy supermilker surgery telebears turkey turtle tux vader-koala vader www\n</code></pre>');
+                assert.equal(html, '<p>/cowsay -l</p>\n<pre><code>beavis.zen bong bud-frogs bunny cheese cower daemon default doge elephant-in-snake elephant eyes flaming-sheep ghostbusters goat head-in hedgehog hellokitty kiss kitty koala kosh luke-koala mech-and-cow meow milk moofasa moose mutilated ren satanic sheep skeleton small squirrel stimpy supermilker surgery telebears tux vader-koala vader www\n</code></pre>');
                 done();
             });
         });
