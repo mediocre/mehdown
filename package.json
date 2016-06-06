@@ -8,7 +8,8 @@
         "minimist": "1.2.x",
         "request": "2.72.x",
         "shell-quote": "1.6.0",
-        "slug": "0.9.x"
+        "slug": "0.9.x",
+        "youtube-search": "1.0.x"
     },
     "description": "The Markdown parser used on the forums at meh.com.",
     "devDependencies": {
@@ -21,5 +22,5 @@
     "scripts": {
         "test": "mocha --reporter spec test/*"
     },
-    "version": "2.2.2"
+    "version": "2.3.0"
 }
