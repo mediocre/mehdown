@@ -82,6 +82,31 @@ describe('bbcode', function() {
 });
 
 describe('commands', function() {
+    describe('/cowsay', function() {
+        this.timeout(10000);
+
+        it('/cowsay moo', function(done) {
+            mehdown.render('/cowsay -b', function(err, html) {
+                assert.notEqual(html, '<p>/cowsay moo</p>');
+                done();
+            });
+        });
+
+        it('/cowsay -h', function(done) {
+            mehdown.render('/cowsay -h', function(err, html) {
+                assert.notEqual(html.indexOf('<pre><code>Usage: /cowsay'), -1);
+                done();
+            });
+        });
+
+        it('/cowsay -l', function(done) {
+            mehdown.render('/cowsay -l', function(err, html) {
+                assert.equal(html, '<p>/cowsay -l</p>\n<pre><code>beavis.zen bong bud-frogs bunny cheese cower daemon default doge dragon-and-cow dragon elephant-in-snake elephant eyes flaming-sheep ghostbusters head-in hedgehog hellokitty kiss kitty koala kosh luke-koala mech-and-cow meow milk moofasa moose mutilated ren satanic sheep skeleton small sodomized squirrel stegosaurus stimpy supermilker surgery telebears turkey turtle tux vader-koala vader www\n</code></pre>');
+                done();
+            });
+        });
+    });
+
     describe('/giphy', function() {
         this.timeout(10000);
 
