@@ -119,6 +119,20 @@ describe('commands', function() {
                 done();
             });
         });
+
+        it('/cowsay hello world?', function(done) {
+            mehdown.render('/cowsay hello world? || () <>', function(err, html) {
+                assert.equal(html.indexOf('[object Object]'), -1);
+                done();
+            });
+        });
+
+        it('/cowsay hello world?', function(done) {
+            mehdown.render('/cowsay "hello world? || ()"', function(err, html) {
+                assert.notEqual(html.indexOf('hello world? || ()'), -1);
+                done();
+            });
+        });
     });
 
     describe('/giphy', function() {
