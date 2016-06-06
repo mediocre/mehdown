@@ -37,6 +37,7 @@ The Markdown parser used on the forums at meh.com.
 
 ## Supports /commands:
 
+- `/cowsay [text] or [-h]` - [ASCII cow with a message](https://en.wikipedia.org/wiki/Cowsay)
 - `/giphy [text]` - Post a random GIF
 - `/shrug` - ¯\\\_(ツ)\_/¯
 
