@@ -196,6 +196,13 @@ describe('commands', function() {
                     done();
                 });
             });
+
+            it('/youtube simon\'s cat', function(done) {
+                mehdown.render('/youtube simon\'s cat', function(err, html) {
+                    assert.notEqual(html, '<a href="https://www.youtube.com/channel/UCH6vXjt-BA7QHl0KnfL-7RQ" rel="nofollow" target="_blank">https://www.youtube.com/channel/UCH6vXjt-BA7QHl0KnfL-7RQ</a>');
+                    done();
+                });
+            });
         }
     });
 });
