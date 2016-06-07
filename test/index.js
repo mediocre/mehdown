@@ -177,6 +177,13 @@ describe('commands', function() {
                 done();
             });
         });
+
+        it('/SHRUG', function(done) {
+            mehdown.render('/SHRUG', function(err, html) {
+                assert.equal(html, '<p>¯\\\_(ツ)_/¯</p>');
+                done();
+            });
+        });
     });
 
     describe('/youtube', function() {
