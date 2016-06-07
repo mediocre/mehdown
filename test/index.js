@@ -178,6 +178,19 @@ describe('commands', function() {
             });
         });
     });
+
+    describe('/youtube', function() {
+        this.timeout(10000);
+
+        if (process.env.GOOGLE_API_KEY) {
+            it('/youtube Purple Reign', function(done) {
+                mehdown.render('/youtube Purple Reign', function(err, html) {
+                    assert.notEqual(html, '<p>/youtube Purple Reign</p>');
+                    done();
+                });
+            });
+        }
+    });
 });
 
 describe('detect image sizes', function() {
