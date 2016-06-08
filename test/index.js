@@ -156,6 +156,19 @@ describe('commands', function() {
         });
     });
 
+    describe('/image', function() {
+        this.timeout(10000);
+
+        if (process.env.GOOGLE_API_KEY) {
+            it('/image meh', function(done) {
+                mehdown.render('/image meh', function(err, html) {
+                    assert.notEqual(html, '<p>/image meh</p>');
+                    done();
+                });
+            });
+        }
+    });
+
     describe('/shrug', function() {
         it('/shrug', function(done) {
             mehdown.render('/shrug', function(err, html) {
