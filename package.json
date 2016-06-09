@@ -4,6 +4,7 @@
         "cowsay": "mediocre/cowsay",
         "emojione": "2.1.x",
         "http-image-size": "1.1.x",
+        "lunr": "0.7.x",
         "markdown-it": "6.0.x",
         "minimist": "1.2.x",
         "request": "2.72.x",
@@ -22,5 +23,5 @@
     "scripts": {
         "test": "mocha --reporter spec test/*"
     },
-    "version": "2.4.1"
+    "version": "2.5.0"
 }

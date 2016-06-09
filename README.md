@@ -39,7 +39,10 @@ The Markdown parser used on the forums at meh.com.
 
 - `/cowsay text or --help` - [ASCII cow with a message](https://en.wikipedia.org/wiki/Cowsay)
 - `/giphy text` - Post a random GIF
+- `/image text` - Post a random image
 - `/shrug` - ¯\\\_(ツ)\_/¯
+- `/woot text` - Search for a deal on woot.com
+- `/youtube text` - Post a random YouTube video
 
 ## Supports a subset of BBCode tags
 
