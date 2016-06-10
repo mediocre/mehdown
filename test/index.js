@@ -84,6 +84,17 @@ describe('bbcode', function() {
 });
 
 describe('commands', function() {
+    describe('/captionbot', function() {
+        this.timeout(10000);
+
+        it('/captionbot http://imgur.com/B7a15F5.jpg', function(done) {
+            mehdown.render('/captionbot http://imgur.com/B7a15F5.jpg', function(err, html) {
+                assert.equal(html, '<p>/captionbot<br />\n<img src="http://imgur.com/B7a15F5.jpg" /><br />\n<img alt="" class="emojione" src="https://cdn.jsdelivr.net/emojione/assets/png/1f916.png?v=2.1.4" title=":robot:" /> I think it’s a dog in the snow.</p>');
+                done();
+            });
+        });
+    });
+
     describe('/cowsay', function() {
         this.timeout(10000);
 
