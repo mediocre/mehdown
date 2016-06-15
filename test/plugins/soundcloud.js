@@ -9,4 +9,11 @@ describe('soundcloud', function() {
             done();
         });
     });
+
+    it('[text](https://soundcloud.com/shawnmichaelmiller/santa-claus-is-coming-to-town)', function(done) {
+        mehdown.render('[text](https://soundcloud.com/shawnmichaelmiller/santa-claus-is-coming-to-town)', function(err, html) {
+            assert.equal(html, '<p><a href="https://soundcloud.com/shawnmichaelmiller/santa-claus-is-coming-to-town">text</a></p>');
+            done();
+        });
+    });
 });
