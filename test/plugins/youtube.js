@@ -51,4 +51,25 @@ describe('youtube', function() {
             done();
         });
     });
+
+    it('[text](http://www.youtube.com/watch?v=kU9MuM4lP18&start=10&end=20)', function(done) {
+        mehdown.render('[text](http://www.youtube.com/watch?v=kU9MuM4lP18&start=10&end=20)', function(err, html) {
+            assert.equal(html, '<p><a href="http://www.youtube.com/watch?v=kU9MuM4lP18&amp;start=10&amp;end=20">text</a></p>');
+            done();
+        });
+    });
+
+    it('youtube.com/watch?v=kU9MuM4lP18', function(done) {
+        mehdown.render('youtube.com/watch?v=kU9MuM4lP18', function(err, html) {
+            assert.equal(html, '<p><iframe allowfullscreen class="youtube" frameborder="0" src="https://www.youtube.com/embed/kU9MuM4lP18?autohide=1&color=white&showinfo=0&theme=light"></iframe></p>');
+            done();
+        });
+    });
+
+    it('www.youtube.com/watch?v=kU9MuM4lP18', function(done) {
+        mehdown.render('www.youtube.com/watch?v=kU9MuM4lP18', function(err, html) {
+            assert.equal(html, '<p><iframe allowfullscreen class="youtube" frameborder="0" src="https://www.youtube.com/embed/kU9MuM4lP18?autohide=1&color=white&showinfo=0&theme=light"></iframe></p>');
+            done();
+        });
+    });
 });

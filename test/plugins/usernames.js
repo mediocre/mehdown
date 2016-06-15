@@ -66,7 +66,7 @@ describe('usernames', function() {
         });
     });
 
-    it('<a href="https://mediocre.com/@username">@username</a>', function(done) {
+    it('[@username](https://mediocre.com/@username)', function(done) {
         mehdown.render('[@username](https://mediocre.com/@username)', function(err, html) {
             assert.equal(html, '<p><a href="https://mediocre.com/@username">@username</a></p>');
             done();

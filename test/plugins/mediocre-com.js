@@ -58,4 +58,18 @@ describe('mediocre.com', function() {
             done();
         });
     });
+
+    it('[text](https://mediocre.com/deals/a--slug)', function(done) {
+        mehdown.render('[text](https://mediocre.com/deals/a--slug)', function(err, html) {
+            assert.equal(html, '<p><a href="https://mediocre.com/deals/a--slug">text</a></p>');
+            done();
+        });
+    });
+
+    it('[text](https://mediocre.com/polls/a--slug)', function(done) {
+        mehdown.render('[text](https://mediocre.com/polls/a--slug)', function(err, html) {
+            assert.equal(html, '<p><a href="https://mediocre.com/polls/a--slug">text</a></p>');
+            done();
+        });
+    });
 });

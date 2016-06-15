@@ -58,4 +58,18 @@ describe('meh.com', function() {
             done();
         });
     });
+
+    it('[text](https://meh.com/deals/a--slug)', function(done) {
+        mehdown.render('[text](https://meh.com/deals/a--slug)', function(err, html) {
+            assert.equal(html, '<p><a href="https://meh.com/deals/a--slug">text</a></p>');
+            done();
+        });
+    });
+
+    it('[text](https://meh.com/polls/a--slug)', function(done) {
+        mehdown.render('[text](https://meh.com/polls/a--slug)', function(err, html) {
+            assert.equal(html, '<p><a href="https://meh.com/polls/a--slug">text</a></p>');
+            done();
+        });
+    });
 });
