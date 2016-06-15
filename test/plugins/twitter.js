@@ -23,4 +23,18 @@ describe('twitter', function() {
             done();
         });
     });
+
+    it('twitter.com/_/status/416050320272551936', function(done) {
+        mehdown.render('twitter.com/_/status/416050320272551936', function(err, html) {
+            assert.equal(html, '<p><blockquote class="twitter-tweet" lang="en"><a href="https://twitter.com/_/status/416050320272551936"></a></blockquote><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script></p>');
+            done();
+        });
+    });
+
+    it('www.twitter.com/_/status/416050320272551936', function(done) {
+        mehdown.render('www.twitter.com/_/status/416050320272551936', function(err, html) {
+            assert.equal(html, '<p><blockquote class="twitter-tweet" lang="en"><a href="https://twitter.com/_/status/416050320272551936"></a></blockquote><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script></p>');
+            done();
+        });
+    });
 });
