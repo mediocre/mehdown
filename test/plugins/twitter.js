@@ -16,4 +16,11 @@ describe('twitter', function() {
             done();
         });
     });
+
+    it('[text](https://twitter.com/_/status/416050320272551936)', function(done) {
+        mehdown.render('[text](https://twitter.com/_/status/416050320272551936)', function(err, html) {
+            assert.equal(html, '<p><a href="https://twitter.com/_/status/416050320272551936">text</a></p>');
+            done();
+        });
+    });
 });
