@@ -9,4 +9,11 @@ describe('reddit', function() {
             done();
         });
     });
+
+    it('[text](https://www.reddit.com/r/ProgrammerHumor/comments/30lhaf/mehcom_api_url_poking_at_steve_balmer/cptizym)', function(done) {
+        mehdown.render('[text](https://www.reddit.com/r/ProgrammerHumor/comments/30lhaf/mehcom_api_url_poking_at_steve_balmer/cptizym)', function(err, html) {
+            assert.equal(html, '<p><a href="https://www.reddit.com/r/ProgrammerHumor/comments/30lhaf/mehcom_api_url_poking_at_steve_balmer/cptizym">text</a></p>');
+            done();
+        });
+    });
 });
