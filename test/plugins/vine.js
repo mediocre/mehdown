@@ -37,4 +37,18 @@ describe('vine', function() {
             done();
         });
     });
+
+    it('vine.co/v/hWZ9mbJZaKE', function(done) {
+        mehdown.render('vine.co/v/hWZ9mbJZaKE', function(err, html) {
+            assert.equal(html, '<p><iframe allowfullscreen class="vine" frameborder="0" src="https://vine.co/v/hWZ9mbJZaKE/embed/simple"></iframe></p>');
+            done();
+        });
+    });
+
+    it('www.vine.co/v/hWZ9mbJZaKE', function(done) {
+        mehdown.render('www.vine.co/v/hWZ9mbJZaKE', function(err, html) {
+            assert.equal(html, '<p><iframe allowfullscreen class="vine" frameborder="0" src="https://vine.co/v/hWZ9mbJZaKE/embed/simple"></iframe></p>');
+            done();
+        });
+    });
 });
