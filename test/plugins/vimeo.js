@@ -9,4 +9,11 @@ describe('vimeo', function() {
             done();
         });
     });
+
+    it('[text](http://vimeo.com/78950165)', function(done) {
+        mehdown.render('[text](http://vimeo.com/78950165)', function(err, html) {
+            assert.equal(html, '<p><a href="http://vimeo.com/78950165">text</a></p>');
+            done();
+        });
+    });
 });
