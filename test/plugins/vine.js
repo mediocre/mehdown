@@ -30,4 +30,11 @@ describe('vine', function() {
             done();
         });
     });
+
+    it('[text](https://vine.co/v/hWZ9mbJZaKE)', function(done) {
+        mehdown.render('[text](https://vine.co/v/hWZ9mbJZaKE)', function(err, html) {
+            assert.equal(html, '<p><a href="https://vine.co/v/hWZ9mbJZaKE">text</a></p>');
+            done();
+        });
+    });
 });
