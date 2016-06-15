@@ -58,4 +58,18 @@ describe('drone.horse', function() {
             done();
         });
     });
+
+    it('[text](https://drone.horse/deals/a--slug)', function(done) {
+        mehdown.render('[text](https://drone.horse/deals/a--slug)', function(err, html) {
+            assert.equal(html, '<p><a href="https://drone.horse/deals/a--slug">text</a></p>');
+            done();
+        });
+    });
+
+    it('[text](https://drone.horse/polls/a--slug)', function(done) {
+        mehdown.render('[text](https://drone.horse/polls/a--slug)', function(err, html) {
+            assert.equal(html, '<p><a href="https://drone.horse/polls/a--slug">text</a></p>');
+            done();
+        });
+    });
 });
