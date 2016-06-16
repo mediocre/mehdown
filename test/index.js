@@ -148,6 +148,15 @@ describe('commands', function() {
         });
     });
 
+    describe('/emojify', function() {
+        it('/emojify Basketball finishes at 5. Then it\'s pizza or tacos. Maybe go to the movies. You in?', function(done) {
+            mehdown.render('/emojify Basketball finishes at 5. Then it\'s pizza or tacos. Maybe go to the movies. You in?', function(err, html) {
+                assert.equal(html, '<p><img alt="" class="emojione" src="https://cdn.jsdelivr.net/emojione/assets/png/1f3c0.png?v=2.1.4" title=":basketball:" /> finishes at 5. Then it’s <img alt="" class="emojione" src="https://cdn.jsdelivr.net/emojione/assets/png/1f355.png?v=2.1.4" title=":pizza:" /> or <img alt="" class="emojione" src="https://cdn.jsdelivr.net/emojione/assets/png/1f32e.png?v=2.1.4" title=":taco:" />. Maybe go to the <img alt="" class="emojione" src="https://cdn.jsdelivr.net/emojione/assets/png/1f3a5.png?v=2.1.4" title=":movie_camera:" />. You in?</p>');
+                done();
+            });
+        });
+    });
+
     describe('/giphy', function() {
         this.timeout(10000);
 
