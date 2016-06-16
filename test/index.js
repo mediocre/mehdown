@@ -155,6 +155,13 @@ describe('commands', function() {
                 done();
             });
         });
+
+        it('/emojify package package :package: package', function(done) {
+            mehdown.render('/emojify package package :package: package', function(err, html) {
+                assert.equal(html, '<p><img alt="" class="emojione" src="https://cdn.jsdelivr.net/emojione/assets/png/1f4e6.png?v=2.1.4" title=":package:" /> <img alt="" class="emojione" src="https://cdn.jsdelivr.net/emojione/assets/png/1f4e6.png?v=2.1.4" title=":package:" /> <img alt="" class="emojione" src="https://cdn.jsdelivr.net/emojione/assets/png/1f4e6.png?v=2.1.4" title=":package:" /> <img alt="" class="emojione" src="https://cdn.jsdelivr.net/emojione/assets/png/1f4e6.png?v=2.1.4" title=":package:" /></p>');
+                done();
+            });
+        });
     });
 
     describe('/giphy', function() {
