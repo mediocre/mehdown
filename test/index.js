@@ -169,6 +169,13 @@ describe('commands', function() {
                 done();
             });
         });
+
+        it('/emojify shit', function(done) {
+            mehdown.render('/emojify shit', function(err, html) {
+                assert.equal(html, '<p><img alt="" class="emojione" src="https://cdn.jsdelivr.net/emojione/assets/png/1f4a9.png?v=2.1.4" title=":poop:" /></p>');
+                done();
+            });
+        });
     });
 
     describe('/giphy', function() {
