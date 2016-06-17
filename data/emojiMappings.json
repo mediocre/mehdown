@@ -1,17 +1,17 @@
 {
     "blacklist": [
+        "m",
         "on",
-        "so",
-        "m"
+        "so"
     ],
     "whitelist": {
+        "cook": ":egg:",
+        "earth": ":earth_americas:",
+        "left": ":arrow_left:"
+        "light": ":bulb:",
         "mail": ":mailbox:",
         "no": ":no_entry_sign:",
-        "earth": ":earth_americas:",
-        "light": ":bulb:",
-        "cook": ":egg:",
-        "tears": ":sob:",
-        "right": "arrow_right",
-        "left": "arrow_left"
+        "right": ":arrow_right:",
+        "tears": ":sob:"
     }
 }
