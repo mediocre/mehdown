@@ -1,10 +1,17 @@
 {
     "blacklist": [
         "on",
-        "so"
+        "so",
+        "m"
     ],
     "whitelist": {
         "mail": ":mailbox:",
-        "no": ":no_entry_sign:"
+        "no": ":no_entry_sign:",
+        "earth": ":earth_americas:",
+        "light": ":bulb:",
+        "cook": ":egg:",
+        "tears": ":sob:",
+        "right": "arrow_right",
+        "left": "arrow_left"
     }
 }
