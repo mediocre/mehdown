@@ -162,6 +162,13 @@ describe('commands', function() {
                 done();
             });
         });
+
+        it('/emojify no woman, no cry on mail so', function(done) {
+            mehdown.render('/emojify no woman, no cry on mail so', function(err, html) {
+                assert.equal(html, '<p><img alt="" class="emojione" src="https://cdn.jsdelivr.net/emojione/assets/png/1f6ab.png?v=2.1.4" title=":no_entry_sign:" /> <img alt="" class="emojione" src="https://cdn.jsdelivr.net/emojione/assets/png/1f469.png?v=2.1.4" title=":woman:" />, <img alt="" class="emojione" src="https://cdn.jsdelivr.net/emojione/assets/png/1f6ab.png?v=2.1.4" title=":no_entry_sign:" /> <img alt="" class="emojione" src="https://cdn.jsdelivr.net/emojione/assets/png/1f622.png?v=2.1.4" title=":cry:" /> on <img alt="" class="emojione" src="https://cdn.jsdelivr.net/emojione/assets/png/1f4eb.png?v=2.1.4" title=":mailbox:" /> so</p>');
+                done();
+            });
+        });
     });
 
     describe('/giphy', function() {

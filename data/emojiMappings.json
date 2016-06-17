@@ -1,0 +1,10 @@
+{
+    "blacklist": [
+        "on",
+        "so"
+    ],
+    "whitelist": {
+        "mail": ":mailbox:",
+        "no": ":no_entry_sign:"
+    }
+}
