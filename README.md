@@ -39,6 +39,7 @@ The Markdown parser used on the forums at meh.com.
 
 - `/captionbot image-url` - Get a caption for an image
 - `/cowsay text or --help` - [ASCII cow with a message](https://en.wikipedia.org/wiki/Cowsay)
+- `/emojify text` - Swap out words with emoji
 - `/giphy text` - Post a random GIF
 - `/image text` - Post a random image
 - `/shrug` - ¯\\\_(ツ)\_/¯
