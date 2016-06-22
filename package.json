@@ -3,7 +3,7 @@
         "async": "1.5.x",
         "captionbot": "1.0.x",
         "cowsay": "mediocre/cowsay",
-        "emojione": "2.1.x",
+        "emojione": "2.2.4",
         "http-image-size": "1.1.x",
         "lunr": "0.7.x",
         "markdown-it": "6.1.x",
