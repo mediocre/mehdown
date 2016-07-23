@@ -212,6 +212,15 @@ describe('commands', function() {
         }
     });
 
+    describe('/jumble', function() {
+        it('/jumble', function(done) {
+            mehdown.render('/jumble Humans can easily read text where the middle letters are shuffled.', function(err, html) {
+                assert.notEqual(html, '<p>/jumble Humans can easily read text where the middle letters are shuffled.</p>');
+                done();
+            });
+        });
+    });
+
     describe('/shrug', function() {
         it('/shrug', function(done) {
             mehdown.render('/shrug', function(err, html) {

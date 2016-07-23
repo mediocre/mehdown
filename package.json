@@ -1,6 +1,6 @@
 {
     "dependencies": {
-        "async": "1.5.x",
+        "async": "2.0.x",
         "captionbot": "1.0.x",
         "cowsay": "mediocre/cowsay",
         "emojione": "2.2.4",
@@ -9,9 +9,10 @@
         "markdown-it": "6.1.x",
         "minimist": "1.2.x",
         "natural": "0.4.x",
-        "request": "2.72.x",
+        "request": "2.74.x",
         "shell-quote": "1.6.x",
         "slug": "0.9.x",
+        "textify": "0.0.x",
         "youtube-search": "1.0.x"
     },
     "description": "The Markdown parser used on the forums at meh.com.",
@@ -25,5 +26,5 @@
     "scripts": {
         "test": "mocha --reporter spec test/*"
     },
-    "version": "2.9.1"
+    "version": "2.10.0"
 }
