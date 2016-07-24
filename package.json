@@ -6,7 +6,7 @@
         "emojione": "2.2.4",
         "http-image-size": "1.1.x",
         "lunr": "0.7.x",
-        "markdown-it": "6.1.x",
+        "markdown-it": "7.0.x",
         "minimist": "1.2.x",
         "natural": "0.4.x",
         "request": "2.74.x",
@@ -26,5 +26,5 @@
     "scripts": {
         "test": "mocha --reporter spec test/*"
     },
-    "version": "2.10.0"
+    "version": "2.11.0"
 }

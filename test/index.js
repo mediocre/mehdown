@@ -84,7 +84,7 @@ describe('bbcode', function() {
 });
 
 describe('commands', function() {
-    describe('/captionbot', function() {
+    describe.skip('/captionbot', function() {
         this.timeout(10000);
 
         it('/captionbot http://imgur.com/B7a15F5.jpg', function(done) {
@@ -216,6 +216,29 @@ describe('commands', function() {
         it('/jumble', function(done) {
             mehdown.render('/jumble Humans can easily read text where the middle letters are shuffled.', function(err, html) {
                 assert.notEqual(html, '<p>/jumble Humans can easily read text where the middle letters are shuffled.</p>');
+                done();
+            });
+        });
+    });
+
+    describe('/leet', function() {
+        it('/1337', function(done) {
+            mehdown.render('/1337 elite hacker', function(err, html) {
+                assert.notEqual(html, '<p>31337 H4X0R</p>');
+                done();
+            });
+        });
+
+        it('/l33t', function(done) {
+            mehdown.render('/l33t elite hacker', function(err, html) {
+                assert.notEqual(html, '<p>31337 H4X0R</p>');
+                done();
+            });
+        });
+
+        it('/leet', function(done) {
+            mehdown.render('/leet elite hacker', function(err, html) {
+                assert.notEqual(html, '<p>31337 H4X0R</p>');
                 done();
             });
         });
