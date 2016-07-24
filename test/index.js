@@ -224,24 +224,33 @@ describe('commands', function() {
     describe('/leet', function() {
         it('/1337', function(done) {
             mehdown.render('/1337 elite hacker', function(err, html) {
-                assert.notEqual(html, '<p>31337 H4X0R</p>');
+                assert.equal(html, '<p>3L173 H4CK3R</p>');
                 done();
             });
         });
 
         it('/l33t', function(done) {
             mehdown.render('/l33t elite hacker', function(err, html) {
-                assert.notEqual(html, '<p>31337 H4X0R</p>');
+                assert.equal(html, '<p>3L173 H4CK3R</p>');
                 done();
             });
         });
 
         it('/leet', function(done) {
             mehdown.render('/leet elite hacker', function(err, html) {
-                assert.notEqual(html, '<p>31337 H4X0R</p>');
+                assert.equal(html, '<p>3L173 H4CK3R</p>');
                 done();
             });
         });
+    });
+
+    describe('/lolspeak', function() {
+        it('/lolspeak', function(done) {
+            mehdown.render('/lolspeak A lolcat is an image macro of one or more cats. The image\'s text is often idiosyncratic and grammatically incorrect. Its use in this way is known as "lolspeak" or "kitty pidgin".', function(err, html) {
+                assert.equal(html, '<p>A LOLCAT IZ AN IMAGE MACRO OV WAN OR MOAR CATS TEH IMAGE’S TEXT IZ OFTEN IDIOSYNCRATIC AN GRAMMATICALLY INCORRECT ITZ USE IN DIS WAI IZ KNOWN AS “LOLSPEAK” OR “KITTY PIDGIN”</p>');
+                done();
+            });
+        })
     });
 
     describe('/shrug', function() {
