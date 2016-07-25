@@ -4,6 +4,7 @@
         "captionbot": "1.0.x",
         "cowsay": "mediocre/cowsay",
         "emojione": "2.2.4",
+        "flip": "1.0.x",
         "http-image-size": "1.1.x",
         "lolspeak": "1.4.x",
         "lunr": "0.7.x",
@@ -27,5 +28,5 @@
     "scripts": {
         "test": "mocha --reporter spec test/*"
     },
-    "version": "2.12.0"
+    "version": "2.13.0"
 }

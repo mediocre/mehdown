@@ -178,6 +178,15 @@ describe('commands', function() {
         });
     });
 
+    describe('/flip', function() {
+        it('/flip Hello World!', function(done) {
+            mehdown.render('/flip Hello World!', function(err, html) {
+                assert.equal(html, '<p>¡pʃɹoM oʃʃǝH</p>');
+                done();
+            });
+        });
+    });
+
     describe('/giphy', function() {
         this.timeout(10000);
 
