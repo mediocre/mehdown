@@ -262,6 +262,33 @@ describe('commands', function() {
         });
     });
 
+    describe('/piglatin', function() {
+        it('/piglatin', function(done) {
+            mehdown.render('/piglatin Juvenile language created by the rearrangement of sounds in a word such that the first sound is moved to the end and "ay" is added. In the case of a vowel as the first sound, "ay" is simply added, with an hyphen if necessary.', function(err, html) {
+                assert.equal(html, '<p>Uvenilejay anguagelay eatedcray ybay ethay earrangementray ofay oundssay inay ay ordway uchsay atthay ethay irstfay oundsay isay ovedmay otay ethay enday anday “ay” isay addeday. Inay ethay asecay ofay ay owelvay asay ethay irstfay oundsay, “ay” isay implysay addeday, ithway anay yphenhay ifay ecessarynay.</p>');
+                done();
+            });
+        });
+    });
+
+    describe('/reverse', function() {
+        it('/reverse', function(done) {
+            mehdown.render('/reverse Hello world.', function(err, html) {
+                assert.equal(html, '<p>.dlrow olleH</p>');
+                done();
+            });
+        });
+    });
+
+    describe('/rot13', function() {
+        it('/rot13', function(done) {
+            mehdown.render('/rot13 ROT13 ("rotate by 13 places", sometimes hyphenated ROT-13) is a simple letter substitution cipher that replaces a letter with the letter 13 letters after it in the alphabet.', function(err, html) {
+                assert.equal(html, '<p>EBG13 (“ebgngr ol 13 cynprf”, fbzrgvzrf ulcurangrq EBG-13) vf n fvzcyr yrggre fhofgvghgvba pvcure gung ercynprf n yrggre jvgu gur yrggre 13 yrggref nsgre vg va gur nycunorg.</p>');
+                done();
+            });
+        });
+    });
+
     describe('/shrug', function() {
         it('/shrug', function(done) {
             mehdown.render('/shrug', function(err, html) {
