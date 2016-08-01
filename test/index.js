@@ -208,6 +208,19 @@ describe('commands', function() {
         });
     });
 
+    describe('/google', function() {
+        this.timeout(10000);
+
+        if (process.env.GOOGLE_API_KEY) {
+            it('/google meh', function(done) {
+                mehdown.render('/google meh', function(err, html) {
+                    assert.notEqual(html, '<p>/google meh</p>');
+                    done();
+                });
+            });
+        }
+    });
+
     describe('/image', function() {
         this.timeout(10000);
 
