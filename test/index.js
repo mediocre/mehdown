@@ -277,8 +277,8 @@ describe('commands', function() {
 
     describe('/meme', function() {
         it('/meme', function(done) {
-            mehdown.render('/meme --template success --top "we have a" --bottom "/meme command"', function(err, html) {
-                assert.equal(html, '<p><img src="http://memegen.link/success/we-have-a/~smeme-command.jpg?font=impact" /></p>');
+            mehdown.render('/meme', function(err, html) {
+                assert.notEqual(html, '<p>/meme</p>');
                 done();
             });
         });
@@ -286,6 +286,13 @@ describe('commands', function() {
         it('/meme --help', function(done) {
             mehdown.render('/meme --help', function(err, html) {
                 assert.notEqual(html, '<p>/meme --help</p>');
+                done();
+            });
+        });
+
+        it('/meme --template success --top "we have a" --bottom "/meme command"', function(done) {
+            mehdown.render('/meme --template success --top "we have a" --bottom "/meme command"', function(err, html) {
+                assert.equal(html, '<p><img src="http://memegen.link/success/we-have-a/~smeme-command.jpg?font=impact" alt="we have a /meme command" /></p>');
                 done();
             });
         });
