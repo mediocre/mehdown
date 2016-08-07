@@ -275,6 +275,22 @@ describe('commands', function() {
         });
     });
 
+    describe.only('/meme', function() {
+        it('/meme', function(done) {
+            mehdown.render('/meme --template success --top "we have a" --bottom "/meme command"', function(err, html) {
+                assert.equal(html, '<p><img src="http://memegen.link/success/we-have-a/~smeme-command.jpg?font=impact" /></p>');
+                done();
+            });
+        });
+
+        it('/meme --help', function(done) {
+            mehdown.render('/meme --help', function(err, html) {
+                assert.notEqual(html, '<p>/meme --help</p>');
+                done();
+            });
+        });
+    });
+
     describe('/piglatin', function() {
         it('/piglatin', function(done) {
             mehdown.render('/piglatin Juvenile language created by the rearrangement of sounds in a word such that the first sound is moved to the end and "ay" is added. In the case of a vowel as the first sound, "ay" is simply added, with an hyphen if necessary.', function(err, html) {
