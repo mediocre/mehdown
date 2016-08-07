@@ -290,6 +290,13 @@ describe('commands', function() {
             });
         });
 
+        it('/meme --template icanhas', function(done) {
+            mehdown.render('/meme --template icanhas', function(err, html) {
+                assert.equal(html, '<p><img src="http://memegen.link/icanhas/-/-.jpg?font=impact" alt="" /></p>');
+                done();
+            });
+        });
+
         it('/meme --template success --top "we have a" --bottom "/meme command"', function(done) {
             mehdown.render('/meme --template success --top "we have a" --bottom "/meme command"', function(err, html) {
                 assert.equal(html, '<p><img src="http://memegen.link/success/we-have-a/~smeme-command.jpg?font=impact" alt="we have a /meme command" /></p>');
