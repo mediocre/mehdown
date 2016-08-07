@@ -275,7 +275,7 @@ describe('commands', function() {
         });
     });
 
-    describe.only('/meme', function() {
+    describe('/meme', function() {
         it('/meme', function(done) {
             mehdown.render('/meme --template success --top "we have a" --bottom "/meme command"', function(err, html) {
                 assert.equal(html, '<p><img src="http://memegen.link/success/we-have-a/~smeme-command.jpg?font=impact" /></p>');
