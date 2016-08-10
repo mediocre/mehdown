@@ -72,4 +72,11 @@ describe('youtube', function() {
             done();
         });
     });
+
+    it.skip('https://www.youtube.com/watch?v=ex--O-cJcZA', function(done) {
+        mehdown.render('https://www.youtube.com/watch?v=ex--O-cJcZA', function(err, html) {
+            assert.equal(html, '<p><iframe allowfullscreen class="youtube" frameborder="0" src="https://www.youtube.com/embed/ex--O-cJcZA?autohide=1&color=white&showinfo=0&theme=light"></iframe></p>');
+            done();
+        });
+    });
 });
