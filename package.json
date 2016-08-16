@@ -28,5 +28,5 @@
     "scripts": {
         "test": "mocha --reporter spec test/*"
     },
-    "version": "2.16.2"
+    "version": "2.16.3"
 }
