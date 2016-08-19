@@ -577,6 +577,13 @@ describe('links', function() {
         });
     });
 
+    it('.deals is a TLD', function(done) {
+        mehdown.render('https://example.deals', function(err, html) {
+            assert.equal(html, '<p><a href="https://example.deals">https://example.deals</a></p>');
+            done();
+        });
+    });
+
     // https://github.com/mediocre/mehdown/issues/6
     it('URLs with underscores should not lose the underscores', function(done) {
         mehdown.render('https://example.com/_/status/416050320272551936', function(err, html) {
