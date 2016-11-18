@@ -148,6 +148,15 @@ describe('commands', function() {
         });
     });
 
+    describe('/eightball', function() {
+        it('/eightball Do I need a new lease on life?', function(done) {
+            mehdown.render('/eightball Do I need a new lease on life?', function(err, html) {
+                assert.notEqual(html, '<p>/eightball Do I need a new lease on life?</p>');
+                done();
+            });
+        });
+    });
+
     describe('/emojify', function() {
         it('/emojify Basketball finishes at 5. Then it\'s pizza or tacos. Maybe go to the movies. You in?', function(done) {
             mehdown.render('/emojify Basketball finishes at 5. Then it\'s pizza or tacos. Maybe go to the movies. You in?', function(err, html) {
