@@ -447,24 +447,32 @@ describe('commands', function() {
 
 describe('detect image sizes', function() {
     it('images', function(done) {
-        mehdown.render('https://res.cloudinary.com/mediocre/image/upload/kekjvvhpkxh0v8x9o6u7.png https://i.imgur.com/8peBgQn.png https://res.cloudinary.com/mediocre/image/upload/kekjvvhpkxh0v8x9o6u7.png', { detectImageSizes: true }, function(err, html) {
-            assert.equal(html, '<p><img height="528" src="https://res.cloudinary.com/mediocre/image/upload/kekjvvhpkxh0v8x9o6u7.png" width="528" /> <img height="250" src="https://i.imgur.com/8peBgQn.png" width="300" /> <img height="528" src="https://res.cloudinary.com/mediocre/image/upload/kekjvvhpkxh0v8x9o6u7.png" width="528" /></p>');
+        const image1 = 'https://res.cloudinary.com/mediocre/image/upload/kekjvvhpkxh0v8x9o6u7.png';
+        const image2 = 'https://i.imgur.com/8peBgQn.png';
+        const image3 = 'https://res.cloudinary.com/mediocre/image/upload/kekjvvhpkxh0v8x9o6u7.png';
+
+        mehdown.render(`${image1} ${image2} ${image3}`, { detectImageSizes: true }, function(err, html) {
+            assert.equal(html, `<p><a href="${image1}"><img height="528" src="${image1}" width="528" /></a> <a href="${image2}"><img height="250" src="${image2}" width="300" /></a> <a href="${image3}"><img height="528" src="${image3}" width="528" /></a></p>`);
             done();
         });
     });
 
     it('broken image', function(done) {
+        const image = 'http://example.com/404.png';
+
         this.timeout(10000);
 
-        mehdown.render('http://example.com/404.png', { detectImageSizes: true }, function(err, html) {
-            assert.equal(html, '<p><img src="http://example.com/404.png" /></p>');
+        mehdown.render(image, { detectImageSizes: true }, function(err, html) {
+            assert.equal(html, `<p><a href="${image}"><img src="${image}" /></a></p>`);
             done();
         });
     });
 
     it('broken image html', function(done) {
-        mehdown.render('http://example.com/404.png', { detectImageSizes: true }, function(err, html) {
-            assert.equal(html, '<p><img src="http://example.com/404.png" /></p>');
+        const image = 'http://example.com/404.png';
+
+        mehdown.render(image, { detectImageSizes: true }, function(err, html) {
+            assert.equal(html, `<p><a href="${image}"><img src="http://example.com/404.png" /></a></p>`);
             done();
         });
     });
