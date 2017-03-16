@@ -39,7 +39,7 @@ The Markdown parser used on the forums at meh.com.
 
 - `/8ball question` - Ask the magic 8-ball
 - `/captionbot image-url` - Get a caption for an image
-- `/coinflip <heads/tails>` - Flip a coin
+- `/coinflip heads or tails` - Flip a coin
 - `/cowsay text or --help` - [ASCII cow with a message](https://en.wikipedia.org/wiki/Cowsay)
 - `/emojify text` - Swap out words with emoji
 - `/giphy text` - Post a random GIF
