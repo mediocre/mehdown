@@ -478,37 +478,47 @@ describe('detect image sizes', function() {
     });
 
     it('scheme relative broken image html', function(done) {
-        mehdown.render('//example.com/404.png', { detectImageSizes: true }, function(err, html) {
-            assert.equal(html, '<p><img src="//example.com/404.png" /></p>');
+        const image = '//example.com/404.png';
+
+        mehdown.render(image, { detectImageSizes: true }, function(err, html) {
+            assert.equal(html, `<p><a href="${image}"><img src="${image}" /></a></p>`);
             done();
         });
     });
 
     it('image from editor', function(done) {
-        mehdown.render('![enter image description here][1]\r\n\r\n  [1]: https://res.cloudinary.com/mediocre/image/upload/kekjvvhpkxh0v8x9o6u7.png "optional title"', { detectImageSizes: true }, function(err, html) {
-            assert.equal(html, '<p><img height="528" src="https://res.cloudinary.com/mediocre/image/upload/kekjvvhpkxh0v8x9o6u7.png" width="528" alt="enter image description here" title="optional title" /></p>');
+        const image = 'https://res.cloudinary.com/mediocre/image/upload/kekjvvhpkxh0v8x9o6u7.png';
+
+        mehdown.render(`![enter image description here][1]\r\n\r\n  [1]: ${image} "optional title"`, { detectImageSizes: true }, function(err, html) {
+            assert.equal(html, `<p><img height="528" src="${image}" width="528" alt="enter image description here" title="optional title" /></p>`);
             done();
         });
     });
 
     it('image html', function(done) {
-        mehdown.render('https://res.cloudinary.com/mediocre/image/upload/kekjvvhpkxh0v8x9o6u7.png', { detectImageSizes: true }, function(err, html) {
-            assert.equal(html, '<p><img height="528" src="https://res.cloudinary.com/mediocre/image/upload/kekjvvhpkxh0v8x9o6u7.png" width="528" /></p>');
+        const image = 'https://res.cloudinary.com/mediocre/image/upload/kekjvvhpkxh0v8x9o6u7.png';
+
+        mehdown.render(image, { detectImageSizes: true }, function(err, html) {
+            assert.equal(html, `<p><a href="${image}"><img height="528" src="${image}" width="528" /></a></p>`);
             done();
         });
     });
 
     it('scheme relative image html', function(done) {
-        mehdown.render('//res.cloudinary.com/mediocre/image/upload/kekjvvhpkxh0v8x9o6u7.png', { detectImageSizes: true }, function(err, html) {
-            assert.equal(html, '<p><img height="528" src="//res.cloudinary.com/mediocre/image/upload/kekjvvhpkxh0v8x9o6u7.png" width="528" /></p>');
+        const image = '//res.cloudinary.com/mediocre/image/upload/kekjvvhpkxh0v8x9o6u7.png';
+
+        mehdown.render(image, { detectImageSizes: true }, function(err, html) {
+            assert.equal(html, `<p><a href="${image}"><img height="528" src="${image}" width="528" /></a></p>`);
             done();
         });
     });
 
     // https://github.com/mediocre/forum-service/issues/64
     it('BUG: Cannot read property "height" of undefined', function(done) {
-        mehdown.render('jealous-dusty-magic http://cl.ly/image/0w251W2U1f1Q/Screen%20Shot%202014-06-16%20at%201.26.25%20PM.png @katylava says makes her think of fantasia', { detectImageSizes: true }, function(err, html) {
-            assert.equal(html, '<p>jealous-dusty-magic <img src="http://cl.ly/image/0w251W2U1f1Q/Screen%20Shot%202014-06-16%20at%201.26.25%20PM.png" /> <a href="/@katylava">@katylava</a> says makes her think of fantasia</p>');
+        const image = 'http://cl.ly/image/0w251W2U1f1Q/Screen%20Shot%202014-06-16%20at%201.26.25%20PM.png';
+
+        mehdown.render(`jealous-dusty-magic ${image} @katylava says makes her think of fantasia`, { detectImageSizes: true }, function(err, html) {
+            assert.equal(html, `<p>jealous-dusty-magic <a href="${image}"><img src="${image}" /></a> <a href="/@katylava">@katylava</a> says makes her think of fantasia</p>`);
             done();
         });
     });
