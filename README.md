@@ -37,7 +37,7 @@ The Markdown parser used on the forums at meh.com.
 
 ## Supports /commands:
 
-- `/8ball question` - Ask the magic 8-ball
+- `/8ball question` - Ask the Magic 8-Ball a question
 - `/captionbot image-url` - Get a caption for an image
 - `/coinflip heads or tails` - Flip a coin
 - `/cowsay text or --help` - [ASCII cow with a message](https://en.wikipedia.org/wiki/Cowsay)
