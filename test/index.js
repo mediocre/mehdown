@@ -95,6 +95,40 @@ describe('commands', function() {
         });
     });
 
+    describe('/coinflip', function() {
+        it('/coinflip', function(done) {
+            mehdown.render('/coinflip', function(err, html) {
+                assert.notEqual(html, '<p>/coinflip</p>');
+                assert(!html.includes('<code>heads</code> or <code>tails</code> are your only options here.'));
+                done();
+            });
+        });
+
+        it('/coinflip heads', function(done) {
+            mehdown.render('/coinflip heads', function(err, html) {
+                assert.notEqual(html, '<p>/coinflip heads</p>');
+                assert(!html.includes('<code>heads</code> or <code>tails</code> are your only options here.'));
+                done();
+            });
+        });
+
+        it('/coinflip tails', function(done) {
+            mehdown.render('/coinflip tails', function(err, html) {
+                assert.notEqual(html, '<p>/coinflip tails</p>');
+                assert(!html.includes('<code>heads</code> or <code>tails</code> are your only options here.'));
+                done();
+            });
+        });
+
+        it('/coinflip foo', function(done) {
+            mehdown.render('/coinflip foo', function(err, html) {
+                assert.notEqual(html, '<p>/coinflip foo</p>');
+                assert(html.includes('<code>heads</code> or <code>tails</code> are your only options here.'));
+                done();
+            });
+        });
+    });
+
     describe('/cowsay', function() {
         this.timeout(10000);
 
