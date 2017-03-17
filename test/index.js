@@ -182,6 +182,55 @@ describe('commands', function() {
         });
     });
 
+
+    describe('/diceroll', function() {
+        it('/diceroll', function(done) {
+            mehdown.render('/diceroll', function(err, html) {
+                assert.notEqual(html, '<p>/diceroll</p>');
+                assert(!html.includes('die and got'));
+                assert(html.includes('dice and got'));
+                done();
+            });
+        });
+
+        it('/diceroll 30', function(done) {
+            mehdown.render('/diceroll 30', function(err, html) {
+                assert.notEqual(html, '<p>/diceroll 30</p>');
+                assert(!html.includes('die and got'));
+                assert(html.includes('10 dice and got'));
+                done();
+            });
+        });
+
+        it('/diceroll 1', function(done) {
+            mehdown.render('/diceroll 1', function(err, html) {
+                assert.notEqual(html, '<p>/diceroll 1</p>');
+                assert(html.includes('die and got'));
+                assert(!html.includes('dice and got'));
+                done();
+            });
+        });
+
+        it('/diceroll 5', function(done) {
+            mehdown.render('/diceroll 5', function(err, html) {
+                assert.notEqual(html, '<p>/diceroll 5</p>');
+                assert(!html.includes('die and got'));
+                assert(html.includes('5 dice and got'));
+                done();
+            });
+        });
+
+        it('/diceroll foo', function(done) {
+            mehdown.render('/diceroll foo', function(err, html) {
+                assert.notEqual(html, '<p>/diceroll foo</p>');
+                assert(html.includes('2 dice and got'));
+                assert(!html.includes('die and got'));
+                done();
+            });
+        });
+    });
+
+
     describe('/eightball', function() {
         it('/eightball Do I need a new lease on life?', function(done) {
             mehdown.render('/eightball Do I need a new lease on life?', function(err, html) {
