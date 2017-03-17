@@ -188,7 +188,7 @@ describe('commands', function() {
             mehdown.render('/diceroll', function(err, html) {
                 assert.notEqual(html, '<p>/diceroll</p>');
                 assert(!html.includes('die and got'));
-                assert(html.includes('dice and got'));
+                assert(html.includes('2 dice and got'));
                 done();
             });
         });
