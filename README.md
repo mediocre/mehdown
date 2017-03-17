@@ -41,6 +41,7 @@ The Markdown parser used on the forums at meh.com.
 - `/captionbot image-url` - Get a caption for an image
 - `/coinflip heads or tails` - Flip a coin
 - `/cowsay text or --help` - [ASCII cow with a message](https://en.wikipedia.org/wiki/Cowsay)
+- `/diceroll 1-10` - Roll up to 10 dice
 - `/emojify text` - Swap out words with emoji
 - `/giphy text` - Post a random GIF
 - `/image text` - Post a random image
