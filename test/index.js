@@ -452,7 +452,7 @@ describe('detect image sizes', function() {
         const image3 = 'https://res.cloudinary.com/mediocre/image/upload/kekjvvhpkxh0v8x9o6u7.png';
 
         mehdown.render(`${image1} ${image2} ${image3}`, { detectImageSizes: true }, function(err, html) {
-            assert.equal(html, `<p><a href="${image1}"><img height="528" src="${image1}" width="528" /></a> <a href="${image2}"><img height="250" src="${image2}" width="300" /></a> <a href="${image3}"><img height="528" src="${image3}" width="528" /></a></p>`);
+            assert.equal(html, `<p><a href="${image1}" target="_blank"><img height="528" src="${image1}" width="528" /></a> <a href="${image2}" target="_blank"><img height="250" src="${image2}" width="300" /></a> <a href="${image3}" target="_blank"><img height="528" src="${image3}" width="528" /></a></p>`);
             done();
         });
     });
@@ -463,7 +463,7 @@ describe('detect image sizes', function() {
         this.timeout(10000);
 
         mehdown.render(image, { detectImageSizes: true }, function(err, html) {
-            assert.equal(html, `<p><a href="${image}"><img src="${image}" /></a></p>`);
+            assert.equal(html, `<p><a href="${image}" target="_blank"><img src="${image}" /></a></p>`);
             done();
         });
     });
@@ -472,7 +472,7 @@ describe('detect image sizes', function() {
         const image = 'http://example.com/404.png';
 
         mehdown.render(image, { detectImageSizes: true }, function(err, html) {
-            assert.equal(html, `<p><a href="${image}"><img src="http://example.com/404.png" /></a></p>`);
+            assert.equal(html, `<p><a href="${image}" target="_blank"><img src="http://example.com/404.png" /></a></p>`);
             done();
         });
     });
@@ -481,7 +481,7 @@ describe('detect image sizes', function() {
         const image = '//example.com/404.png';
 
         mehdown.render(image, { detectImageSizes: true }, function(err, html) {
-            assert.equal(html, `<p><a href="${image}"><img src="${image}" /></a></p>`);
+            assert.equal(html, `<p><a href="${image}" target="_blank"><img src="${image}" /></a></p>`);
             done();
         });
     });
@@ -499,7 +499,7 @@ describe('detect image sizes', function() {
         const image = 'https://res.cloudinary.com/mediocre/image/upload/kekjvvhpkxh0v8x9o6u7.png';
 
         mehdown.render(image, { detectImageSizes: true }, function(err, html) {
-            assert.equal(html, `<p><a href="${image}"><img height="528" src="${image}" width="528" /></a></p>`);
+            assert.equal(html, `<p><a href="${image}" target="_blank"><img height="528" src="${image}" width="528" /></a></p>`);
             done();
         });
     });
@@ -508,7 +508,7 @@ describe('detect image sizes', function() {
         const image = '//res.cloudinary.com/mediocre/image/upload/kekjvvhpkxh0v8x9o6u7.png';
 
         mehdown.render(image, { detectImageSizes: true }, function(err, html) {
-            assert.equal(html, `<p><a href="${image}"><img height="528" src="${image}" width="528" /></a></p>`);
+            assert.equal(html, `<p><a href="${image}" target="_blank"><img height="528" src="${image}" width="528" /></a></p>`);
             done();
         });
     });
@@ -518,7 +518,7 @@ describe('detect image sizes', function() {
         const image = 'http://cl.ly/image/0w251W2U1f1Q/Screen%20Shot%202014-06-16%20at%201.26.25%20PM.png';
 
         mehdown.render(`jealous-dusty-magic ${image} @katylava says makes her think of fantasia`, { detectImageSizes: true }, function(err, html) {
-            assert.equal(html, `<p>jealous-dusty-magic <a href="${image}"><img src="${image}" /></a> <a href="/@katylava">@katylava</a> says makes her think of fantasia</p>`);
+            assert.equal(html, `<p>jealous-dusty-magic <a href="${image}" target="_blank"><img src="${image}" /></a> <a href="/@katylava">@katylava</a> says makes her think of fantasia</p>`);
             done();
         });
     });
