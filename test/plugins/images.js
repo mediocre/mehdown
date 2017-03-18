@@ -74,4 +74,14 @@ describe('images', function() {
             done();
         });
     });
+
+    it('should render images linked to other urls with markdown', function(done) {
+        const otherUrl = 'http://www.example.com';
+        const image = 'https://www.images.com/someImage.jpg';
+
+        mehdown.render(`[${image}](${otherUrl})`, function(err, html) {
+            assert.equal(html, `<p><a href="${otherUrl}/" target="_blank"><img src="${image}" /></a></p>`);
+            done();
+        });
+    });
 });
