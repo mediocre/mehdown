@@ -84,4 +84,32 @@ describe('images', function() {
             done();
         });
     });
+
+    it('should render links to full size images when using Markdown inline syntax', function(done) {
+        mehdown.render('![Alt text](/path/to/img.jpg)', function(err, html) {
+            assert.equal(html, '<p><a href="/path/to/img.jpg" target="_blank"><img src="/path/to/img.jpg" alt="Alt text" /></a></p>');
+            done();
+        });
+    });
+
+    it('should render links to full size images when using Markdown inline syntax (with optional title)', function(done) {
+        mehdown.render('![Alt text](/path/to/img.jpg "Optional title")', function(err, html) {
+            assert.equal(html, '<p><a href="/path/to/img.jpg" target="_blank"><img src="/path/to/img.jpg" alt="Alt text" title="Optional title" /></a></p>');
+            done();
+        });
+    });
+
+    it('should render links to full size images when using Markdown reference syntax', function(done) {
+        mehdown.render('![Alt text][id]\n\n  [id]: url/to/image', function(err, html) {
+            assert.equal(html, '<p><a href="url/to/image" target="_blank"><img src="url/to/image" alt="Alt text" /></a></p>');
+            done();
+        });
+    });
+
+    it('should render links to full size images when using Markdown reference syntax (with optional title)', function(done) {
+        mehdown.render('![Alt text][id]\n\n  [id]: url/to/image  "Optional title attribute"', function(err, html) {
+            assert.equal(html, '<p><a href="url/to/image" target="_blank"><img src="url/to/image" alt="Alt text" title="Optional title attribute" /></a></p>');
+            done();
+        });
+    });
 });
