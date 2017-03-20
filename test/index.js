@@ -182,55 +182,6 @@ describe('commands', function() {
         });
     });
 
-
-    describe('/diceroll', function() {
-        it('/diceroll', function(done) {
-            mehdown.render('/diceroll', function(err, html) {
-                assert.notEqual(html, '<p>/diceroll</p>');
-                assert(!html.includes('die and got'));
-                assert(html.includes('2 dice and got'));
-                done();
-            });
-        });
-
-        it('/diceroll 30', function(done) {
-            mehdown.render('/diceroll 30', function(err, html) {
-                assert.notEqual(html, '<p>/diceroll 30</p>');
-                assert(!html.includes('die and got'));
-                assert(html.includes('10 dice and got'));
-                done();
-            });
-        });
-
-        it('/diceroll 1', function(done) {
-            mehdown.render('/diceroll 1', function(err, html) {
-                assert.notEqual(html, '<p>/diceroll 1</p>');
-                assert(html.includes('die and got'));
-                assert(!html.includes('dice and got'));
-                done();
-            });
-        });
-
-        it('/diceroll 5', function(done) {
-            mehdown.render('/diceroll 5', function(err, html) {
-                assert.notEqual(html, '<p>/diceroll 5</p>');
-                assert(!html.includes('die and got'));
-                assert(html.includes('5 dice and got'));
-                done();
-            });
-        });
-
-        it('/diceroll foo', function(done) {
-            mehdown.render('/diceroll foo', function(err, html) {
-                assert.notEqual(html, '<p>/diceroll foo</p>');
-                assert(html.includes('2 dice and got'));
-                assert(!html.includes('die and got'));
-                done();
-            });
-        });
-    });
-
-
     describe('/eightball', function() {
         it('/eightball Do I need a new lease on life?', function(done) {
             mehdown.render('/eightball Do I need a new lease on life?', function(err, html) {
@@ -416,6 +367,62 @@ describe('commands', function() {
             });
         });
     });
+
+
+    describe('/roll', function() {
+        it('/roll', function(done) {
+            mehdown.render('/roll', function(err, html) {
+                assert.notEqual(html, '<p>/roll</p>');
+                assert(!html.includes('are invalid'));
+                assert(html.includes('You rolled a'));
+                assert(!html.includes('using the following'));
+                done();
+            });
+        });
+        it('/roll --help', function(done) {
+            mehdown.render('/roll --help', function(err, html) {
+                assert.notEqual(html, '<p>/roll --help</p>');
+                assert(!html.includes('are invalid'));
+                assert(!html.includes('You rolled a'));
+                assert(html.includes('Command Usage Examples'));
+                done();
+            });
+        });
+
+        it('/roll 2d20 -show', function(done) {
+            mehdown.render('/roll 2d20 -show', function(err, html) {
+                assert.notEqual(html, '<p>/roll 2d20 -show</p>');
+                assert(!html.includes('are invalid'));
+                assert(html.includes('You rolled a'));
+                assert(html.includes('using the following 2 dice'));
+                assert(!html.includes('Command Usage Examples'));
+                done();
+            });
+        });
+
+        it('/roll 5d10+5', function(done) {
+            mehdown.render('/roll 5d10+5', function(err, html) {
+                assert.notEqual(html, '<p>/roll -5d10+5</p>');
+                assert(!html.includes('are invalid'));
+                assert(html.includes('You rolled a'));
+                assert(!html.includes('using the following'));
+                assert(!html.includes('Command Usage Examples'));
+                done();
+            });
+        });
+        it('/roll foo', function(done) {
+            mehdown.render('/roll foo', function(err, html) {
+                assert.notEqual(html, '<p>/roll foo</p>');
+                assert(html.includes('are invalid'));
+                assert(!html.includes('You rolled a'));
+                assert(!html.includes('using the following'));
+                assert(!html.includes('Command Usage Examples'));
+                done();
+            });
+        });
+    });
+
+
 
     describe('/rot13', function() {
         it('/rot13', function(done) {
