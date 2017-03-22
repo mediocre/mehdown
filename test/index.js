@@ -432,6 +432,31 @@ describe('commands', function() {
         });
     });
 
+    describe('/search', function() {
+        this.timeout(30000);
+
+            it('/search {query}', function(done) {
+                request.get(`http://api.mehstalker.com/read?limit=1`, { json: true }, function(err, res, events) {
+                    var query = events[0].Offers[0].Title.split(' ')[0].toLowerCase();
+
+                    mehdown.render(`/search ${query}`, function(err, html) {
+                        assert.notEqual(html, `<p>/search ${query}</p>`);
+                        assert(html.includes('Approx'));
+                        done();
+                    });
+                });
+          });
+
+            it('/search fuk --all', function(done) {
+                    mehdown.render(`/search fuk --all`, function(err, html) {
+                        assert.notEqual(html, `<p>/search fuk --all</p>`);
+                        assert(html.includes('Approx'));
+                        assert(!html.includes('Exceeded'));
+                        done();
+                    });
+          });
+    });
+
     describe('/shrug', function() {
         it('/shrug', function(done) {
             mehdown.render('/shrug', function(err, html) {
