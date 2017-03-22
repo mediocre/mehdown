@@ -44,6 +44,7 @@ The Markdown parser used on the forums at meh.com.
 - `/emojify text` - Swap out words with emoji
 - `/giphy text` - Post a random GIF
 - `/image text` - Post a random image
+- `/roll notation or --help` - Roll the dice
 - `/shrug` - ¯\\\_(ツ)\_/¯
 - `/woot text` - Search for deals on woot.com
 - `/youtube text` - Post a random YouTube video

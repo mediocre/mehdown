@@ -368,6 +368,62 @@ describe('commands', function() {
         });
     });
 
+
+    describe('/roll', function() {
+        it('/roll', function(done) {
+            mehdown.render('/roll', function(err, html) {
+                assert.notEqual(html, '<p>/roll</p>');
+                assert(!html.includes('are invalid'));
+                assert(html.includes('You rolled a'));
+                assert(!html.includes('using the following'));
+                done();
+            });
+        });
+        it('/roll --help', function(done) {
+            mehdown.render('/roll --help', function(err, html) {
+                assert.notEqual(html, '<p>/roll --help</p>');
+                assert(!html.includes('are invalid'));
+                assert(!html.includes('You rolled a'));
+                assert(html.includes('Command Usage Examples'));
+                done();
+            });
+        });
+
+        it('/roll 2d20 -show', function(done) {
+            mehdown.render('/roll 2d20 -show', function(err, html) {
+                assert.notEqual(html, '<p>/roll 2d20 -show</p>');
+                assert(!html.includes('are invalid'));
+                assert(html.includes('You rolled a'));
+                assert(html.includes('using the following 2 dice'));
+                assert(!html.includes('Command Usage Examples'));
+                done();
+            });
+        });
+
+        it('/roll 5d10+5', function(done) {
+            mehdown.render('/roll 5d10+5', function(err, html) {
+                assert.notEqual(html, '<p>/roll -5d10+5</p>');
+                assert(!html.includes('are invalid'));
+                assert(html.includes('You rolled a'));
+                assert(!html.includes('using the following'));
+                assert(!html.includes('Command Usage Examples'));
+                done();
+            });
+        });
+        it('/roll foo', function(done) {
+            mehdown.render('/roll foo', function(err, html) {
+                assert.notEqual(html, '<p>/roll foo</p>');
+                assert(html.includes('are invalid'));
+                assert(!html.includes('You rolled a'));
+                assert(!html.includes('using the following'));
+                assert(!html.includes('Command Usage Examples'));
+                done();
+            });
+        });
+    });
+
+
+
     describe('/rot13', function() {
         it('/rot13', function(done) {
             mehdown.render('/rot13 ROT13 ("rotate by 13 places", sometimes hyphenated ROT-13) is a simple letter substitution cipher that replaces a letter with the letter 13 letters after it in the alphabet.', function(err, html) {
