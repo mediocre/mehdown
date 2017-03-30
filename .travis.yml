@@ -1,16 +1,17 @@
 addons:
   apt:
+    packages:
+      - g++-5
+      - unicode-data
     sources:
       - ubuntu-toolchain-r-test
-    packages:
-      - g++-4.8
 
 before_script:
   - npm i -g eslint
   - eslint .
 
 env:
-  - CXX=g++-4.8
+  - CXX=g++-5
 
 language: node_js
 
