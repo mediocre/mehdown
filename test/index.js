@@ -84,17 +84,6 @@ describe('bbcode', function() {
 });
 
 describe('commands', function() {
-    describe.skip('/captionbot', function() {
-        this.timeout(10000);
-
-        it('/captionbot http://imgur.com/B7a15F5.jpg', function(done) {
-            mehdown.render('/captionbot http://imgur.com/B7a15F5.jpg', function(err, html) {
-                assert.equal(html, '<p>/captionbot<br />\n<img src="http://imgur.com/B7a15F5.jpg" /><br />\n<img alt="" class="emojione" src="https://cdn.jsdelivr.net/emojione/assets/png/1f916.png?v=2.2.7" title=":robot:" /> I think it’s a dog in the snow.</p>');
-                done();
-            });
-        });
-    });
-
     describe('/coinflip', function() {
         it('/coinflip', function(done) {
             mehdown.render('/coinflip', function(err, html) {
@@ -313,38 +302,6 @@ describe('commands', function() {
         it('/lolspeak', function(done) {
             mehdown.render('/lolspeak A lolcat is an image macro of one or more cats. The image\'s text is often idiosyncratic and grammatically incorrect. Its use in this way is known as "lolspeak" or "kitty pidgin".', function(err, html) {
                 assert.equal(html, '<p>A LOLCAT IZ AN IMAGE MACRO OV WAN OR MOAR CATS TEH IMAGE’S TEXT IZ OFTEN IDIOSYNCRATIC AN GRAMMATICALLY INCORRECT ITZ USE IN DIS WAI IZ KNOWN AS “LOLSPEAK” OR “KITTY PIDGIN”</p>');
-                done();
-            });
-        });
-    });
-
-    describe('/meme', function() {
-        this.timeout(10000);
-
-        it('/meme', function(done) {
-            mehdown.render('/meme', function(err, html) {
-                assert.notEqual(html, '<p>/meme</p>');
-                done();
-            });
-        });
-
-        it('/meme --help', function(done) {
-            mehdown.render('/meme --help', function(err, html) {
-                assert.notEqual(html, '<p>/meme --help</p>');
-                done();
-            });
-        });
-
-        it('/meme --template icanhas', function(done) {
-            mehdown.render('/meme --template icanhas', function(err, html) {
-                assert.equal(html, '<p><img src="http://memegen.link/icanhas/-/-.jpg?font=impact" alt="" /></p>');
-                done();
-            });
-        });
-
-        it('/meme --template success --top "we have a" --bottom "/meme command"', function(done) {
-            mehdown.render('/meme --template success --top "we have a" --bottom "/meme command"', function(err, html) {
-                assert.equal(html, '<p><img src="http://memegen.link/success/we-have-a/~smeme-command.jpg?font=impact" alt="we have a /meme command" /></p>');
                 done();
             });
         });

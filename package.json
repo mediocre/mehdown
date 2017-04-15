@@ -1,7 +1,6 @@
 {
     "dependencies": {
         "async": "2.1.x",
-        "captionbot": "1.0.x",
         "cowsay": "mediocre/cowsay",
         "emojione": "2.2.7",
         "flip": "1.0.x",
@@ -29,5 +28,5 @@
     "scripts": {
         "test": "mocha --reporter spec test/*"
     },
-    "version": "2.23.1"
+    "version": "2.24.0"
 }
