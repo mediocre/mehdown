@@ -16,4 +16,11 @@ describe('kaltura', function() {
             done();
         });
     });
+
+    it('https://www.kaltura.com/index.php/extwidget/preview/partner_id/2056591/uiconf_id/39156232/entry_id/0_meiqzwlr/embed/iframe', function(done) {
+        mehdown.render('https://www.kaltura.com/index.php/extwidget/preview/partner_id/2056591/uiconf_id/39156232/entry_id/0_meiqzwlr/embed/iframe', function(err, html) {
+            assert.equal(html, '<p><iframe allowfullscreen class="kaltura" frameborder="0" src="https://cdnapisec.kaltura.com/p/2056591/embedIframeJs/uiconf_id/39156232?iframeembed=true&entry_id=0_meiqzwlr"></iframe></p>');
+            done();
+        });
+    });
 });
