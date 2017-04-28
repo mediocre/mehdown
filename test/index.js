@@ -720,6 +720,13 @@ describe('strikethrough', function() {
     });
 });
 
+describe('mehdown.kalturaEmbedHtml', function() {
+    it('https://www.kaltura.com/index.php/extwidget/preview/partner_id/2056591/uiconf_id/39156232/entry_id/0_meiqzwlr/embed/iframe?&flashvars[streamerType]=auto', function() {
+        var html = mehdown.kalturaEmbedHtml('https://www.kaltura.com/index.php/extwidget/preview/partner_id/2056591/uiconf_id/39156232/entry_id/0_meiqzwlr/embed/iframe?&flashvars[streamerType]=auto');
+        assert.equal(html, '<iframe allowfullscreen class="kaltura" frameborder="0" src="https://cdnapisec.kaltura.com/p/2056591/embedIframeJs/uiconf_id/39156232?iframeembed=true&entry_id=0_meiqzwlr"></iframe>');
+    });
+});
+
 describe('mehdown.youTubeEmbedHtml', function() {
     it('http://www.youtube.com/watch?v=kU9MuM4lP18', function() {
         var html = mehdown.youTubeEmbedHtml('http://www.youtube.com/watch?v=kU9MuM4lP18');
