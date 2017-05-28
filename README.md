@@ -1,5 +1,7 @@
-mehdown
-=======
+# mehdown
+
+[![Build Status](https://travis-ci.org/mediocre/mehdown.svg?branch=master)](https://travis-ci.org/mediocre/mehdown)
+[![Coverage Status](https://coveralls.io/repos/github/mediocre/mehdown/badge.svg?branch=master)](https://coveralls.io/github/mediocre/mehdown?branch=master)
 
 The Markdown parser used on the forums at meh.com.
 

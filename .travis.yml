@@ -6,6 +6,9 @@ addons:
     sources:
       - ubuntu-toolchain-r-test
 
+after_success:
+  - npm run coveralls
+
 before_script:
   - npm i -g eslint
   - eslint .
@@ -20,4 +23,8 @@ node_js:
   - 6
   - 7
 
-sudo: false
+notifications:
+  slack:
+    rooms:
+      - secure: "UyNC1yUPd42HzjZDHvgcbV4cBF9oxzdGETb/4pu+6M1iZrAel2nXKhATAPV6xltAbNjlUp6Gx+eyrFuYBODwcShDMd27Dj8BeDYrLN/OTVEwZ17XDrI3DE8HKwxAfroxczsiUQ+W6YFOCXOdkQYK02yjpbuX/F+qgiB31ewNvZM="
+    on_success: always

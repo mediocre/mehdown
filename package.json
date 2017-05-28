@@ -19,6 +19,8 @@
     },
     "description": "The Markdown parser used on the forums at meh.com.",
     "devDependencies": {
+        "coveralls": "*",
+        "istanbul": "*",
         "mocha": "*"
     },
     "keywords": ["markdown"],
@@ -26,6 +28,7 @@
     "name": "mehdown",
     "repository": "git://github.com/mediocre/mehdown.git",
     "scripts": {
+        "coveralls": "istanbul cover ./node_modules/mocha/bin/_mocha --report lcovonly -- -R spec test/* && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage",
         "test": "mocha --reporter spec test/*"
     },
     "version": "2.26.1"
