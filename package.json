@@ -1,12 +1,12 @@
 {
     "dependencies": {
-        "async": "2.1.x",
-        "cowsay": "mediocre/cowsay",
+        "async": "2.4.x",
+        "cowsay": "git://github.com/mediocre/cowsay.git",
         "emojione": "2.2.7",
         "flip": "1.0.x",
         "http-image-size": "1.1.x",
         "lolspeak": "1.4.x",
-        "lunr": "1.0.x",
+        "lunr": "2.1.x",
         "markdown-it": "8.3.x",
         "minimist": "1.2.x",
         "natural": "0.5.x",
@@ -23,7 +23,9 @@
         "istanbul": "*",
         "mocha": "*"
     },
-    "keywords": ["markdown"],
+    "keywords": [
+        "markdown"
+    ],
     "main": "./lib",
     "name": "mehdown",
     "repository": "git://github.com/mediocre/mehdown.git",
@@ -31,5 +33,5 @@
         "coveralls": "istanbul cover ./node_modules/mocha/bin/_mocha --report lcovonly -- -R spec test/* && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage",
         "test": "mocha --reporter spec test/*"
     },
-    "version": "2.27.1"
+    "version": "2.27.2"
 }
