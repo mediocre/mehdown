@@ -392,28 +392,28 @@ describe('commands', function() {
     describe('/shrug', function() {
         it('/shrug', function(done) {
             mehdown.render('/shrug', function(err, html) {
-                assert.equal(html, '<p>¯\\\_(ツ)_/¯</p>');
+                assert.equal(html, '<p>¯\\_(ツ)_/¯</p>');
                 done();
             });
         });
 
         it('/shrug\n/shrug', function(done) {
             mehdown.render('/shrug\n/shrug', function(err, html) {
-                assert.equal(html, '<p>¯\\\_(ツ)_/¯<br />\n¯\\\_(ツ)_/¯</p>');
+                assert.equal(html, '<p>¯\\_(ツ)_/¯<br />\n¯\\_(ツ)_/¯</p>');
                 done();
             });
         });
 
         it('/shrug\n/shrug\n/shrug', function(done) {
             mehdown.render('/shrug\n/shrug\n/shrug', function(err, html) {
-                assert.equal(html, '<p>¯\\\_(ツ)_/¯<br />\n¯\\\_(ツ)_/¯<br />\n¯\\\_(ツ)_/¯</p>');
+                assert.equal(html, '<p>¯\\_(ツ)_/¯<br />\n¯\\_(ツ)_/¯<br />\n¯\\_(ツ)_/¯</p>');
                 done();
             });
         });
 
         it('/SHRUG', function(done) {
             mehdown.render('/SHRUG', function(err, html) {
-                assert.equal(html, '<p>¯\\\_(ツ)_/¯</p>');
+                assert.equal(html, '<p>¯\\_(ツ)_/¯</p>');
                 done();
             });
         });
