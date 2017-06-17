@@ -1,7 +1,5 @@
 const assert = require('assert');
 
-const request = require('request');
-
 const mehdown = require('../lib');
 
 describe('bbcode', function() {
@@ -417,23 +415,6 @@ describe('commands', function() {
                 done();
             });
         });
-    });
-
-    describe('/woot', function() {
-        this.timeout(30000);
-
-        if (process.env.WOOT_API_KEY) {
-            it('/woot {query}', function(done) {
-                request.get(`http://api.woot.com/2/events.json?key=${process.env.WOOT_API_KEY}&select=Offers.Items.SalePrice,Offers.Title,Offers.Url`, { json: true }, function(err, res, events) {
-                    var query = events[0].Offers[0].Title.split(' ')[0].toLowerCase();
-
-                    mehdown.render(`/woot ${query}`, function(err, html) {
-                        assert.notEqual(html, `<p>/woot ${query}</p>`);
-                        done();
-                    });
-                });
-            });
-        }
     });
 
     describe('/youtube', function() {
