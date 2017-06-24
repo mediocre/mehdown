@@ -82,6 +82,17 @@ describe('bbcode', function() {
 });
 
 describe('commands', function() {
+    describe('/captionbot', function() {
+        this.timeout(10000);
+
+        it('/captionbot http://imgur.com/B7a15F5.jpg', function(done) {
+            mehdown.render('/captionbot http://imgur.com/B7a15F5.jpg', function(err, html) {
+                assert.equal(html, '<p>/captionbot<br />\n<img src="http://imgur.com/B7a15F5.jpg" /><br />\n<img alt="" class="emojione" src="https://cdn.jsdelivr.net/emojione/assets/png/1f916.png?v=2.2.7" title=":robot:" /> I think it’s a dog that is covered in snow.</p>');
+                done();
+            });
+        });
+    });
+
     describe('/coinflip', function() {
         it('/coinflip', function(done) {
             mehdown.render('/coinflip', function(err, html) {
