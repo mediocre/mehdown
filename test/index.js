@@ -428,6 +428,15 @@ describe('commands', function() {
         });
     });
 
+    describe('/concerned', function() {
+        it('/concerned', function(done) {
+            mehdown.render('/concerned', function(err, html) {
+                assert.equal(html, '<p>ಠ_ಠ</p>');
+                done();
+            });
+        });
+    });
+
     describe('/youtube', function() {
         this.timeout(10000);
 
