@@ -1,6 +1,5 @@
 {
     "dependencies": {
-<<<<<<< HEAD
         "async": "^2.4.x",
         "emojione": "^3.0.x",
         "flip": "^1.0.x",
@@ -16,25 +15,7 @@
         "shell-quote": "^1.6.x",
         "slug": "^0.9.x",
         "textify": "0.0.x",
-        "youtube-search": "^1.0.x"
-=======
-        "async": "^2.4.1",
-        "emojione": "^3.0.3",
-        "flip": "^1.0.0",
-        "http-image-size": "^1.1.0",
-        "lolspeak": "^1.4.0",
-        "markdown-it": "^8.3.1",
-        "mediocre-captionbot": "^1.1.0",
-        "mehdown-cowsay": "^1.1.6",
-        "minimist": "^1.2.0",
-        "natural": "^0.5.4",
-        "request": "^2.81.0",
-        "roll": "^1.2.0",
-        "shell-quote": "^1.6.1",
-        "slug": "^0.9.1",
-        "textify": "0.0.12",
-        "youtube-search": "^1.0.10"
->>>>>>> 9a8c820fed67676d851bc2ad0ae0484086f83363
+        "youtube-search": "1.0.x"
     },
     "description": "The Markdown parser used on the forums at meh.com.",
     "devDependencies": {
