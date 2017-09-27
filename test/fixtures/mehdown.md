@@ -25,6 +25,9 @@ Better linebreak/newline support.
 
 ## Supports turning URLs from many popular sites into HTML embeds:
 
+GitHub gists are displayed inline.
+https://gist.github.com/javamatte/f75cc07313f45d5b78cdc967f0dabd05
+
 Image URLs are converted to images.
 https://res.cloudinary.com/mediocre/image/upload/Meh36Faces128px_01_t366di.png
 
@@ -48,6 +51,9 @@ http://vimeo.com/78950165
 
 Vine URLs are converted to video players.
 https://vine.co/v/hWZ9mbJZaKE
+
+XKCD URLs are converted to images.
+https://xkcd.com/927
 
 YouTube URLs are converted to video players.
 http://www.youtube.com/watch?v=kU9MuM4lP18&start=10&end=20
