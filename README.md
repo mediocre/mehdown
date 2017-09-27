@@ -27,6 +27,7 @@ The Markdown parser used on the forums at meh.com.
 
 ## Turns URLs from many popular sites into HTML embeds:
 
+- GitHub gists are embedded inline.
 - Image URLs are converted to images.
 - imgur GIFV URLs are converted to high quality looping GIF videos.
 - Kickstarter URLs are converted to campaign previews.
@@ -35,6 +36,7 @@ The Markdown parser used on the forums at meh.com.
 - Twitter status URLs are converted to embeddable tweets.
 - Vimeo URLs are converted to video players.
 - Vine URLs are converted to video players.
+- XKCD comic permalinks are converted to linked images.
 - YouTube URLs are converted to video players.
 
 ## Supports /commands:

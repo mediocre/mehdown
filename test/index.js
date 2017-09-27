@@ -85,6 +85,13 @@ describe('commands', function() {
     describe('/captionbot', function() {
         this.timeout(10000);
 
+        it('/captionbot', function(done) {
+            mehdown.render('/captionbot', function(err, html) {
+                assert.equal(html, '<p>/captionbot</p>');
+                done();
+            });
+        });
+
         it('/captionbot http://imgur.com/B7a15F5.jpg', function(done) {
             mehdown.render('/captionbot http://imgur.com/B7a15F5.jpg', function(err, html) {
                 assert.equal(html, '<p>/captionbot<br />\n<img src="http://imgur.com/B7a15F5.jpg" /><br />\n<img alt="" class="emojione" src="https://cdn.jsdelivr.net/emojione/assets/3.0/png/64/1f916.png" title=":robot:" /> I think it’s a dog that is covered in snow.</p>');
@@ -129,6 +136,13 @@ describe('commands', function() {
 
     describe('/cowsay', function() {
         this.timeout(10000);
+
+        it('/cowsay', function(done) {
+            mehdown.render('/cowsay', function(err, html) {
+                assert.strictEqual(html, '<p>/cowsay</p>');
+                done();
+            });
+        });
 
         it('/cowsay moo', function(done) {
             mehdown.render('/cowsay -b', function(err, html) {
@@ -180,6 +194,24 @@ describe('commands', function() {
         });
     });
 
+    describe('/cowthink', function() {
+        this.timeout(10000);
+
+        it('/cowthink', function(done) {
+            mehdown.render('/cowthink', function(err, html) {
+                assert.strictEqual(html, '<p>/cowthink</p>');
+                done();
+            });
+        });
+
+        it('/cowthink hmm...', function(done) {
+            mehdown.render('/cowthink hmm...', function(err, html) {
+                assert.notEqual(html, '<p>/cowthink hmm...</p>');
+                done();
+            });
+        });
+    });
+
     describe('/eightball', function() {
         it('/eightball Do I need a new lease on life?', function(done) {
             mehdown.render('/eightball Do I need a new lease on life?', function(err, html) {
@@ -190,6 +222,13 @@ describe('commands', function() {
     });
 
     describe('/emojify', function() {
+        it('/emojify', function(done) {
+            mehdown.render('/emojify', function(err, html) {
+                assert.strictEqual(html, '<p>/emojify</p>');
+                done();
+            });
+        });
+
         it('/emojify Basketball finishes at 5. Then it\'s pizza or tacos. Maybe go to the movies. You in?', function(done) {
             mehdown.render('/emojify Basketball finishes at 5. Then it\'s pizza or tacos. Maybe go to the movies. You in?', function(err, html) {
                 assert.equal(html, '<p><img alt="" class="emojione" src="https://cdn.jsdelivr.net/emojione/assets/3.0/png/64/1f3c0.png" title=":basketball:" /> finishes at 5. Then it’s <img alt="" class="emojione" src="https://cdn.jsdelivr.net/emojione/assets/3.0/png/64/1f355.png" title=":pizza:" /> or <img alt="" class="emojione" src="https://cdn.jsdelivr.net/emojione/assets/3.0/png/64/1f32e.png" title=":taco:" />. Maybe go to the <img alt="" class="emojione" src="https://cdn.jsdelivr.net/emojione/assets/3.0/png/64/1f3a5.png" title=":movie_camera:" />. You in?</p>');
