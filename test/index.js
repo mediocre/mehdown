@@ -130,6 +130,13 @@ describe('commands', function() {
     describe('/cowsay', function() {
         this.timeout(10000);
 
+        it('/cowsay', function(done) {
+            mehdown.render('/cowsay', function(err, html) {
+                assert.strictEqual(html, '<p>/cowsay</p>');
+                done();
+            });
+        });
+
         it('/cowsay moo', function(done) {
             mehdown.render('/cowsay -b', function(err, html) {
                 assert.notEqual(html, '<p>/cowsay moo</p>');
@@ -175,6 +182,17 @@ describe('commands', function() {
         it('/cowsay hello world?', function(done) {
             mehdown.render('/cowsay "hello world? || ()"', function(err, html) {
                 assert.notEqual(html.indexOf('hello world? || ()'), -1);
+                done();
+            });
+        });
+    });
+
+    describe('/cowthink', function() {
+        this.timeout(10000);
+
+        it('/cowthink hmm...', function(done) {
+            mehdown.render('/cowthink hmm...', function(err, html) {
+                assert.notEqual(html, '<p>/cowsay hmm...</p>');
                 done();
             });
         });
