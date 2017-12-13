@@ -9,4 +9,11 @@ describe('Apple Music', function() {
             done();
         });
     });
+
+    it('https://itunes.apple.com/us/album/the-rescues/1233432159', function(done) {
+        mehdown.render('https://itunes.apple.com/us/album/the-rescues/1233432159', function(err, html) {
+            assert.equal(html, '<p><iframe class="apple-music" frameborder="0" src="//tools.applemusic.com/embed/v1/album/1233432159"></iframe></p>');
+            done();
+        });
+    });
 });
