@@ -1,20 +1,9 @@
-addons:
-  apt:
-    packages:
-      - g++-5
-      - unicode-data
-    sources:
-      - ubuntu-toolchain-r-test
-
 after_success:
   - npm run coveralls
 
 before_script:
   - npm i -g eslint
   - eslint .
-
-env:
-  - CXX=g++-5
 
 language: node_js
 
