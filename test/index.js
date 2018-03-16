@@ -481,60 +481,78 @@ describe('commands', function() {
 
 describe('detect image sizes', function() {
     it('images', function(done) {
-        mehdown.render('https://res.cloudinary.com/mediocre/image/upload/kekjvvhpkxh0v8x9o6u7.png https://i.imgur.com/8peBgQn.png https://res.cloudinary.com/mediocre/image/upload/kekjvvhpkxh0v8x9o6u7.png', { detectImageSizes: true }, function(err, html) {
-            assert.equal(html, '<p><img height="528" src="https://res.cloudinary.com/mediocre/image/upload/kekjvvhpkxh0v8x9o6u7.png" width="528" /> <img height="250" src="https://i.imgur.com/8peBgQn.png" width="300" /> <img height="528" src="https://res.cloudinary.com/mediocre/image/upload/kekjvvhpkxh0v8x9o6u7.png" width="528" /></p>');
+        const image1 = 'https://res.cloudinary.com/mediocre/image/upload/kekjvvhpkxh0v8x9o6u7.png';
+        const image2 = 'https://i.imgur.com/8peBgQn.png';
+        const image3 = 'https://res.cloudinary.com/mediocre/image/upload/kekjvvhpkxh0v8x9o6u7.png';
+
+        mehdown.render(`${image1} ${image2} ${image3}`, { detectImageSizes: true }, function(err, html) {
+            assert.equal(html, `<p><a href="${image1}" target="_blank"><img height="528" src="${image1}" width="528" /></a> <a href="${image2}" target="_blank"><img height="250" src="${image2}" width="300" /></a> <a href="${image3}" target="_blank"><img height="528" src="${image3}" width="528" /></a></p>`);
             done();
         });
     });
 
     it('broken image', function(done) {
+        const image = 'http://example.com/404.png';
+
         this.timeout(10000);
 
-        mehdown.render('http://example.com/404.png', { detectImageSizes: true }, function(err, html) {
-            assert.equal(html, '<p><img src="http://example.com/404.png" /></p>');
+        mehdown.render(image, { detectImageSizes: true }, function(err, html) {
+            assert.equal(html, `<p><a href="${image}" target="_blank"><img src="${image}" /></a></p>`);
             done();
         });
     });
 
     it('broken image html', function(done) {
-        mehdown.render('http://example.com/404.png', { detectImageSizes: true }, function(err, html) {
-            assert.equal(html, '<p><img src="http://example.com/404.png" /></p>');
+        const image = 'http://example.com/404.png';
+
+        mehdown.render(image, { detectImageSizes: true }, function(err, html) {
+            assert.equal(html, `<p><a href="${image}" target="_blank"><img src="http://example.com/404.png" /></a></p>`);
             done();
         });
     });
 
     it('scheme relative broken image html', function(done) {
-        mehdown.render('//example.com/404.png', { detectImageSizes: true }, function(err, html) {
-            assert.equal(html, '<p><img src="//example.com/404.png" /></p>');
+        const image = '//example.com/404.png';
+
+        mehdown.render(image, { detectImageSizes: true }, function(err, html) {
+            assert.equal(html, `<p><a href="${image}" target="_blank"><img src="${image}" /></a></p>`);
             done();
         });
     });
 
     it('image from editor', function(done) {
-        mehdown.render('![enter image description here][1]\r\n\r\n  [1]: https://res.cloudinary.com/mediocre/image/upload/kekjvvhpkxh0v8x9o6u7.png "optional title"', { detectImageSizes: true }, function(err, html) {
-            assert.equal(html, '<p><img height="528" src="https://res.cloudinary.com/mediocre/image/upload/kekjvvhpkxh0v8x9o6u7.png" width="528" alt="enter image description here" title="optional title" /></p>');
+        const image = 'https://res.cloudinary.com/mediocre/image/upload/kekjvvhpkxh0v8x9o6u7.png';
+
+        mehdown.render(`![enter image description here][1]\r\n\r\n  [1]: ${image} "optional title"`, { detectImageSizes: true }, function(err, html) {
+            assert.equal(html, `<p><img height="528" src="${image}" width="528" alt="enter image description here" title="optional title" /></p>`);
             done();
         });
     });
 
     it('image html', function(done) {
-        mehdown.render('https://res.cloudinary.com/mediocre/image/upload/kekjvvhpkxh0v8x9o6u7.png', { detectImageSizes: true }, function(err, html) {
-            assert.equal(html, '<p><img height="528" src="https://res.cloudinary.com/mediocre/image/upload/kekjvvhpkxh0v8x9o6u7.png" width="528" /></p>');
+        const image = 'https://res.cloudinary.com/mediocre/image/upload/kekjvvhpkxh0v8x9o6u7.png';
+
+        mehdown.render(image, { detectImageSizes: true }, function(err, html) {
+            assert.equal(html, `<p><a href="${image}" target="_blank"><img height="528" src="${image}" width="528" /></a></p>`);
             done();
         });
     });
 
     it('scheme relative image html', function(done) {
-        mehdown.render('//res.cloudinary.com/mediocre/image/upload/kekjvvhpkxh0v8x9o6u7.png', { detectImageSizes: true }, function(err, html) {
-            assert.equal(html, '<p><img height="528" src="//res.cloudinary.com/mediocre/image/upload/kekjvvhpkxh0v8x9o6u7.png" width="528" /></p>');
+        const image = '//res.cloudinary.com/mediocre/image/upload/kekjvvhpkxh0v8x9o6u7.png';
+
+        mehdown.render(image, { detectImageSizes: true }, function(err, html) {
+            assert.equal(html, `<p><a href="${image}" target="_blank"><img height="528" src="${image}" width="528" /></a></p>`);
             done();
         });
     });
 
     // https://github.com/mediocre/forum-service/issues/64
     it('BUG: Cannot read property "height" of undefined', function(done) {
-        mehdown.render('jealous-dusty-magic http://cl.ly/image/0w251W2U1f1Q/Screen%20Shot%202014-06-16%20at%201.26.25%20PM.png @katylava says makes her think of fantasia', { detectImageSizes: true }, function(err, html) {
-            assert.equal(html, '<p>jealous-dusty-magic <img src="http://cl.ly/image/0w251W2U1f1Q/Screen%20Shot%202014-06-16%20at%201.26.25%20PM.png" /> <a href="/@katylava">@katylava</a> says makes her think of fantasia</p>');
+        const image = 'http://cl.ly/image/0w251W2U1f1Q/Screen%20Shot%202014-06-16%20at%201.26.25%20PM.png';
+
+        mehdown.render(`jealous-dusty-magic ${image} @katylava says makes her think of fantasia`, { detectImageSizes: true }, function(err, html) {
+            assert.equal(html, `<p>jealous-dusty-magic <a href="${image}" target="_blank"><img src="${image}" /></a> <a href="/@katylava">@katylava</a> says makes her think of fantasia</p>`);
             done();
         });
     });
