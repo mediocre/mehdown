@@ -2,16 +2,15 @@
     "dependencies": {
         "async": "2.6.x",
         "cheerio": "0.22.x",
-        "emojione": "3.0.3",
+        "emojione": "3.1.2",
         "flip": "1.0.x",
         "http-image-size": "1.1.x",
         "lolspeak": "1.4.x",
         "markdown-it": "8.4.x",
-        "mediocre-captionbot": "1.1.x",
         "mehdown-cowsay": "1.1.x",
         "minimist": "1.2.x",
         "natural": "0.5.x",
-        "request": "2.83.x",
+        "request": "2.85.x",
         "roll": "1.2.x",
         "shell-quote": "1.6.x",
         "slug": "0.9.x",
@@ -34,5 +33,5 @@
         "coveralls": "istanbul cover ./node_modules/mocha/bin/_mocha --report lcovonly -- -R spec test/* && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage",
         "test": "mocha --reporter spec test/*"
     },
-    "version": "2.34.4"
+    "version": "2.35.0"
 }

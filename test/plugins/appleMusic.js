@@ -16,4 +16,11 @@ describe('Apple Music', function() {
             done();
         });
     });
+
+    it('[The Rescues](https://itunes.apple.com/us/album/the-rescues/1233432159)', function(done) {
+        mehdown.render('[The Rescues](https://itunes.apple.com/us/album/the-rescues/1233432159)', function(err, html) {
+            assert.equal(html, '<p><a href="https://itunes.apple.com/us/album/the-rescues/1233432159">The Rescues</a></p>');
+            done();
+        });
+    });
 });

@@ -82,24 +82,6 @@ describe('bbcode', function() {
 });
 
 describe('commands', function() {
-    describe('/captionbot', function() {
-        this.timeout(10000);
-
-        it('/captionbot', function(done) {
-            mehdown.render('/captionbot', function(err, html) {
-                assert.equal(html, '<p>/captionbot</p>');
-                done();
-            });
-        });
-
-        it('/captionbot http://imgur.com/B7a15F5.jpg', function(done) {
-            mehdown.render('/captionbot http://imgur.com/B7a15F5.jpg', function(err, html) {
-                assert.equal(html, '<p>/captionbot<br />\n<img src="http://imgur.com/B7a15F5.jpg" /><br />\n<img alt="" class="emojione" src="https://cdn.jsdelivr.net/emojione/assets/3.0/png/64/1f916.png" title=":robot:" /> I think it’s a dog that is covered in snow.</p>');
-                done();
-            });
-        });
-    });
-
     describe('/coinflip', function() {
         it('/coinflip', function(done) {
             mehdown.render('/coinflip', function(err, html) {
@@ -231,28 +213,28 @@ describe('commands', function() {
 
         it('/emojify Basketball finishes at 5. Then it\'s pizza or tacos. Maybe go to the movies. You in?', function(done) {
             mehdown.render('/emojify Basketball finishes at 5. Then it\'s pizza or tacos. Maybe go to the movies. You in?', function(err, html) {
-                assert.equal(html, '<p><img alt="" class="emojione" src="https://cdn.jsdelivr.net/emojione/assets/3.0/png/64/1f3c0.png" title=":basketball:" /> finishes at 5. Then it’s <img alt="" class="emojione" src="https://cdn.jsdelivr.net/emojione/assets/3.0/png/64/1f355.png" title=":pizza:" /> or <img alt="" class="emojione" src="https://cdn.jsdelivr.net/emojione/assets/3.0/png/64/1f32e.png" title=":taco:" />. Maybe go to the <img alt="" class="emojione" src="https://cdn.jsdelivr.net/emojione/assets/3.0/png/64/1f3a5.png" title=":movie_camera:" />. You in?</p>');
+                assert.equal(html, '<p><img alt="" class="emojione" src="https://cdn.jsdelivr.net/emojione/assets/3.1/png/64/1f3c0.png" title=":basketball:" /> finishes at 5. Then it’s <img alt="" class="emojione" src="https://cdn.jsdelivr.net/emojione/assets/3.1/png/64/1f355.png" title=":pizza:" /> or <img alt="" class="emojione" src="https://cdn.jsdelivr.net/emojione/assets/3.1/png/64/1f32e.png" title=":taco:" />. Maybe go to the <img alt="" class="emojione" src="https://cdn.jsdelivr.net/emojione/assets/3.1/png/64/1f3a5.png" title=":movie_camera:" />. You in?</p>');
                 done();
             });
         });
 
         it('/emojify package package :package: package', function(done) {
             mehdown.render('/emojify package package :package: package', function(err, html) {
-                assert.equal(html, '<p><img alt="" class="emojione" src="https://cdn.jsdelivr.net/emojione/assets/3.0/png/64/1f4e6.png" title=":package:" /> <img alt="" class="emojione" src="https://cdn.jsdelivr.net/emojione/assets/3.0/png/64/1f4e6.png" title=":package:" /> <img alt="" class="emojione" src="https://cdn.jsdelivr.net/emojione/assets/3.0/png/64/1f4e6.png" title=":package:" /> <img alt="" class="emojione" src="https://cdn.jsdelivr.net/emojione/assets/3.0/png/64/1f4e6.png" title=":package:" /></p>');
+                assert.equal(html, '<p><img alt="" class="emojione" src="https://cdn.jsdelivr.net/emojione/assets/3.1/png/64/1f4e6.png" title=":package:" /> <img alt="" class="emojione" src="https://cdn.jsdelivr.net/emojione/assets/3.1/png/64/1f4e6.png" title=":package:" /> <img alt="" class="emojione" src="https://cdn.jsdelivr.net/emojione/assets/3.1/png/64/1f4e6.png" title=":package:" /> <img alt="" class="emojione" src="https://cdn.jsdelivr.net/emojione/assets/3.1/png/64/1f4e6.png" title=":package:" /></p>');
                 done();
             });
         });
 
         it('/emojify no woman, no cry on mail so', function(done) {
             mehdown.render('/emojify no woman, no cry on mail so', function(err, html) {
-                assert.equal(html, '<p><img alt="" class="emojione" src="https://cdn.jsdelivr.net/emojione/assets/3.0/png/64/1f6ab.png" title=":no_entry_sign:" /> <img alt="" class="emojione" src="https://cdn.jsdelivr.net/emojione/assets/3.0/png/64/1f469.png" title=":woman:" />, <img alt="" class="emojione" src="https://cdn.jsdelivr.net/emojione/assets/3.0/png/64/1f6ab.png" title=":no_entry_sign:" /> <img alt="" class="emojione" src="https://cdn.jsdelivr.net/emojione/assets/3.0/png/64/1f622.png" title=":cry:" /> on <img alt="" class="emojione" src="https://cdn.jsdelivr.net/emojione/assets/3.0/png/64/1f4eb.png" title=":mailbox:" /> so</p>');
+                assert.equal(html, '<p><img alt="" class="emojione" src="https://cdn.jsdelivr.net/emojione/assets/3.1/png/64/1f6ab.png" title=":no_entry_sign:" /> <img alt="" class="emojione" src="https://cdn.jsdelivr.net/emojione/assets/3.1/png/64/1f469.png" title=":woman:" />, <img alt="" class="emojione" src="https://cdn.jsdelivr.net/emojione/assets/3.1/png/64/1f6ab.png" title=":no_entry_sign:" /> <img alt="" class="emojione" src="https://cdn.jsdelivr.net/emojione/assets/3.1/png/64/1f622.png" title=":cry:" /> on <img alt="" class="emojione" src="https://cdn.jsdelivr.net/emojione/assets/3.1/png/64/1f4eb.png" title=":mailbox:" /> so</p>');
                 done();
             });
         });
 
         it('/emojify shit', function(done) {
             mehdown.render('/emojify shit', function(err, html) {
-                assert.equal(html, '<p><img alt="" class="emojione" src="https://cdn.jsdelivr.net/emojione/assets/3.0/png/64/1f4a9.png" title=":poop:" /></p>');
+                assert.equal(html, '<p><img alt="" class="emojione" src="https://cdn.jsdelivr.net/emojione/assets/3.1/png/64/1f4a9.png" title=":poop:" /></p>');
                 done();
             });
         });
@@ -709,6 +691,13 @@ describe('links', function() {
     it('URLs that happen to have Emoji shortnames should be linked correctly', function(done) {
         mehdown.render('http://www.ebay.com/itm/GOgroove-BlueSYNC-OR3-Portable-Wireless-Bluetooth-Speaker-Splatter-Edition-/351328294837?var=&hash=item51cccc57b5:m:mLzVeDaMfRlxsCqFiutY-aw', function(err, html) {
             assert.equal(html, '<p><a href="http://www.ebay.com/itm/GOgroove-BlueSYNC-OR3-Portable-Wireless-Bluetooth-Speaker-Splatter-Edition-/351328294837?var=&amp;hash=item51cccc57b5:m:mLzVeDaMfRlxsCqFiutY-aw">http://www.ebay.com/itm/GOgroove-BlueSYNC-OR3-Portable-Wireless-Bluetooth-Speaker-Splatter-Edition-/351328294837?var=&amp;hash=item51cccc57b5:m:mLzVeDaMfRlxsCqFiutY-aw</a></p>');
+            done();
+        });
+    });
+
+    it('anchor with blank href', function(done) {
+        mehdown.render('[hello world]()', function(err, html) {
+            assert.equal(html, '<p><a href="">hello world</a></p>');
             done();
         });
     });

@@ -42,15 +42,20 @@ The Markdown parser used on the forums at meh.com.
 ## Supports /commands:
 
 - `/8ball question` - Ask the Magic 8-Ball a question
-- `/captionbot image-url` - Get a caption for an image
 - `/coinflip heads or tails` - Flip a coin
 - `/cowsay text or --help` - [ASCII cow with a message](https://en.wikipedia.org/wiki/Cowsay)
+- `/eightball question` - Ask the Magic 8-Ball a question
 - `/emojify text` - Swap out words with emoji
+- `/flip text` - uʍop ǝpısdn ʇxǝʇ dıʃℲ
 - `/giphy text` - Post a random GIF
 - `/image text` - Post a random image
+- `/jumble text` - Shuffele middele letetsrs of wodrs
+- `/leet text` - Translate text to L3375P34K
+- `/lolspeak text` - Translate text to LOLSPEAK
+- `/piglatin text` - Translate text to igpay atinlay
+- `/reverse text` - txet esreveR
 - `/roll notation or --help` - Roll the dice
 - `/shrug` - ¯\\\_(ツ)\_/¯
-- `/woot text` - Search for deals on woot.com
 - `/youtube text` - Post a random YouTube video
 
 ## Supports a subset of BBCode tags
