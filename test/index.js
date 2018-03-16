@@ -694,6 +694,13 @@ describe('links', function() {
             done();
         });
     });
+
+    it('anchor with blank href', function(done) {
+        mehdown.render('[hello world]()', function(err, html) {
+            assert.equal(html, '<p><a href="">hello world</a></p>');
+            done();
+        });
+    });
 });
 
 describe('newlines', function() {
