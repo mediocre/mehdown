@@ -56,7 +56,7 @@ The Markdown parser used on the forums at meh.com.
 - `/reverse text` - txet esreveR
 - `/roll notation or --help` - Roll the dice
 - `/shrug` - ¯\\\_(ツ)\_/¯
-- `/wootstalker url` - Retrieve and display woot.com sale details
+- `/wootstalker url` - Display woot.com deal details
 - `/youtube text` - Post a random YouTube video
 
 ## Supports a subset of BBCode tags
