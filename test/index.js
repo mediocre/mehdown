@@ -458,6 +458,43 @@ describe('commands', function() {
         });
     });
 
+    describe('/wootstalker', function() {
+        it('/wootstalker', function(done) {
+            mehdown.render('/wootstalker', function(err, html) {
+                assert.notEqual(html, '<p>/wootstalker</p>');
+                assert(html.includes('You must specify a site or url'));
+                done();
+            });
+            });
+
+        it('/wootstalker home', function(done) {
+            mehdown.render('/wootstalker home', function(err, html) {
+                assert.notEqual(html, '<p>/wootstalker /home</p>');
+                assert(html.includes('home.woot.com'));
+                assert(html.includes('href'));
+                done();
+            });
+        });
+        it('/wootstalker notarealsite', function(done) {
+            mehdown.render('/wootstalker notarealsite', function(err, html) {
+                assert.notEqual(html, '<p>/wootstalker notarealsite</p>');
+                assert(html.includes('notarealsite'));
+                assert(html.includes('invalid site or url entered'));
+                assert(!html.includes('href'));
+                done();
+            });
+         });
+        it('/wootstalker https://electronics.woot.com/offers/parrot-quadcopter-swing-minidrone', function(done) {
+            mehdown.render('/wootstalker https://electronics.woot.com/offers/parrot-quadcopter-swing-minidrone', function(err, html) {
+                assert.notEqual(html, '<p>/wootstalker https://electronics.woot.com/offers/parrot-quadcopter-swing-minidrone</p>');
+                assert(html.includes('Parrot Quadcopter Swing Minidrone'));
+                assert(html.includes('href'));
+                done();
+            });
+        });
+
+    });
+    
     describe('/youtube', function() {
         this.timeout(10000);
 
