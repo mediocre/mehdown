@@ -458,6 +458,36 @@ describe('commands', function() {
         });
     });
 
+    describe('/whatdog', function() {
+        it('/whatdog', function(done) {
+            mehdown.render('/whatdog', function(err, html) {
+                assert.notEqual(html, '<p>/whatdog</p>');
+                done();
+            });
+        });
+
+        it('/whatdog foo', function(done) {
+            mehdown.render('/whatdog foo', function(err, html) {
+                assert.strictEqual(html, '<p>/whatdog foo<br />\nSomething went terribly wrong.</p>');
+                done();
+            });
+        });
+
+        it('/whatdog https://www.what-dog.net/Images/faces2/main007.jpg', function(done) {
+            mehdown.render('/whatdog https://www.what-dog.net/Images/faces2/main007.jpg', function(err, html) {
+                assert.equal(html, '<p>/whatdog<br />\n<img src="https://www.what-dog.net/Images/faces2/main007.jpg" /><br />\n<img alt="" class="emojione" src="https://cdn.jsdelivr.net/emojione/assets/3.1/png/64/1f436.png" title=":dog:" /> Scottish Terrier<br />\nLoving, sounds off at strangers, personable with its family</p>');
+                done();
+            });
+        });
+
+        it('/whatdog https://res.cloudinary.com/mediocre/image/upload/c_pad,f_auto,dpr_1.0,h_300,q_auto,w_300/pawhj2hpl5f4ivetd2ga.png', function(done) {
+            mehdown.render('/whatdog https://res.cloudinary.com/mediocre/image/upload/c_pad,f_auto,dpr_1.0,h_300,q_auto,w_300/pawhj2hpl5f4ivetd2ga.png', function(err, html) {
+                assert.equal(html, '<p>/whatdog<br />\n<img src="https://res.cloudinary.com/mediocre/image/upload/c_pad,f_auto,dpr_1.0,h_300,q_auto,w_300/pawhj2hpl5f4ivetd2ga.png" /><br />\n<img alt="" class="emojione" src="https://cdn.jsdelivr.net/emojione/assets/3.1/png/64/26d4.png" title=":no_entry:" /> Not a dog.</p>');
+                done();
+            });
+        });
+    });
+
     describe('/wootstalker', function() {
         it('/wootstalker', function(done) {
             mehdown.render('/wootstalker', function(err, html) {
