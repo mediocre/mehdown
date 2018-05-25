@@ -459,6 +459,8 @@ describe('commands', function() {
     });
 
     describe('/whatdog', function() {
+        this.timeout(10000);
+
         it('/whatdog', function(done) {
             mehdown.render('/whatdog', function(err, html) {
                 assert.notEqual(html, '<p>/whatdog</p>');
