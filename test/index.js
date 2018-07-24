@@ -229,7 +229,7 @@ describe('commands', function() {
 
         it('/emojify package package :package: package', function(done) {
             mehdown.render('/emojify package package :package: package', function(err, html) {
-                assert.equal(html, '<p><img alt="" class="emojione" src="https://cdn.jsdelivr.net/emojione/assets/3.1/png/64/1f4e6.png" title=":package:" /> <img alt="" class="emojione" src="https://cdn.jsdelivr.net/emojione/assets/3.1/png/64/1f4e6.png" title=":package:" /> <img alt="" class="emojione" src="https://cdn.jsdelivr.net/emojione/assets/3.1/png/64/1f4e6.png" title=":package:" /> <img alt="" class="emojione" src="https://cdn.jsdelivr.net/emojione/assets/3.1/png/64/1f4e6.png" title=":package:" /></p>');
+                assert.equal(html, '<p><img alt="" class="emojione jumbo" src="https://cdn.jsdelivr.net/emojione/assets/3.1/png/64/1f4e6.png" title=":package:" /> <img alt="" class="emojione jumbo" src="https://cdn.jsdelivr.net/emojione/assets/3.1/png/64/1f4e6.png" title=":package:" /> <img alt="" class="emojione jumbo" src="https://cdn.jsdelivr.net/emojione/assets/3.1/png/64/1f4e6.png" title=":package:" /> <img alt="" class="emojione jumbo" src="https://cdn.jsdelivr.net/emojione/assets/3.1/png/64/1f4e6.png" title=":package:" /></p>');
                 done();
             });
         });
@@ -243,7 +243,7 @@ describe('commands', function() {
 
         it('/emojify shit', function(done) {
             mehdown.render('/emojify shit', function(err, html) {
-                assert.equal(html, '<p><img alt="" class="emojione" src="https://cdn.jsdelivr.net/emojione/assets/3.1/png/64/1f4a9.png" title=":poop:" /></p>');
+                assert.equal(html, '<p><img alt="" class="emojione jumbo" src="https://cdn.jsdelivr.net/emojione/assets/3.1/png/64/1f4a9.png" title=":poop:" /></p>');
                 done();
             });
         });

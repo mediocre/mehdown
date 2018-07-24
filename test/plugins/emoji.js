@@ -26,7 +26,7 @@ describe('emoji', function() {
 
     it('ASCII smileys', function(done) {
         mehdown.render(':)', function(err, html) {
-            assert.equal(html, '<p><img alt="" class="emojione" src="https://cdn.jsdelivr.net/emojione/assets/3.1/png/64/1f642.png" title=":)" /></p>');
+            assert.equal(html, '<p><img alt="" class="emojione jumbo" src="https://cdn.jsdelivr.net/emojione/assets/3.1/png/64/1f642.png" title=":)" /></p>');
             done();
         });
     });
@@ -34,6 +34,27 @@ describe('emoji', function() {
     it('Unicode 9.0 and 10.0 emoji', function(done) {
         mehdown.render(':rofl: and :face_with_monocle: are from Unicode 9.0 and 10.0, respectively.', function(err, html) {
             assert.equal(html, '<p><img alt="" class="emojione" src="https://cdn.jsdelivr.net/emojione/assets/3.1/png/64/1f923.png" title=":rofl:" /> and <img alt="" class="emojione" src="https://cdn.jsdelivr.net/emojione/assets/3.1/png/64/1f9d0.png" title=":face_with_monocle:" /> are from Unicode 9.0 and 10.0, respectively.</p>');
+            done();
+        });
+    });
+
+    it('jumbomoji (single emoji)', function(done) {
+        mehdown.render(':smile:', function(err, html) {
+            assert.equal(html, '<p><img alt="" class="emojione jumbo" src="https://cdn.jsdelivr.net/emojione/assets/3.1/png/64/1f604.png" title=":smile:" /></p>');
+            done();
+        });
+    });
+
+    it('jumbomoji (multiple emoji)', function(done) {
+        mehdown.render('😄 :smile:', function(err, html) {
+            assert.equal(html, '<p><img alt="" class="emojione jumbo" src="https://cdn.jsdelivr.net/emojione/assets/3.1/png/64/1f604.png" title=":smile:" /> <img alt="" class="emojione jumbo" src="https://cdn.jsdelivr.net/emojione/assets/3.1/png/64/1f604.png" title=":smile:" /></p>');
+            done();
+        });
+    });
+
+    it('jumbomoji (multiple line emoji)', function(done) {
+        mehdown.render('😄\n:smile:', function(err, html) {
+            assert.equal(html, '<p><img alt="" class="emojione jumbo" src="https://cdn.jsdelivr.net/emojione/assets/3.1/png/64/1f604.png" title=":smile:" /><br />\n<img alt="" class="emojione jumbo" src="https://cdn.jsdelivr.net/emojione/assets/3.1/png/64/1f604.png" title=":smile:" /></p>');
             done();
         });
     });
