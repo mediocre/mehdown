@@ -203,6 +203,45 @@ describe('commands', function() {
         });
     });
 
+    describe('/define', function() {
+        this.timeout(10000);
+        
+        if (process.env.OXFORD_APIKEY && process.env.OXFORD_APPKEY) {
+            it('/define', function(done) {
+                mehdown.render('/define', function(err, html) {
+                    assert.notEqual(html, '<p>/define</p>');
+                    assert(html.includes('Usage: /define search'));
+                    done();
+                });
+            });
+            it('/define -h', function(done) {
+                mehdown.render('/define -h', function(err, html) {
+                    assert.notEqual(html, '<p>/define</p>');
+                    assert(html.includes('Usage: /define search'));
+                    assert(!html.includes('Error'));
+                    done();
+                });
+            });
+
+            it('/define meh', function(done) {
+                mehdown.render('/define meh', function(err, html) {
+                    assert.notEqual(html, '<p>/define meh</p>');
+                    assert(html.includes('expressing a lack of interest or enthusiasm'));
+                    assert(!html.includes('Error'));
+                    done();
+                });
+            });
+
+            it('/define thisisnotarealword', function(done) {
+                mehdown.render('/define thisisnotarealword', function(err, html) {
+                    assert.notEqual(html, '<p>/define thisisnotarealword</p>');
+                    assert(html.includes('I was unable to find a definition for the specified search'));
+                    done();
+                });
+            });
+        }
+    });
+    
     describe('/eightball', function() {
         it('/eightball Do I need a new lease on life?', function(done) {
             mehdown.render('/eightball Do I need a new lease on life?', function(err, html) {
