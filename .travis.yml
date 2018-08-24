@@ -10,9 +10,9 @@ dist: trusty
 language: node_js
 
 node_js:
-  - 7
   - 8
-  - 9
+  - 10
+  - 10.1.0
 
 notifications:
   slack:

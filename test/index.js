@@ -116,6 +116,15 @@ describe('commands', function() {
         });
     });
 
+    describe('/concerned', function() {
+        it('/concerned', function(done) {
+            mehdown.render('/concerned', function(err, html) {
+                assert.equal(html, '<p>ಠ_ಠ</p>');
+                done();
+            });
+        });
+    });
+
     describe('/cowsay', function() {
         this.timeout(10000);
 
@@ -220,7 +229,7 @@ describe('commands', function() {
 
         it('/emojify package package :package: package', function(done) {
             mehdown.render('/emojify package package :package: package', function(err, html) {
-                assert.equal(html, '<p><img alt="" class="emojione" src="https://cdn.jsdelivr.net/emojione/assets/3.1/png/64/1f4e6.png" title=":package:" /> <img alt="" class="emojione" src="https://cdn.jsdelivr.net/emojione/assets/3.1/png/64/1f4e6.png" title=":package:" /> <img alt="" class="emojione" src="https://cdn.jsdelivr.net/emojione/assets/3.1/png/64/1f4e6.png" title=":package:" /> <img alt="" class="emojione" src="https://cdn.jsdelivr.net/emojione/assets/3.1/png/64/1f4e6.png" title=":package:" /></p>');
+                assert.equal(html, '<p><img alt="" class="emojione jumbo" src="https://cdn.jsdelivr.net/emojione/assets/3.1/png/64/1f4e6.png" title=":package:" /> <img alt="" class="emojione jumbo" src="https://cdn.jsdelivr.net/emojione/assets/3.1/png/64/1f4e6.png" title=":package:" /> <img alt="" class="emojione jumbo" src="https://cdn.jsdelivr.net/emojione/assets/3.1/png/64/1f4e6.png" title=":package:" /> <img alt="" class="emojione jumbo" src="https://cdn.jsdelivr.net/emojione/assets/3.1/png/64/1f4e6.png" title=":package:" /></p>');
                 done();
             });
         });
@@ -234,7 +243,7 @@ describe('commands', function() {
 
         it('/emojify shit', function(done) {
             mehdown.render('/emojify shit', function(err, html) {
-                assert.equal(html, '<p><img alt="" class="emojione" src="https://cdn.jsdelivr.net/emojione/assets/3.1/png/64/1f4a9.png" title=":poop:" /></p>');
+                assert.equal(html, '<p><img alt="" class="emojione jumbo" src="https://cdn.jsdelivr.net/emojione/assets/3.1/png/64/1f4a9.png" title=":poop:" /></p>');
                 done();
             });
         });
@@ -449,10 +458,71 @@ describe('commands', function() {
         });
     });
 
-    describe('/concerned', function() {
-        it('/concerned', function(done) {
-            mehdown.render('/concerned', function(err, html) {
-                assert.equal(html, '<p>ಠ_ಠ</p>');
+    describe('/whatdog', function() {
+        this.timeout(10000);
+
+        it('/whatdog', function(done) {
+            mehdown.render('/whatdog', function(err, html) {
+                assert.notEqual(html, '<p>/whatdog</p>');
+                done();
+            });
+        });
+
+        it('/whatdog foo', function(done) {
+            mehdown.render('/whatdog foo', function(err, html) {
+                assert.strictEqual(html, '<p>/whatdog foo<br />\nSomething went terribly wrong.</p>');
+                done();
+            });
+        });
+
+        it('/whatdog https://www.what-dog.net/Images/faces2/main007.jpg', function(done) {
+            mehdown.render('/whatdog https://www.what-dog.net/Images/faces2/main007.jpg', function(err, html) {
+                assert.equal(html, '<p>/whatdog<br />\n<img src="https://www.what-dog.net/Images/faces2/main007.jpg" /><br />\n<img alt="" class="emojione" src="https://cdn.jsdelivr.net/emojione/assets/3.1/png/64/1f436.png" title=":dog:" /> Scottish Terrier<br />\nLoving, sounds off at strangers, personable with its family</p>');
+                done();
+            });
+        });
+
+        it('/whatdog https://res.cloudinary.com/mediocre/image/upload/c_pad,f_auto,dpr_1.0,h_300,q_auto,w_300/pawhj2hpl5f4ivetd2ga.png', function(done) {
+            mehdown.render('/whatdog https://res.cloudinary.com/mediocre/image/upload/c_pad,f_auto,dpr_1.0,h_300,q_auto,w_300/pawhj2hpl5f4ivetd2ga.png', function(err, html) {
+                assert.equal(html, '<p>/whatdog<br />\n<img src="https://res.cloudinary.com/mediocre/image/upload/c_pad,f_auto,dpr_1.0,h_300,q_auto,w_300/pawhj2hpl5f4ivetd2ga.png" /><br />\n<img alt="" class="emojione" src="https://cdn.jsdelivr.net/emojione/assets/3.1/png/64/26d4.png" title=":no_entry:" /> Not a dog.</p>');
+                done();
+            });
+        });
+    });
+
+    describe('/wootstalker', function() {
+        it('/wootstalker', function(done) {
+            mehdown.render('/wootstalker', function(err, html) {
+                assert.notEqual(html, '<p>/wootstalker</p>');
+                assert(html.includes('Usage: /wootstalker site|url'));
+                done();
+            });
+        });
+
+        it('/wootstalker home', function(done) {
+            mehdown.render('/wootstalker home', function(err, html) {
+                assert.notEqual(html, '<p>/wootstalker home</p>');
+                assert(html.includes('home.woot.com'));
+                assert(html.includes('href'));
+                done();
+            });
+        });
+
+        it('/wootstalker notarealsite', function(done) {
+            mehdown.render('/wootstalker notarealsite', function(err, html) {
+                assert.notEqual(html, '<p>/wootstalker notarealsite</p>');
+                assert(html.includes('notarealsite'));
+                assert(html.includes('invalid site or URL entered'));
+                assert(!html.includes('href'));
+                done();
+            });
+        });
+
+        it('/wootstalker https://electronics.woot.com/offers/parrot-quadcopter-swing-minidrone', function(done) {
+            mehdown.render('/wootstalker https://electronics.woot.com/offers/parrot-quadcopter-swing-minidrone', function(err, html) {
+                assert.notEqual(html, '<p>/wootstalker https://electronics.woot.com/offers/parrot-quadcopter-swing-minidrone</p>');
+                assert(html.includes('Parrot Quadcopter Swing Minidrone'));
+                assert(html.includes('href'));
                 done();
             });
         });
