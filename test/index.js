@@ -205,7 +205,7 @@ describe('commands', function() {
 
     describe('/define', function() {
         this.timeout(10000);
-        
+
         if (process.env.OXFORD_APIKEY && process.env.OXFORD_APPKEY) {
             it('/define', function(done) {
                 mehdown.render('/define', function(err, html) {
@@ -241,7 +241,7 @@ describe('commands', function() {
             });
         }
     });
-    
+
     describe('/eightball', function() {
         it('/eightball Do I need a new lease on life?', function(done) {
             mehdown.render('/eightball Do I need a new lease on life?', function(err, html) {
