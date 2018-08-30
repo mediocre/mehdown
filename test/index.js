@@ -206,18 +206,19 @@ describe('commands', function() {
     describe('/define', function() {
         this.timeout(10000);
 
-        if (process.env.OXFORD_APIKEY && process.env.OXFORD_APPKEY) {
+        if (process.env.OXFORD_DICTIONARY_APP_ID && process.env.OXFORD_DICTIONARY_APP_KEY) {
             it('/define', function(done) {
                 mehdown.render('/define', function(err, html) {
                     assert.notEqual(html, '<p>/define</p>');
-                    assert(html.includes('Usage: /define search'));
+                    assert(html.includes('Usage: /define word'));
                     done();
                 });
             });
+            
             it('/define -h', function(done) {
                 mehdown.render('/define -h', function(err, html) {
                     assert.notEqual(html, '<p>/define</p>');
-                    assert(html.includes('Usage: /define search'));
+                    assert(html.includes('Usage: /define word'));
                     assert(!html.includes('Error'));
                     done();
                 });
@@ -232,10 +233,19 @@ describe('commands', function() {
                 });
             });
 
+            it('/define test', function(done) {
+                mehdown.render('/define test', function(err, html) {
+                    assert.notEqual(html, '<p>/define test</p>');
+                    assert(html.includes('a procedure intended to establish the quality, performance, or reliability of something, especially before it is taken into widespread use'));
+                    assert(!html.includes('Error'));
+                    done();
+                });
+            });
+
             it('/define thisisnotarealword', function(done) {
                 mehdown.render('/define thisisnotarealword', function(err, html) {
                     assert.notEqual(html, '<p>/define thisisnotarealword</p>');
-                    assert(html.includes('I was unable to find a definition for the specified search'));
+                    assert(html.includes('No exact matches found for the specified word.'));
                     done();
                 });
             });
@@ -530,6 +540,8 @@ describe('commands', function() {
     });
 
     describe('/wootstalker', function() {
+        this.timeout(10000);
+
         it('/wootstalker', function(done) {
             mehdown.render('/wootstalker', function(err, html) {
                 assert.notEqual(html, '<p>/wootstalker</p>');
