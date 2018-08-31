@@ -43,11 +43,14 @@ The Markdown parser used on the forums at meh.com.
 
 - `/8ball question` - Ask the Magic 8-Ball a question
 - `/coinflip heads or tails` - Flip a coin
+- `/concerned` - ಠ_ಠ
 - `/cowsay text or --help` - [ASCII cow with a message](https://en.wikipedia.org/wiki/Cowsay)
+- `/define word` - Look up the definition of a word or phrase
 - `/eightball question` - Ask the Magic 8-Ball a question
 - `/emojify text` - Swap out words with emoji
 - `/flip text` - uʍop ǝpısdn ʇxǝʇ dıʃℲ
 - `/giphy text` - Post a random GIF
+- `/google query` - Search Google for the specified query
 - `/image text` - Post a random image
 - `/jumble text` - Shuffele middele letetsrs of wodrs
 - `/leet text` - Translate text to L3375P34K
@@ -56,6 +59,7 @@ The Markdown parser used on the forums at meh.com.
 - `/reverse text` - txet esreveR
 - `/roll notation or --help` - Roll the dice
 - `/shrug` - ¯\\\_(ツ)\_/¯
+- `/whatdog image-url` - What dog is this?
 - `/wootstalker url` - Display woot.com deal details
 - `/youtube text` - Post a random YouTube video
 
