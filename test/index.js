@@ -214,12 +214,13 @@ describe('commands', function() {
                     done();
                 });
             });
-            
+
             it('/define -h', function(done) {
                 mehdown.render('/define -h', function(err, html) {
                     assert.notEqual(html, '<p>/define</p>');
                     assert(html.includes('Usage: /define word'));
                     assert(!html.includes('Error'));
+                    assert(!html.includes('Something went terribly wrong'));
                     done();
                 });
             });
@@ -229,6 +230,7 @@ describe('commands', function() {
                     assert.notEqual(html, '<p>/define meh</p>');
                     assert(html.includes('expressing a lack of interest or enthusiasm'));
                     assert(!html.includes('Error'));
+                    assert(!html.includes('Something went terribly wrong'));
                     done();
                 });
             });
@@ -238,6 +240,17 @@ describe('commands', function() {
                     assert.notEqual(html, '<p>/define test</p>');
                     assert(html.includes('a procedure intended to establish the quality, performance, or reliability of something, especially before it is taken into widespread use'));
                     assert(!html.includes('Error'));
+                    assert(!html.includes('Something went terribly wrong'));
+                    done();
+                });
+            });
+
+            it('/define hot dog', function(done) {
+                mehdown.render('/define hot dog', function(err, html) {
+                    assert.notEqual(html, '<p>/define test</p>');
+                    assert(html.includes('a frankfurter, especially one served hot in a long, soft roll and topped with various condiments'));
+                    assert(!html.includes('Error'));
+                    assert(!html.includes('Something went terribly wrong'));
                     done();
                 });
             });
@@ -246,6 +259,7 @@ describe('commands', function() {
                 mehdown.render('/define thisisnotarealword', function(err, html) {
                     assert.notEqual(html, '<p>/define thisisnotarealword</p>');
                     assert(html.includes('No exact matches found for the specified word.'));
+                    assert(!html.includes('Something went terribly wrong'));
                     done();
                 });
             });
