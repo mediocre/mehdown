@@ -214,7 +214,7 @@ describe('commands', function() {
                     done();
                 });
             });
-            
+
             it('/define -h', function(done) {
                 mehdown.render('/define -h', function(err, html) {
                     assert.notEqual(html, '<p>/define</p>');
