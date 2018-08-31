@@ -245,6 +245,16 @@ describe('commands', function() {
                 });
             });
 
+            it('/define set', function(done) {
+                mehdown.render('/define set', function(err, html) {
+                    assert.notEqual(html, '<p>/define set</p>');
+                    assert(html.includes('More definitions available'));
+                    assert(!html.includes('Error'));
+                    assert(!html.includes('Something went terribly wrong'));
+                    done();
+                });
+            });
+
             it('/define hot dog', function(done) {
                 mehdown.render('/define hot dog', function(err, html) {
                     assert.notEqual(html, '<p>/define test</p>');
