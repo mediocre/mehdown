@@ -125,24 +125,6 @@ describe('commands', function() {
         });
     });
 
-    describe('/labrat', function() {
-        it('/labrat', function(done) {
-            mehdown.render('/labrat', function(err, html) {
-                assert.equal(html, '<p><img src="https://res.cloudinary.com/mediocre/image/upload/v1537473791/mijjibf0vxdx79wtqrjh.png" /></p>');
-                done();
-            });
-        });
-    });
-
-    describe('/vintner', function() {
-        it('/vintner', function(done) {
-            mehdown.render('/vintner', function(err, html) {
-                assert.equal(html, '<p><img src="https://res.cloudinary.com/mediocre/image/upload/v1540480421/joddffo2zrhb1pzxz7le.png" /></p>');
-                done();
-            });
-        });
-    });
-
     describe('/cowsay', function() {
         this.timeout(10000);
 
@@ -405,6 +387,15 @@ describe('commands', function() {
         });
     });
 
+    describe('/labrat', function() {
+        it('/labrat', function(done) {
+            mehdown.render('/labrat', function(err, html) {
+                assert.equal(html, '<p><img src="https://res.cloudinary.com/mediocre/image/upload/v1537473791/mijjibf0vxdx79wtqrjh.png" /></p>');
+                done();
+            });
+        });
+    });
+
     describe('/leet', function() {
         it('/1337', function(done) {
             mehdown.render('/1337 elite hacker', function(err, html) {
@@ -544,6 +535,15 @@ describe('commands', function() {
         it('/SHRUG', function(done) {
             mehdown.render('/SHRUG', function(err, html) {
                 assert.equal(html, '<p>¯\\_(ツ)_/¯</p>');
+                done();
+            });
+        });
+    });
+
+    describe('/vintner', function() {
+        it('/vintner', function(done) {
+            mehdown.render('/vintner', function(err, html) {
+                assert.equal(html, '<p><img src="https://res.cloudinary.com/mediocre/image/upload/v1540480421/joddffo2zrhb1pzxz7le.png" /></p>');
                 done();
             });
         });
