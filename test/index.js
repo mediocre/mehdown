@@ -125,6 +125,24 @@ describe('commands', function() {
         });
     });
 
+    describe('/labrat', function() {
+        it('/labrat', function(done) {
+            mehdown.render('/labrat', function(err, html) {
+                assert.equal(html, '<p><img src="https://res.cloudinary.com/mediocre/image/upload/v1537473791/mijjibf0vxdx79wtqrjh.png" /></p>');
+                done();
+            });
+        });
+    });
+
+    describe('/vintner', function() {
+        it('/vintner', function(done) {
+            mehdown.render('/vintner', function(err, html) {
+                assert.equal(html, '<p><img src="https://res.cloudinary.com/mediocre/image/upload/v1540480421/joddffo2zrhb1pzxz7le.png" /></p>');
+                done();
+            });
+        });
+    });
+
     describe('/cowsay', function() {
         this.timeout(10000);
 
