@@ -11,8 +11,8 @@ describe('images', function() {
     });
 
     it('.jpg', function(done) {
-        mehdown.render('http://i.imgur.com/9oiY1aO.jpg', function(err, html) {
-            assert.equal(html, '<p><img src="http://i.imgur.com/9oiY1aO.jpg" /></p>');
+        mehdown.render('http://example.com/image.jpg', function(err, html) {
+            assert.equal(html, '<p><img src="http://example.com/image.jpg" /></p>');
             done();
         });
     });
