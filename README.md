@@ -29,7 +29,7 @@ The Markdown parser used on the forums at meh.com.
 
 - GitHub gists are embedded inline.
 - Image URLs are converted to images.
-- imgur GIFV URLs are converted to high quality looping GIF videos.
+- imgur URLs are converted to embeded images/videos.
 - Kickstarter URLs are converted to campaign previews.
 - Reddit permalink URLs are converted to embeddable comment threads.
 - SoundCloud URLs are converted to audio players.
