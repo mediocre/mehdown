@@ -65,4 +65,11 @@ describe('imgur', function() {
             done();
         });
     });
+
+    it('![](https://i.imgur.com/E5vZ9i1.jpg)', function(done) {
+        mehdown.render('![](https://i.imgur.com/E5vZ9i1.jpg)', function(err, html) {
+            assert.equal(html, '<p><div class="imgur-embed"><blockquote class="imgur-embed-pub" lang="en" data-id="E5vZ9i1"><a href="//imgur.com/E5vZ9i1">imgur.com/E5vZ9i1</a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script></div></p>');
+            done();
+        });
+    });
 });
