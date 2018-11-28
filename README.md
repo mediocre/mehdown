@@ -59,6 +59,7 @@ The Markdown parser used on the forums at meh.com.
 - `/reverse text` - txet esreveR
 - `/roll notation or --help` - Roll the dice
 - `/shrug` - ¯\\\_(ツ)\_/¯
+- `/tableflip` - (╯°□°）╯︵ ┻━┻
 - `/whatdog image-url` - What dog is this?
 - `/wootstalker url` - Display woot.com deal details
 - `/youtube text` - Post a random YouTube video
