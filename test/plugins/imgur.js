@@ -51,4 +51,11 @@ describe('imgur', function() {
             done();
         });
     });
+
+    it('https://i.imgur.com/XyXKUBp_d.jpg?maxwidth=640&shape=thumb&fidelity=medium', function(done) {
+        mehdown.render('https://i.imgur.com/XyXKUBp_d.jpg?maxwidth=640&shape=thumb&fidelity=medium', function(err, html) {
+            assert.equal(html, '<p><div class="imgur-embed"><blockquote class="imgur-embed-pub" lang="en" data-id="XyXKUBp"><a href="//imgur.com/XyXKUBp">imgur.com/XyXKUBp</a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script></div></p>');
+            done();
+        });
+    });
 });
