@@ -540,6 +540,15 @@ describe('commands', function() {
         });
     });
 
+    describe('/tableflip', function() {
+        it('/tableflip', function(done) {
+            mehdown.render('/tableflip', function(err, html) {
+                assert.equal(html, '<p>(╯°□°）╯︵ ┻━┻</p>');
+                done();
+            });
+        });
+    });
+
     describe('/vintner', function() {
         it('/vintner', function(done) {
             mehdown.render('/vintner', function(err, html) {
