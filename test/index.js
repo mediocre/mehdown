@@ -667,8 +667,8 @@ describe('detect image sizes', function() {
     });
 
     it('scheme relative broken image html', function(done) {
-        mehdown.render('//example.com/404.png', { detectImageSizes: true }, function(err, html) {
-            assert.equal(html, '<p><img src="//example.com/404.png" /></p>');
+        mehdown.render('//meh.com/404.png', { detectImageSizes: true }, function(err, html) {
+            assert.equal(html, '<p><img src="//meh.com/404.png" /></p>');
             done();
         });
     });
