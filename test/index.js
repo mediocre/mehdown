@@ -771,6 +771,20 @@ describe('html', function() {
             assert.strictEqual(mehdown.html.removeAttribute(html, 'class'), '<div ><span>hello</span> <span>world</span></div>');
         });
     });
+
+    describe('removeImageSizeAttributes', function() {
+        it('removeImageSizeAttributes(htmlWithoutImage)', function() {
+            var html = '<div><span>hello</span> <span>world</span></div>';
+            var html2 = mehdown.html.removeImageSizeAttributes(html);
+            assert.strictEqual(html, html2);
+        });
+
+        it('removeImageSizeAttributes(htmlWithImages)', function() {
+            var html = '<p><img height="528" src="https://res.cloudinary.com/mediocre/image/upload/kekjvvhpkxh0v8x9o6u7.png" width="528" /> <img height="250" src="https://i.imgur.com/8peBgQn.png" width="300" /> <img height="528" src="https://res.cloudinary.com/mediocre/image/upload/kekjvvhpkxh0v8x9o6u7.png" width="528" /></p>';
+            var html2 = mehdown.html.removeImageSizeAttributes(html);
+            assert.equal(html2, '<p><img  src="https://res.cloudinary.com/mediocre/image/upload/kekjvvhpkxh0v8x9o6u7.png"  /> <img  src="https://i.imgur.com/8peBgQn.png"  /> <img  src="https://res.cloudinary.com/mediocre/image/upload/kekjvvhpkxh0v8x9o6u7.png"  /></p>');
+        });
+    });
 });
 
 describe('links', function() {
