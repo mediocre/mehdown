@@ -779,6 +779,12 @@ describe('html', function() {
             assert.strictEqual(html, html2);
         });
 
+        it('removeImageSizeAttributes(imagesWithoutSizes)', function() {
+            var html = '<p><img src="https://res.cloudinary.com/mediocre/image/upload/kekjvvhpkxh0v8x9o6u7.png" /></p>';
+            var html2 = mehdown.html.removeImageSizeAttributes(html);
+            assert.equal(html2, html);
+        });
+
         it('removeImageSizeAttributes(htmlWithImages)', function() {
             var html = '<p><img height="528" src="https://res.cloudinary.com/mediocre/image/upload/kekjvvhpkxh0v8x9o6u7.png" width="528" /> <img height="250" src="https://i.imgur.com/8peBgQn.png" width="300" /> <img height="528" src="https://res.cloudinary.com/mediocre/image/upload/kekjvvhpkxh0v8x9o6u7.png" width="528" /></p>';
             var html2 = mehdown.html.removeImageSizeAttributes(html);
