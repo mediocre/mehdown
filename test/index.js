@@ -731,6 +731,12 @@ describe('email', function() {
 
 describe('html', function() {
     describe('convertToLazyLoadedImages', function() {
+        it('no images', function() {
+            var html = '<div><span>hello</span> <span>world</span></div>';
+            var html2 = mehdown.html.convertToLazyLoadedImages(html);
+            assert.strictEqual(html, html2);
+        });
+
         it('images', function(done) {
             var html = '<p><img height="528" src="https://res.cloudinary.com/mediocre/image/upload/kekjvvhpkxh0v8x9o6u7.png" width="528" /> <img height="250" src="https://i.imgur.com/8peBgQn.png" width="300" /> <img height="528" src="https://res.cloudinary.com/mediocre/image/upload/kekjvvhpkxh0v8x9o6u7.png" width="528" /></p>';
             html = mehdown.html.convertToLazyLoadedImages(html);
