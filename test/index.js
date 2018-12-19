@@ -755,6 +755,22 @@ describe('html', function() {
             done();
         });
     });
+
+    describe('removeAttribute', function() {
+        it('removeAttribute()', function() {
+            assert.strictEqual(mehdown.html.removeAttribute(), undefined);
+        });
+
+        it('removeAttribute(html, attribute)', function() {
+            var html = '<div class="foo"><span>hello</span> <span>world</span></div>';
+            assert.strictEqual(mehdown.html.removeAttribute(html, 'src'), '<div class="foo"><span>hello</span> <span>world</span></div>');
+        });
+
+        it('removeAttribute(html, attribute)', function() {
+            var html = '<div class="foo"><span>hello</span> <span>world</span></div>';
+            assert.strictEqual(mehdown.html.removeAttribute(html, 'class'), '<div ><span>hello</span> <span>world</span></div>');
+        });
+    });
 });
 
 describe('links', function() {
