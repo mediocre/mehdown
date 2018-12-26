@@ -323,9 +323,18 @@ describe('commands', function() {
     });
 
     describe('/flip', function() {
+        it('/flip', function(done) {
+            mehdown.render('/flip', function(err, html) {
+                assert.ifError(err);
+                assert.strictEqual(html, '<p>/flip</p>');
+                done();
+            });
+        });
+
         it('/flip Hello World!', function(done) {
             mehdown.render('/flip Hello World!', function(err, html) {
-                assert.equal(html, '<p>¡pʃɹoM oʃʃǝH</p>');
+                assert.ifError(err);
+                assert.strictEqual(html, '<p>¡pʃɹoM oʃʃǝH</p>');
                 done();
             });
         });
@@ -334,8 +343,17 @@ describe('commands', function() {
     describe('/giphy', function() {
         this.timeout(20000);
 
+        it('/giphy', function(done) {
+            mehdown.render('/giphy', function(err, html) {
+                assert.ifError(err);
+                assert.strictEqual(html, '<p>/giphy</p>');
+                done();
+            });
+        });
+
         it('/giphy meh', function(done) {
             mehdown.render('/giphy meh', function(err, html) {
+                assert.ifError(err);
                 assert.notEqual(html, '<p>/giphy meh</p>');
                 assert.notEqual(html.indexOf('http'), -1);
                 done();
@@ -344,6 +362,7 @@ describe('commands', function() {
 
         it('lorem ipsum\n/giphy first\nfoo bar\n/giphy second third\n@username /giphy fourth\nhey @username /giphy fifth\nthis is not a command `/giphy sixth`', function(done) {
             mehdown.render('lorem ipsum\n/giphy first\nfoo bar\n/giphy second third\n@username /giphy fourth\nhey @username /giphy fifth\nthis is not a command `/giphy sixth`', function(err, html) {
+                assert.ifError(err);
                 assert.notEqual(html.indexOf('lorem ipsum'), -1);
                 assert.notEqual(html.indexOf('foo bar'), -1);
                 assert.equal(html.match(/<img/g).length, 2);
@@ -354,6 +373,25 @@ describe('commands', function() {
 
     describe('/google', function() {
         this.timeout(10000);
+
+        it('/google', function(done) {
+            mehdown.render('/google', function(err, html) {
+                assert.ifError(err);
+                assert.strictEqual(html, '<p>/google</p>');
+                done();
+            });
+        });
+
+        it('/google meh', function(done) {
+            const googleApiKey = process.env.GOOGLE_API_KEY;
+            process.env.GOOGLE_API_KEY = undefined;
+
+            mehdown.render('/google meh', function(err, html) {
+                assert.strictEqual(html, '<p>/google meh</p>');
+                process.env.GOOGLE_API_KEY = googleApiKey;
+                done();
+            });
+        });
 
         if (process.env.GOOGLE_API_KEY) {
             it('/google meh', function(done) {
@@ -368,6 +406,14 @@ describe('commands', function() {
     describe('/image', function() {
         this.timeout(10000);
 
+        it('/image', function(done) {
+            mehdown.render('/image', function(err, html) {
+                assert.ifError(err);
+                assert.strictEqual(html, '<p>/image</p>');
+                done();
+            });
+        });
+
         if (process.env.GOOGLE_API_KEY) {
             it('/image meh', function(done) {
                 mehdown.render('/image meh', function(err, html) {
@@ -379,6 +425,14 @@ describe('commands', function() {
     });
 
     describe('/jumble', function() {
+        it('/jumble', function(done) {
+            mehdown.render('/jumble', function(err, html) {
+                assert.ifError(err);
+                assert.strictEqual(html, '<p>/jumble</p>');
+                done();
+            });
+        });
+
         it('/jumble', function(done) {
             mehdown.render('/jumble Humans can easily read text where the middle letters are shuffled.', function(err, html) {
                 assert.notEqual(html, '<p>/jumble Humans can easily read text where the middle letters are shuffled.</p>');
@@ -399,6 +453,7 @@ describe('commands', function() {
     describe('/leet', function() {
         it('/1337', function(done) {
             mehdown.render('/1337 elite hacker', function(err, html) {
+                assert.ifError(err);
                 assert.equal(html, '<p>3L173 H4CK3R</p>');
                 done();
             });
@@ -406,6 +461,7 @@ describe('commands', function() {
 
         it('/l33t', function(done) {
             mehdown.render('/l33t elite hacker', function(err, html) {
+                assert.ifError(err);
                 assert.equal(html, '<p>3L173 H4CK3R</p>');
                 done();
             });
@@ -413,13 +469,30 @@ describe('commands', function() {
 
         it('/leet', function(done) {
             mehdown.render('/leet elite hacker', function(err, html) {
+                assert.ifError(err);
                 assert.equal(html, '<p>3L173 H4CK3R</p>');
+                done();
+            });
+        });
+
+        it('/leet', function(done) {
+            mehdown.render('/leet', function(err, html) {
+                assert.ifError(err);
+                assert.equal(html, '<p>/leet</p>');
                 done();
             });
         });
     });
 
     describe('/lolspeak', function() {
+        it('/lolspeak', function(done) {
+            mehdown.render('/lolspeak', function(err, html) {
+                assert.ifError(err);
+                assert.strictEqual(html, '<p>/lolspeak</p>');
+                done();
+            });
+        });
+
         it('/lolspeak', function(done) {
             mehdown.render('/lolspeak A lolcat is an image macro of one or more cats. The image\'s text is often idiosyncratic and grammatically incorrect. Its use in this way is known as "lolspeak" or "kitty pidgin".', function(err, html) {
                 assert.equal(html, '<p>A LOLCAT IZ AN IMAGE MACRO OV WAN OR MOAR CATS TEH IMAGE’S TEXT IZ OFTEN IDIOSYNCRATIC AN GRAMMATICALLY INCORRECT ITZ USE IN DIS WAI IZ KNOWN AS “LOLSPEAK” OR “KITTY PIDGIN”</p>');
@@ -430,6 +503,14 @@ describe('commands', function() {
 
     describe('/piglatin', function() {
         it('/piglatin', function(done) {
+            mehdown.render('/piglatin', function(err, html) {
+                assert.ifError(err);
+                assert.strictEqual(html, '<p>/piglatin</p>');
+                done();
+            });
+        });
+
+        it('/piglatin', function(done) {
             mehdown.render('/piglatin Juvenile language created by the rearrangement of sounds in a word such that the first sound is moved to the end and "ay" is added. In the case of a vowel as the first sound, "ay" is simply added, with an hyphen if necessary.', function(err, html) {
                 assert.equal(html, '<p>Uvenilejay anguagelay eatedcray ybay ethay earrangementray ofay oundssay inay ay ordway uchsay atthay ethay irstfay oundsay isay ovedmay otay ethay enday anday “ay” isay addeday. Inay ethay asecay ofay ay owelvay asay ethay irstfay oundsay, “ay” isay implysay addeday, ithway anay yphenhay ifay ecessarynay.</p>');
                 done();
@@ -438,6 +519,14 @@ describe('commands', function() {
     });
 
     describe('/reverse', function() {
+        it('/reverse', function(done) {
+            mehdown.render('/reverse', function(err, html) {
+                assert.ifError(err);
+                assert.strictEqual(html, '<p>/reverse</p>');
+                done();
+            });
+        });
+
         it('/reverse', function(done) {
             mehdown.render('/reverse Hello world.', function(err, html) {
                 assert.equal(html, '<p>.dlrow olleH</p>');
@@ -502,6 +591,14 @@ describe('commands', function() {
     });
 
     describe('/rot13', function() {
+        it('/rot13', function(done) {
+            mehdown.render('/rot13', function(err, html) {
+                assert.ifError(err);
+                assert.strictEqual(html, '<p>/rot13</p>');
+                done();
+            });
+        });
+
         it('/rot13', function(done) {
             mehdown.render('/rot13 ROT13 ("rotate by 13 places", sometimes hyphenated ROT-13) is a simple letter substitution cipher that replaces a letter with the letter 13 letters after it in the alphabet.', function(err, html) {
                 assert.equal(html, '<p>EBG13 (“ebgngr ol 13 cynprf”, fbzrgvzrf ulcurangrq EBG-13) vf n fvzcyr yrggre fhofgvghgvba pvcure gung ercynprf n yrggre jvgu gur yrggre 13 yrggref nsgre vg va gur nycunorg.</p>');
@@ -632,6 +729,25 @@ describe('commands', function() {
 
     describe('/youtube', function() {
         this.timeout(10000);
+
+        it('/youtube', function(done) {
+            mehdown.render('/youtube', function(err, html) {
+                assert.ifError(err);
+                assert.strictEqual(html, '<p>/youtube</p>');
+                done();
+            });
+        });
+
+        it('/youtube meh', function(done) {
+            const googleApiKey = process.env.GOOGLE_API_KEY;
+            process.env.GOOGLE_API_KEY = undefined;
+
+            mehdown.render('/youtube meh', function(err, html) {
+                assert.strictEqual(html, '<p>/youtube meh</p>');
+                process.env.GOOGLE_API_KEY = googleApiKey;
+                done();
+            });
+        });
 
         if (process.env.GOOGLE_API_KEY) {
             it('/youtube Purple Reign', function(done) {
