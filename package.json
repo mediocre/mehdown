@@ -1,7 +1,6 @@
 {
     "dependencies": {
         "async": "2.6.x",
-        "cheerio": "0.22.x",
         "emojione": "3.1.7",
         "flip": "1.0.x",
         "http-image-size": "1.1.x",
@@ -12,6 +11,7 @@
         "natural": "0.6.x",
         "oxford-dictionary": "~1.4.1",
         "random-puppy": "1.1.x",
+        "rel-to-abs": "~0.1.0",
         "request": "~2.88.0",
         "roll": "1.2.x",
         "shell-quote": "1.6.x",
@@ -36,5 +36,5 @@
         "coveralls": "istanbul cover ./node_modules/mocha/bin/_mocha --report lcovonly -- -R spec test/* && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage",
         "test": "mocha --reporter spec test/*"
     },
-    "version": "2.43.1"
+    "version": "2.44.0"
 }

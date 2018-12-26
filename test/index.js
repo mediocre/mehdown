@@ -730,6 +730,50 @@ describe('email', function() {
 });
 
 describe('html', function() {
+    describe('convertRelativeUrlsToAbsoluteUrls', function() {
+        it('should convert relative images', function() {
+            const html = '<img src="foo.png">';
+            const converted = mehdown.html.convertRelativeUrlsToAbsoluteUrls(html, 'http://mysite.com');
+            assert.strictEqual(converted, '<img src="http://mysite.com/foo.png">');
+        });
+
+        it('should convert relative images with slash at the beginning', function(){
+            const html = '<img src="/foo.png">';
+            const converted = mehdown.html.convertRelativeUrlsToAbsoluteUrls(html, 'http://mysite.com');
+            assert.strictEqual(converted, '<img src="http://mysite.com/foo.png">');
+        });
+
+        it('should convert relative scripts with slash at the beginning', function(){
+            const html = '<script src="/test.js"></script>';
+            const converted = mehdown.html.convertRelativeUrlsToAbsoluteUrls(html, 'http://mysite.com');
+            assert.strictEqual(converted, '<script src="http://mysite.com/test.js"></script>');
+        });
+
+        it('should convert relative images with slash at the beginning and trailing slash for base url', function(){
+            const html = '<img src="/foo.png">';
+            const converted = mehdown.html.convertRelativeUrlsToAbsoluteUrls(html, 'http://mysite.com/');
+            assert.strictEqual(converted, '<img src="http://mysite.com/foo.png">');
+        });
+
+        it('should convert relative links', function(){
+            const html = '<a href="mypage"></a>';
+            const converted = mehdown.html.convertRelativeUrlsToAbsoluteUrls(html, 'http://mysite.com');
+            assert.strictEqual(converted, '<a href="http://mysite.com/mypage"></a>');
+        });
+
+        it('should not convert absolute links', function(){
+            const html = '<a href="http://google.com">test</a>';
+            const converted = mehdown.html.convertRelativeUrlsToAbsoluteUrls(html, 'http://mysite.com');
+            assert.strictEqual(converted, '<a href="http://google.com">test</a>');
+        });
+
+        it('should not fail with links without href', function(){
+            const html = '<a>test</a>';
+            const converted = mehdown.html.convertRelativeUrlsToAbsoluteUrls(html, 'http://mysite.com');
+            assert.strictEqual(converted, '<a>test</a>');
+        });
+    });
+
     describe('convertToLazyLoadedImages', function() {
         it('no images', function() {
             var html = '<div><span>hello</span> <span>world</span></div>';
