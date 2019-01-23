@@ -212,4 +212,11 @@ describe('mediocre.com', function() {
             done();
         });
     });
+
+    it('https://morningsave.com/deals/144-pieces-of-blast-energy-caffeinated-power-gum', function(done) {
+        mehdown.render('https://morningsave.com/deals/144-pieces-of-blast-energy-caffeinated-power-gum', function(err, html) {
+            assert.equal(html, '<p><iframe class="deals" frameborder="0" scrolling="no" src="https://morningsave.com/deals/144-pieces-of-blast-energy-caffeinated-power-gum/embed"></iframe></p>');
+            done();
+        });
+    });
 });
