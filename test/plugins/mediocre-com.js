@@ -213,9 +213,30 @@ describe('mediocre.com', function() {
         });
     });
 
-    it('https://morningsave.com/deals/144-pieces-of-blast-energy-caffeinated-power-gum', function(done) {
-        mehdown.render('https://morningsave.com/deals/144-pieces-of-blast-energy-caffeinated-power-gum', function(err, html) {
-            assert.equal(html, '<p><iframe class="deals" frameborder="0" scrolling="no" src="https://morningsave.com/deals/144-pieces-of-blast-energy-caffeinated-power-gum/embed"></iframe></p>');
+    it('https://morningsave.com/deals/a-slug', function(done) {
+        mehdown.render('https://morningsave.com/deals/a-slug', function(err, html) {
+            assert.equal(html, '<p><iframe class="deals" frameborder="0" scrolling="no" src="https://morningsave.com/deals/a-slug/embed"></iframe></p>');
+            done();
+        });
+    });
+
+    it('https://morningsave.com/polls/a-slug', function(done) {
+        mehdown.render('https://morningsave.com/polls/a-slug', function(err, html) {
+            assert.equal(html, '<p><iframe class="polls" frameborder="0" scrolling="no" src="https://morningsave.com/polls/a-slug/embed"></iframe></p>');
+            done();
+        });
+    });
+
+    it('https://sidedeal.com/deals/a-slug', function(done) {
+        mehdown.render('https://sidedeal.com/deals/a-slug', function(err, html) {
+            assert.equal(html, '<p><iframe class="deals" frameborder="0" scrolling="no" src="https://sidedeal.com/deals/a-slug/embed"></iframe></p>');
+            done();
+        });
+    });
+
+    it('https://sidedeal.com/polls/a-slug', function(done) {
+        mehdown.render('https://sidedeal.com/polls/a-slug', function(err, html) {
+            assert.equal(html, '<p><iframe class="polls" frameborder="0" scrolling="no" src="https://sidedeal.com/polls/a-slug/embed"></iframe></p>');
             done();
         });
     });
