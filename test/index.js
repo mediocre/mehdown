@@ -343,32 +343,34 @@ describe('commands', function() {
     describe('/giphy', function() {
         this.timeout(20000);
 
-        it('/giphy', function(done) {
-            mehdown.render('/giphy', function(err, html) {
-                assert.ifError(err);
-                assert.strictEqual(html, '<p>/giphy</p>');
-                done();
+        if (process.env.GIPHY_API_KEY) {
+            it('/giphy', function(done) {
+                mehdown.render('/giphy', function(err, html) {
+                    assert.ifError(err);
+                    assert.strictEqual(html, '<p>/giphy</p>');
+                    done();
+                });
             });
-        });
 
-        it('/giphy meh', function(done) {
-            mehdown.render('/giphy meh', function(err, html) {
-                assert.ifError(err);
-                assert.notEqual(html, '<p>/giphy meh</p>');
-                assert.notEqual(html.indexOf('http'), -1);
-                done();
+            it('/giphy meh', function(done) {
+                mehdown.render('/giphy meh', function(err, html) {
+                    assert.ifError(err);
+                    assert.notEqual(html, '<p>/giphy meh</p>');
+                    assert.notEqual(html.indexOf('http'), -1);
+                    done();
+                });
             });
-        });
 
-        it('lorem ipsum\n/giphy first\nfoo bar\n/giphy second third\n@username /giphy fourth\nhey @username /giphy fifth\nthis is not a command `/giphy sixth`', function(done) {
-            mehdown.render('lorem ipsum\n/giphy first\nfoo bar\n/giphy second third\n@username /giphy fourth\nhey @username /giphy fifth\nthis is not a command `/giphy sixth`', function(err, html) {
-                assert.ifError(err);
-                assert.notEqual(html.indexOf('lorem ipsum'), -1);
-                assert.notEqual(html.indexOf('foo bar'), -1);
-                assert.equal(html.match(/<img/g).length, 2);
-                done();
+            it('lorem ipsum\n/giphy first\nfoo bar\n/giphy second third\n@username /giphy fourth\nhey @username /giphy fifth\nthis is not a command `/giphy sixth`', function(done) {
+                mehdown.render('lorem ipsum\n/giphy first\nfoo bar\n/giphy second third\n@username /giphy fourth\nhey @username /giphy fifth\nthis is not a command `/giphy sixth`', function(err, html) {
+                    assert.ifError(err);
+                    assert.notEqual(html.indexOf('lorem ipsum'), -1);
+                    assert.notEqual(html.indexOf('foo bar'), -1);
+                    assert.equal(html.match(/<img/g).length, 2);
+                    done();
+                });
             });
-        });
+        }
     });
 
     describe('/google', function() {
