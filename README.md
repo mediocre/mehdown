@@ -61,7 +61,6 @@ The Markdown parser used on the forums at meh.com.
 - `/shrug` - ¯\\\_(ツ)\_/¯
 - `/tableflip` - (╯°□°）╯︵ ┻━┻
 - `/whatdog image-url` - What dog is this?
-- `/wootstalker url` - Display woot.com deal details
 - `/youtube text` - Post a random YouTube video
 
 ## Supports a subset of BBCode tags
