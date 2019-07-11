@@ -60,7 +60,6 @@ The Markdown parser used on the forums at meh.com.
 - `/roll notation or --help` - Roll the dice
 - `/shrug` - ¯\\\_(ツ)\_/¯
 - `/tableflip` - (╯°□°）╯︵ ┻━┻
-- `/whatdog image-url` - What dog is this?
 - `/youtube text` - Post a random YouTube video
 
 ## Supports a subset of BBCode tags

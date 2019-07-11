@@ -10,7 +10,6 @@
         "minimist": "1.2.x",
         "natural": "0.6.x",
         "oxford-dictionary": "~1.4.1",
-        "random-puppy": "1.1.x",
         "rel-to-abs": "~0.1.0",
         "request": "~2.88.0",
         "roll": "1.2.x",
