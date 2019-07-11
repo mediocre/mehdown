@@ -72,4 +72,11 @@ describe('usernames', function() {
             done();
         });
     });
+
+    it('…@dave', function(done) {
+        mehdown.render('…@dave', function(err, html) {
+            assert.equal(html, '<p>…<a href="/@dave">@dave</a></p>');
+            done();
+        });
+    });
 });
