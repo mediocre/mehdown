@@ -419,7 +419,24 @@ describe('commands', function() {
         if (process.env.GOOGLE_API_KEY) {
             it('/image meh', function(done) {
                 mehdown.render('/image meh', function(err, html) {
+                    assert.ifError(err);
                     assert.notEqual(html, '<p>/image meh</p>');
+                    done();
+                });
+            });
+
+            it('/image neon pink on black', function(done) {
+                mehdown.render('/image neon pink on black', function(err, html) {
+                    assert.ifError(err);
+                    assert.notEqual(html, '<p>/image neon pink on black</p>');
+                    done();
+                });
+            });
+
+            it('/image THISISSOMETEXTTHATGOOGLEDOESNOTUNDERSTAND', function(done) {
+                mehdown.render('/image THISISSOMETEXTTHATGOOGLEDOESNOTUNDERSTAND', function(err, html) {
+                    assert.ifError(err);
+                    assert.equal(html, '<p>/image THISISSOMETEXTTHATGOOGLEDOESNOTUNDERSTAND</p>');
                     done();
                 });
             });
@@ -657,38 +674,6 @@ describe('commands', function() {
         });
     });
 
-    describe('/whatdog', function() {
-        this.timeout(10000);
-
-        it('/whatdog', function(done) {
-            mehdown.render('/whatdog', function(err, html) {
-                assert.notEqual(html, '<p>/whatdog</p>');
-                done();
-            });
-        });
-
-        it('/whatdog foo', function(done) {
-            mehdown.render('/whatdog foo', function(err, html) {
-                assert.strictEqual(html, '<p>/whatdog foo<br />\nSomething went terribly wrong.</p>');
-                done();
-            });
-        });
-
-        it('/whatdog https://www.what-dog.net/Images/faces2/main007.jpg', function(done) {
-            mehdown.render('/whatdog https://www.what-dog.net/Images/faces2/main007.jpg', function(err, html) {
-                assert.equal(html, '<p>/whatdog<br />\n<img src="https://www.what-dog.net/Images/faces2/main007.jpg" /><br />\n<img alt="" class="emojione" src="https://cdn.jsdelivr.net/emojione/assets/3.1/png/64/1f436.png" title=":dog:" /> Scottish Terrier<br />\nLoving, sounds off at strangers, personable with its family</p>');
-                done();
-            });
-        });
-
-        it('/whatdog https://res.cloudinary.com/mediocre/image/upload/c_pad,f_auto,dpr_1.0,h_300,q_auto,w_300/pawhj2hpl5f4ivetd2ga.png', function(done) {
-            mehdown.render('/whatdog https://res.cloudinary.com/mediocre/image/upload/c_pad,f_auto,dpr_1.0,h_300,q_auto,w_300/pawhj2hpl5f4ivetd2ga.png', function(err, html) {
-                assert.equal(html, '<p>/whatdog<br />\n<img src="https://res.cloudinary.com/mediocre/image/upload/c_pad,f_auto,dpr_1.0,h_300,q_auto,w_300/pawhj2hpl5f4ivetd2ga.png" /><br />\n<img alt="" class="emojione" src="https://cdn.jsdelivr.net/emojione/assets/3.1/png/64/26d4.png" title=":no_entry:" /> Not a dog.</p>');
-                done();
-            });
-        });
-    });
-
     describe('/youtube', function() {
         this.timeout(10000);
 
@@ -740,15 +725,15 @@ describe('detect image sizes', function() {
     it('broken image', function(done) {
         this.timeout(10000);
 
-        mehdown.render('http://example.com/404.png', { detectImageSizes: true }, function(err, html) {
-            assert.equal(html, '<p><img src="http://example.com/404.png" /></p>');
+        mehdown.render('http://google.com/404.png', { detectImageSizes: true }, function(err, html) {
+            assert.equal(html, '<p><img src="http://google.com/404.png" /></p>');
             done();
         });
     });
 
     it('broken image html', function(done) {
-        mehdown.render('http://example.com/404.png', { detectImageSizes: true }, function(err, html) {
-            assert.equal(html, '<p><img src="http://example.com/404.png" /></p>');
+        mehdown.render('http://google.com/404.png', { detectImageSizes: true }, function(err, html) {
+            assert.equal(html, '<p><img src="http://google.com/404.png" /></p>');
             done();
         });
     });
