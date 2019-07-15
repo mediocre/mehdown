@@ -45,7 +45,6 @@ The Markdown parser used on the forums at meh.com.
 - `/coinflip heads or tails` - Flip a coin
 - `/concerned` - ಠ_ಠ
 - `/cowsay text or --help` - [ASCII cow with a message](https://en.wikipedia.org/wiki/Cowsay)
-- `/define word` - Look up the definition of a word or phrase
 - `/eightball question` - Ask the Magic 8-Ball a question
 - `/emojify text` - Swap out words with emoji
 - `/flip text` - uʍop ǝpısdn ʇxǝʇ dıʃℲ
