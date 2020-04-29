@@ -1,6 +1,6 @@
 # mehdown
 
-[![Build Status](https://travis-ci.org/mediocre/mehdown.svg?branch=master)](https://travis-ci.org/mediocre/mehdown)
+[![Build Status](https://github.com/mediocre/mehdown/workflows/build/badge.svg)](https://github.com/mediocre/mehdown/actions?query=workflow%3Abuild)
 [![Coverage Status](https://coveralls.io/repos/github/mediocre/mehdown/badge.svg?branch=master)](https://coveralls.io/github/mediocre/mehdown?branch=master)
 
 The Markdown parser used on the forums at meh.com.
