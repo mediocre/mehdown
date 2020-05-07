@@ -227,6 +227,20 @@ describe('mediocre.com', function() {
         });
     });
 
+    it('https://pastadrop.com/deals/a-slug', function(done) {
+        mehdown.render('https://pastadrop.com/deals/a-slug', function(err, html) {
+            assert.equal(html, '<p><iframe class="deals" frameborder="0" scrolling="no" src="https://pastadrop.com/deals/a-slug/embed"></iframe></p>');
+            done();
+        });
+    });
+
+    it('https://pastadrop.com/polls/a-slug', function(done) {
+        mehdown.render('https://pastadrop.com/polls/a-slug', function(err, html) {
+            assert.equal(html, '<p><iframe class="polls" frameborder="0" scrolling="no" src="https://pastadrop.com/polls/a-slug/embed"></iframe></p>');
+            done();
+        });
+    });
+
     it('https://sidedeal.com/deals/a-slug', function(done) {
         mehdown.render('https://sidedeal.com/deals/a-slug', function(err, html) {
             assert.equal(html, '<p><iframe class="deals" frameborder="0" scrolling="no" src="https://sidedeal.com/deals/a-slug/embed"></iframe></p>');
