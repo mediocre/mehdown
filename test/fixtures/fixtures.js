@@ -17,7 +17,7 @@ describe('mehdown', function() {
         };
 
         mehdown.render(fs.readFileSync(`${__dirname}/mehdown.md`).toString(), options, function(err, html) {
-            assert.equal(html.trim(), fs.readFileSync(`${__dirname}/mehdown.html`).toString().trim());
+            assert.strictEqual(html.trim(), fs.readFileSync(`${__dirname}/mehdown.html`).toString().trim());
             done();
         });
     });

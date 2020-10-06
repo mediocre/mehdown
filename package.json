@@ -2,20 +2,20 @@
     "dependencies": {
         "async": "~3.2.0",
         "emojione": "3.1.7",
-        "flip": "1.0.x",
-        "http-image-size": "1.1.x",
-        "lolspeak": "1.4.x",
-        "markdown-it": "~8.4.2",
-        "mehdown-cowsay": "1.1.x",
-        "minimist": "1.2.x",
-        "natural": "0.6.x",
+        "flip": "~1.0.0",
+        "probe-image-size": "~5.0.0",
+        "lolspeak": "~1.4.0",
+        "markdown-it": "~11.0.1",
+        "mehdown-cowsay": "~1.1.6",
+        "minimist": "~1.2.5",
+        "natural": "~2.1.5",
         "rel-to-abs": "~0.1.0",
         "request": "~2.88.0",
-        "roll": "1.2.x",
-        "shell-quote": "1.6.x",
-        "slug": "0.9.x",
-        "textify": "0.0.x",
-        "youtube-search": "1.1.x"
+        "roll": "~1.2.0",
+        "shell-quote": "~1.7.2",
+        "slug": "~3.3.5",
+        "textify": "~0.0.12",
+        "youtube-search": "~1.1.4"
     },
     "description": "The Markdown parser used on the forums at meh.com.",
     "devDependencies": {
@@ -33,5 +33,5 @@
         "coveralls": "istanbul cover ./node_modules/mocha/bin/_mocha --report lcovonly -- -R spec test/* && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage",
         "test": "mocha --reporter spec test/*"
     },
-    "version": "2.46.2"
+    "version": "2.47.0"
 }
