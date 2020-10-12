@@ -13,7 +13,7 @@
         "request": "~2.88.0",
         "roll": "~1.2.0",
         "shell-quote": "~1.7.2",
-        "slug": "~3.3.5",
+        "slug": "~3.5.0",
         "textify": "~0.0.12",
         "youtube-search": "~1.1.4"
     },
