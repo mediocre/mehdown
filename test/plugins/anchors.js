@@ -33,14 +33,14 @@ describe('headers', function() {
 
     it('handle suffix with non alpha-numeric characters', function(done) {
         mehdown.render('##### a- -b?c', { id: '!@#$%^&*()=+`~,./;\'<>?:"[]{}|' }, function(err, html) {
-            assert.strictEqual(html, '<h5 id="a-bc-dollarandlessgreateror">a- -b?c</h5>');
+            assert.strictEqual(html, '<h5 id="a-bc">a- -b?c</h5>');
             done();
         });
     });
 
     it('collapse multiple hyphens', function(done) {
         mehdown.render('###### -- - What - - is --- -   - meh - - -', { id: '!@#$%^&*()=+`~,./;\'<>?:"[]{}|' }, function(err, html) {
-            assert.strictEqual(html, '<h6 id="what-is-meh-dollarandlessgreateror">– - What - - is — -   - meh - - -</h6>');
+            assert.strictEqual(html, '<h6 id="what-is-meh">– - What - - is — -   - meh - - -</h6>');
             done();
         });
     });
