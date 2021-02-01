@@ -20,7 +20,7 @@
     "description": "The Markdown parser used on the forums at meh.com.",
     "devDependencies": {
         "coveralls": "*",
-        "istanbul": "*",
+        "nyc": "*",
         "mocha": "*"
     },
     "keywords": [
@@ -30,7 +30,7 @@
     "name": "mehdown",
     "repository": "git://github.com/mediocre/mehdown.git",
     "scripts": {
-        "coveralls": "istanbul cover ./node_modules/mocha/bin/_mocha --report lcovonly -- -R spec test/* && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage",
+        "coveralls": "nyc npm test && nyc report --reporter=text-lcov | coveralls"
         "test": "mocha --reporter spec test/*"
     },
     "version": "2.47.1"
