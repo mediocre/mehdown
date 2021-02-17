@@ -20,8 +20,8 @@
     "description": "The Markdown parser used on the forums at meh.com.",
     "devDependencies": {
         "coveralls": "*",
-        "nyc": "*",
-        "mocha": "*"
+        "mocha": "*",
+        "nyc": "*"
     },
     "keywords": [
         "markdown"
