@@ -8,7 +8,7 @@
         "mehdown-cowsay": "~1.1.6",
         "minimist": "~1.2.5",
         "natural": "~5.0.1",
-        "probe-image-size": "~7.0.0",
+        "probe-image-size": "~7.1.0",
         "rel-to-abs": "~0.1.0",
         "request": "~2.88.0",
         "roll": "~1.3.1",
