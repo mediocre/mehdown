@@ -12,7 +12,7 @@ describe('mehdown', function() {
             commands: true,
             detectImageSizes: true,
             emoji: {
-                imagePathPNG: 'http://cdn.jsdelivr.net/emojione/assets/png/'
+                imagePathPNG: 'https://github.com/joypixels/emoji-assets/tree/master/png/'
             }
         };
 

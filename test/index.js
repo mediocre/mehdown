@@ -222,28 +222,28 @@ describe('commands', function() {
 
         it('/emojify Basketball finishes at 5. Then it\'s pizza or tacos. Maybe go to the movies. You in?', function(done) {
             mehdown.render('/emojify Basketball finishes at 5. Then it\'s pizza or tacos. Maybe go to the movies. You in?', function(err, html) {
-                assert.strictEqual(html, '<p><img alt="" class="emojione" src="https://cdn.jsdelivr.net/emojione/assets/3.1/png/64/1f3c0.png" title=":basketball:" /> finishes at 5. Then it’s <img alt="" class="emojione" src="https://cdn.jsdelivr.net/emojione/assets/3.1/png/64/1f355.png" title=":pizza:" /> or <img alt="" class="emojione" src="https://cdn.jsdelivr.net/emojione/assets/3.1/png/64/1f32e.png" title=":taco:" />. Maybe go to the <img alt="" class="emojione" src="https://cdn.jsdelivr.net/emojione/assets/3.1/png/64/1f3a5.png" title=":movie_camera:" />. You in?</p>');
+                assert.strictEqual(html, '<p><img alt="" class="joypixels" src="http://cdn.jsdelivr.net/joypixels/assets/png/64//1f3c0.png" title=":basketball:" /> finishes at 5. Then it’s <img alt="" class="joypixels" src="https://cdn.jsdelivr.net/joypixels/assets/3.1/png/64/1f355.png" title=":pizza:" /> or <img alt="" class="joypixels" src="https://cdn.jsdelivr.net/joypixels/assets/3.1/png/64/1f32e.png" title=":taco:" />. Maybe go to the <img alt="" class="joypixels" src="https://cdn.jsdelivr.net/joypixels/assets/3.1/png/64/1f3a5.png" title=":movie_camera:" />. You in?</p>');
                 done();
             });
         });
 
         it('/emojify package package :package: package', function(done) {
             mehdown.render('/emojify package package :package: package', function(err, html) {
-                assert.strictEqual(html, '<p><img alt="" class="emojione jumbo" src="https://cdn.jsdelivr.net/emojione/assets/3.1/png/64/1f4e6.png" title=":package:" /> <img alt="" class="emojione jumbo" src="https://cdn.jsdelivr.net/emojione/assets/3.1/png/64/1f4e6.png" title=":package:" /> <img alt="" class="emojione jumbo" src="https://cdn.jsdelivr.net/emojione/assets/3.1/png/64/1f4e6.png" title=":package:" /> <img alt="" class="emojione jumbo" src="https://cdn.jsdelivr.net/emojione/assets/3.1/png/64/1f4e6.png" title=":package:" /></p>');
+                assert.strictEqual(html, '<p><img alt="" class="joypixels jumbo" src="http://cdn.jsdelivr.net/joypixels/assets/png/64/1f4e6.png" title=":package:" /> <img alt="" class="joypixels jumbo" src="https://cdn.jsdelivr.net/joypixels/assets/3.1/png/64/1f4e6.png" title=":package:" /> <img alt="" class="joypixels jumbo" src="https://cdn.jsdelivr.net/joypixels/assets/3.1/png/64/1f4e6.png" title=":package:" /> <img alt="" class="joypixels jumbo" src="https://cdn.jsdelivr.net/joypixels/assets/3.1/png/64/1f4e6.png" title=":package:" /></p>');
                 done();
             });
         });
 
         it('/emojify no woman, no cry on mail so', function(done) {
             mehdown.render('/emojify no woman, no cry on mail so', function(err, html) {
-                assert.strictEqual(html, '<p><img alt="" class="emojione" src="https://cdn.jsdelivr.net/emojione/assets/3.1/png/64/1f6ab.png" title=":no_entry_sign:" /> <img alt="" class="emojione" src="https://cdn.jsdelivr.net/emojione/assets/3.1/png/64/1f469.png" title=":woman:" />, <img alt="" class="emojione" src="https://cdn.jsdelivr.net/emojione/assets/3.1/png/64/1f6ab.png" title=":no_entry_sign:" /> <img alt="" class="emojione" src="https://cdn.jsdelivr.net/emojione/assets/3.1/png/64/1f622.png" title=":cry:" /> on <img alt="" class="emojione" src="https://cdn.jsdelivr.net/emojione/assets/3.1/png/64/1f4eb.png" title=":mailbox:" /> so</p>');
+                assert.strictEqual(html, '<p><img alt="" class="joypixels" src="http://cdn.jsdelivr.net/joypixels/assets/png/64/1f6ab.png" title=":no_entry_sign:" /> <img alt="" class="joypixels" src="https://cdn.jsdelivr.net/joypixels/assets/3.1/png/64/1f469.png" title=":woman:" />, <img alt="" class="joypixels" src="https://cdn.jsdelivr.net/joypixels/assets/3.1/png/64/1f6ab.png" title=":no_entry_sign:" /> <img alt="" class="joypixels" src="https://cdn.jsdelivr.net/joypixels/assets/3.1/png/64/1f622.png" title=":cry:" /> on <img alt="" class="joypixels" src="https://cdn.jsdelivr.net/joypixels/assets/3.1/png/64/1f4eb.png" title=":mailbox:" /> so</p>');
                 done();
             });
         });
 
         it('/emojify shit', function(done) {
             mehdown.render('/emojify shit', function(err, html) {
-                assert.strictEqual(html, '<p><img alt="" class="emojione jumbo" src="https://cdn.jsdelivr.net/emojione/assets/3.1/png/64/1f4a9.png" title=":poop:" /></p>');
+                assert.strictEqual(html, '<p><img alt="" class="joypixels jumbo" src="http://cdn.jsdelivr.net/joypixels/assets/png/64/1f4a9.png" title=":poop:" /></p>');
                 done();
             });
         });
