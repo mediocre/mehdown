@@ -6,6 +6,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.49.0] - 2021-07-15
+### Changed
+- Replaced the `emojione` library with `emoji-toolkit` which adds support for Unicode 14.0.
+- Updated the `markdown-it` module to v12.0.1
+
 ## [2.48.0] - 2021-02-18
 ### Changed
 - Updated the `natural` module to v4.0.0
