@@ -1,8 +1,8 @@
-name: build
+name: dependabotCI
 
 on:
   push:
-    branches-ignore:
+    branches:
     - 'dependabot**'
   workflow_dispatch:
 
@@ -38,17 +38,6 @@ jobs:
     - name: Run npm install
       run: npm install
 
-    - name: Run coverage report
-      run: |-
-        if [ "${{ matrix.node-version }}"x == "${DO_COVERALLS}"x ]
-        then
-          npm run coveralls
-        else
-          true
-        fi
-      env:
-        COVERALLS_REPO_TOKEN: ${{ secrets.COVERALLS_REPO_TOKEN }}
-
     - name: Run tests without coverage report
       run: |-
         if [ ! "${{ matrix.node-version }}"x == "${DO_COVERALLS}"x ]
@@ -57,8 +46,6 @@ jobs:
         else
           true
         fi
-      env:
-        COVERALLS_REPO_TOKEN: ${{ secrets.COVERALLS_REPO_TOKEN }}
 
   notify_slack:
     if: always()
