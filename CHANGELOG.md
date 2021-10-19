@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.50.0] - 2021-10-18
+### Changed
+- Removed support for Twitch embeds.
+
 ## [2.49.0] - 2021-07-15
 ### Changed
 - Replaced the `emojione` library with `emoji-toolkit` which adds support for Unicode 14.0.
