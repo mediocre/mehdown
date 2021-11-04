@@ -4,7 +4,7 @@ const fs = require('fs');
 const mehdown = require('../../lib');
 
 describe('mehdown', function() {
-    this.timeout(5000);
+    this.timeout(10000);
 
     it('actual html should match expected html', function(done) {
         var options = {
@@ -17,6 +17,7 @@ describe('mehdown', function() {
         };
 
         mehdown.render(fs.readFileSync(`${__dirname}/mehdown.md`).toString(), options, function(err, html) {
+            assert.ifError(err);
             assert.strictEqual(html.trim(), fs.readFileSync(`${__dirname}/mehdown.html`).toString().trim());
             done();
         });
