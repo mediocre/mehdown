@@ -6,6 +6,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.51.0] - 2021-12-13
+### Changed
+- Updated the `markdown-it` module to v12.3.0
+
+### Removed
+- Removed support for XKCD embeds.
+
 ## [2.50.0] - 2021-10-18
 ### Removed
 - Removed support for Twitch embeds.

@@ -52,9 +52,6 @@ http://vimeo.com/78950165
 Vine URLs are converted to video players.
 https://vine.co/v/hWZ9mbJZaKE
 
-XKCD URLs are converted to images.
-https://xkcd.com/927
-
 YouTube URLs are converted to video players.
 http://www.youtube.com/watch?v=kU9MuM4lP18&start=10&end=20
 

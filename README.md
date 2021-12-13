@@ -36,7 +36,6 @@ The Markdown parser used on the forums at meh.com.
 - Twitter status URLs are converted to embeddable tweets.
 - Vimeo URLs are converted to video players.
 - Vine URLs are converted to video players.
-- XKCD comic permalinks are converted to linked images.
 - YouTube URLs are converted to video players.
 
 ## Supports /commands:
