@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.52.0] - 2022-04-25
+### Changed
+- Updated the `markdown-it` module to v13.0.0
+
 ## [2.51.0] - 2021-12-13
 ### Changed
 - Updated the `markdown-it` module to v12.3.0

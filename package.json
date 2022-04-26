@@ -4,7 +4,7 @@
         "emoji-toolkit": "~6.6.0",
         "flip": "~1.0.0",
         "lolspeak": "~1.4.0",
-        "markdown-it": "~12.3.0",
+        "markdown-it": "~13.0.0",
         "mehdown-cowsay": "~1.1.6",
         "minimist": "~1.2.5",
         "natural": "~5.1.0",
@@ -33,5 +33,5 @@
         "coveralls": "nyc npm test && nyc report --reporter=text-lcov | coveralls",
         "test": "mocha --reporter spec test/*"
     },
-    "version": "2.51.0"
+    "version": "2.52.0"
 }
