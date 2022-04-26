@@ -40,7 +40,7 @@ describe('youtube', function() {
 
     it('http://www.youtube.com/watch?v=kU9MuM4lP18&amp;start=10', function(done) {
         mehdown.render('http://www.youtube.com/watch?v=kU9MuM4lP18&amp;start=10', function(err, html) {
-            assert.equal(html, '<p><iframe allowfullscreen class="youtube" frameborder="0" src="https://www.youtube.com/embed/kU9MuM4lP18?autohide=1&color=white&showinfo=0&theme=light&start=10"></iframe></p>');
+            assert.equal(html, '<p><iframe allowfullscreen class="youtube" frameborder="0" src="https://www.youtube.com/embed/kU9MuM4lP18?autohide=1&color=white&showinfo=0&theme=light"></iframe></p>');
             done();
         });
     });
