@@ -7,7 +7,7 @@
         "markdown-it": "~13.0.0",
         "mehdown-cowsay": "~1.1.6",
         "minimist": "~1.2.5",
-        "natural": "~5.1.0",
+        "natural": "~5.2.1",
         "probe-image-size": "~7.2.0",
         "rel-to-abs": "~0.1.0",
         "request": "~2.88.0",
