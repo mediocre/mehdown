@@ -6,7 +6,7 @@ module.exports = {
     },
     'extends': 'eslint:recommended',
     parserOptions: {
-        ecmaVersion: 2019
+        ecmaVersion: 2020
     },
     rules: {
         'brace-style': [2, '1tbs', { allowSingleLine: true }],
