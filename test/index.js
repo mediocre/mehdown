@@ -797,7 +797,7 @@ describe('html', function() {
         });
     });
 
-    describe.only('permalinkHeaders', function() {
+    describe('permalinkHeaders', function() {
         it('no headers', function() {
             var html = '<div><span>hello</span> <span>world</span></div>';
             var html2 = mehdown.html.permalinkHeaders(html);
