@@ -797,6 +797,38 @@ describe('html', function() {
         });
     });
 
+    describe('permalinkHeaders', function() {
+        it('no headers', function() {
+            var html = '<div><span>hello</span> <span>world</span></div>';
+            var html2 = mehdown.html.permalinkHeaders(html);
+            assert.strictEqual(html, html2);
+        });
+
+        it('one header without id', function() {
+            var html = '<div><h1>hello world</h1><p>header</p></div>';
+            var html2 = mehdown.html.permalinkHeaders(html);
+            assert.strictEqual(html, html2);
+        });
+
+        it('one header', function() {
+            var html = '<div><h1 id="one">hello world</h1><p>header</p></div>';
+            html = mehdown.html.permalinkHeaders(html);
+            assert.strictEqual(html, '<div><h1 id="one">hello world<a class="permalink" href="#one" title="Link to this section"><i class="fa fa-bookmark"></i></a></h1><p>header</p></div>');
+        });
+
+        it('two headers', function() {
+            var html = '<div><h1 id="one">hello</h1><h2 id="two">world</h2><p>header</p></div>';
+            html = mehdown.html.permalinkHeaders(html);
+            assert.strictEqual(html, '<div><h1 id="one">hello<a class="permalink" href="#one" title="Link to this section"><i class="fa fa-bookmark"></i></a></h1><h2 id="two">world<a class="permalink" href="#two" title="Link to this section"><i class="fa fa-bookmark"></i></a></h2><p>header</p></div>');
+        });
+
+        it('custom icon', function() {
+            var html = '<div><h1 id="one">hello world</h1><p>header</p></div>';
+            html = mehdown.html.permalinkHeaders(html, 'fa-link');
+            assert.strictEqual(html, '<div><h1 id="one">hello world<a class="permalink" href="#one" title="Link to this section"><i class="fa fa-link"></i></a></h1><p>header</p></div>');
+        });
+    });
+
     describe('removeAttribute', function() {
         it('removeAttribute()', function() {
             assert.strictEqual(mehdown.html.removeAttribute(), undefined);

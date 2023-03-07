@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.53.0] - 2023-03-06
+### Changed
+- Added `permalinkHeaders` HTML helper
+
 ## [2.52.0] - 2022-04-25
 ### Changed
 - Updated the `markdown-it` module to v13.0.0
