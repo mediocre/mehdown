@@ -813,19 +813,19 @@ describe('html', function() {
         it('one header', function() {
             var html = '<div><h1 id="one">hello world</h1><p>header</p></div>';
             html = mehdown.html.permalinkHeaders(html);
-            assert.strictEqual(html, '<div><h1 id="one">hello world<a class="permalink" href="#one" title="Link to this section"><i class="fa fa-bookmark"></i></a></h1><p>header</p></div>');
+            assert.strictEqual(html, '<div><h1 id="one">hello world<a class="permalink" href="#one" title="Link"><i class="fa fa-link"></i></a></h1><p>header</p></div>');
         });
 
         it('two headers', function() {
             var html = '<div><h1 id="one">hello</h1><h2 id="two">world</h2><p>header</p></div>';
             html = mehdown.html.permalinkHeaders(html);
-            assert.strictEqual(html, '<div><h1 id="one">hello<a class="permalink" href="#one" title="Link to this section"><i class="fa fa-bookmark"></i></a></h1><h2 id="two">world<a class="permalink" href="#two" title="Link to this section"><i class="fa fa-bookmark"></i></a></h2><p>header</p></div>');
+            assert.strictEqual(html, '<div><h1 id="one">hello<a class="permalink" href="#one" title="Link"><i class="fa fa-link"></i></a></h1><h2 id="two">world<a class="permalink" href="#two" title="Link"><i class="fa fa-link"></i></a></h2><p>header</p></div>');
         });
 
         it('custom icon', function() {
             var html = '<div><h1 id="one">hello world</h1><p>header</p></div>';
             html = mehdown.html.permalinkHeaders(html, 'fa-link');
-            assert.strictEqual(html, '<div><h1 id="one">hello world<a class="permalink" href="#one" title="Link to this section"><i class="fa fa-link"></i></a></h1><p>header</p></div>');
+            assert.strictEqual(html, '<div><h1 id="one">hello world<a class="permalink" href="#one" title="Link"><i class="fa fa-link"></i></a></h1><p>header</p></div>');
         });
     });
 
