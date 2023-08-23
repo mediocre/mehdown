@@ -1,7 +1,7 @@
 {
     "dependencies": {
         "async": "~3.2.0",
-        "emoji-toolkit": "~6.6.0",
+        "emoji-toolkit": "~8.0.0",
         "flip": "~1.0.0",
         "lolspeak": "~1.4.0",
         "markdown-it": "~13.0.0",
