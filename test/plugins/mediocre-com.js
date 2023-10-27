@@ -254,4 +254,11 @@ describe('mediocre.com', function() {
             done();
         });
     });
+
+    it('https://casemates.com/deals/erik-banti-italian-sparkling-rosé', function(done) {
+        mehdown.render('https://casemates.com/deals/erik-banti-italian-sparkling-rosé', function(err, html) {
+            assert.equal(html, '<p><iframe class="polls" frameborder="0" scrolling="no" src="https://casemates.com/deals/erik-banti-italian-sparkling-rosé/embed"></iframe></p>');
+            done();
+        });
+    });
 });
