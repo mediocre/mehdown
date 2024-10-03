@@ -9,6 +9,7 @@ The Markdown parser used on the forums at meh.com.
 
 - Converts URL-like text to links.
 - Converts image URLs to images.
+- Converts audio URLs to audio players.
 - Optionally detects image sizes.
 - External links open in a new browser tab/window.
 - Automatic detection of `@usernames`.
