@@ -54,7 +54,7 @@ describe('youtube', function() {
 
     it('[text](http://www.youtube.com/watch?v=kU9MuM4lP18&start=10&end=20)', function(done) {
         mehdown.render('[text](http://www.youtube.com/watch?v=kU9MuM4lP18&start=10&end=20)', function(err, html) {
-            assert.equal(html, '<p><a href="http://www.youtube.com/watch?v=kU9MuM4lP18&amp;start=10&amp;end=20">text</a></p>');
+            assert.equal(html, '<p><a href="http://www.youtube.com/watch?v=kU9MuM4lP18&start=10&end=20">text</a></p>');
             done();
         });
     });
