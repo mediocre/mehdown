@@ -5,6 +5,7 @@
         "flip": "~1.0.0",
         "lolspeak": "~1.4.0",
         "markdown-it": "~14.1.0",
+        "markdown-it-collapsible": "~2.0.2",
         "mehdown-cowsay": "~1.1.6",
         "minimist": "~1.2.5",
         "natural": "~5.2.4",
@@ -33,5 +34,5 @@
         "coveralls": "nyc npm test && nyc report --reporter=text-lcov | coveralls",
         "test": "mocha --reporter spec test/*"
     },
-    "version": "2.57.0"
+    "version": "2.58.0"
 }
