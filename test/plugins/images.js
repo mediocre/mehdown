@@ -58,4 +58,12 @@ describe('images', function() {
             done();
         });
     });
+
+    it('.webp', function(done) {
+        mehdown.render('https://d2b8wt72ktn9a2.cloudfront.net/mediocre/image/upload/v1741576249/pav6x1rkkve9imwcvybe.png', function(err, html) {
+            assert.ifError(err);
+            assert.equal(html, '<p><img src="https://d2b8wt72ktn9a2.cloudfront.net/mediocre/image/upload/v1741576249/pav6x1rkkve9imwcvybe.png" /></p>');
+            done();
+        });
+    });
 });
