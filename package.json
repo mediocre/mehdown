@@ -20,6 +20,8 @@
     },
     "description": "The Markdown parser used on the forums at meh.com.",
     "devDependencies": {
+        "@eslint/js": "*",
+        "globals": "*",
         "coveralls": "*",
         "mocha": "*",
         "nyc": "*"
