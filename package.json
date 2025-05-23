@@ -8,7 +8,7 @@
         "markdown-it-collapsible": "~2.0.2",
         "mehdown-cowsay": "~1.1.6",
         "minimist": "~1.2.5",
-        "natural": "~5.2.4",
+        "natural": "~8.1.0",
         "probe-image-size": "~7.2.0",
         "rel-to-abs": "~0.1.0",
         "request": "~2.88.2",
