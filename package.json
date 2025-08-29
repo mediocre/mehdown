@@ -32,7 +32,7 @@
     ],
     "main": "./lib",
     "name": "mehdown",
-    "repository": "https://github.com/mediocre/mehdown.git",
+    "repository": "https://github.com/mediocre/mehdown",
     "scripts": {
         "coveralls": "nyc npm test && nyc report --reporter=text-lcov | coveralls",
         "test": "mocha --reporter spec test/*"
