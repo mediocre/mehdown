@@ -21,8 +21,9 @@
     "description": "The Markdown parser used on the forums at meh.com.",
     "devDependencies": {
         "@eslint/js": "*",
-        "globals": "*",
         "coveralls": "*",
+        "eslint": "*",
+        "globals": "*",
         "mocha": "*",
         "nyc": "*"
     },
@@ -31,7 +32,7 @@
     ],
     "main": "./lib",
     "name": "mehdown",
-    "repository": "git://github.com/mediocre/mehdown.git",
+    "repository": "https://github.com/mediocre/mehdown.git",
     "scripts": {
         "coveralls": "nyc npm test && nyc report --reporter=text-lcov | coveralls",
         "test": "mocha --reporter spec test/*"
